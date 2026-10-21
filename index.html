@@ -344,6 +344,7 @@ button.t:hover, button.t[aria-expanded="true"] { border-bottom-color: var(--acce
 .conv-out .readout span { text-transform: none; letter-spacing: .02em; }
 .conv-out p { color: var(--ink-3); margin: 0; }
 @media (max-width: 640px) { .conv { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) { .exp canvas.viewsc { aspect-ratio: 3 / 4 !important; } }
 .cmap { margin: 18px 0 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 14px; }
 .cmap figcaption { font-size: .88rem; color: var(--ink-2); margin-bottom: 6px; }
 .cmap svg { width: 100%; height: auto; display: block; }
@@ -779,6 +780,22 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
       <figcaption class="exp-foot"><span><b>Drawing:</b> a schematic 10 m sloop, roughly to scale except where small fittings are enlarged so they can be seen. Real boats differ in detail: many cruisers have a wheel instead of a tiller and a roller-furling genoa instead of a hanked jib.</span></figcaption>
     </figure>
     <div class="anat-index" aria-label="All labelled parts in this drawing"></div>
+    <div class="prose">
+      <p>A drawing from one side hides half the boat: the keel's thickness, the spreaders' sweep, the shrouds splaying out to the sides. Designers draw a boat in three views, one along each axis, and the model below shows the same sloop both ways. Turn it to see how the parts fit together in 3D, then compare the three flat views.</p>
+    </div>
+    <figure class="exp" id="exp-sloop3d">
+      <div class="exp-stage">
+        <div class="exp-title"><h4>The sloop in 3D</h4><span class="tag quant">Geometry · the reference 10 m boat</span></div>
+        <canvas style="aspect-ratio: 4/3" role="img" aria-label="A shaded 3D model of the 10 m sloop with hull, fin keel and bulb, rudder, mast, boom, spreaders, shrouds, stays and both sails, with the chosen part highlighted in orange. It can be dragged to view it from any direction."></canvas>
+        <canvas class="viewsc" style="aspect-ratio: 16/10" role="img" aria-label="The same sloop in three views: profile from the side with length, draft and mast height, bow on, and plan from above, with the chosen part highlighted."></canvas>
+      </div>
+      <div class="exp-side">
+        <div class="controls"></div>
+        <div class="look"><b>Look for</b>Highlight the spreaders and press "From above": they are swept back, not square to the mast, so the shrouds also hold the mast from bending forward. Highlight the shrouds and press "Bow on" to see them splay to the deck edges. Highlight the keel and press "From below": it is a thin wing, about 13 cm thick at the root, an eighth of its length fore and aft.</div>
+        <div class="live" aria-live="polite"></div>
+      </div>
+      <figcaption class="exp-foot"><span><b>Model:</b> the reference 10 m masthead sloop used throughout the guide: hull from its midship section, fin keel and bulb, spade rudder, a mast with one set of swept spreaders, and the mainsail and jib trimmed close-hauled. Wires are drawn thicker than real so they show; small fittings are left out.</span></figcaption>
+    </figure>
   </div>
 
   <div class="topic" id="t2-2">
@@ -1115,6 +1132,22 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
 
   <div class="topic" id="t6-2">
     <h3><span class="tn">6.2</span>Kinds of keel</h3>
+    <div class="prose">
+      <p>Every keel does the same two jobs: it is a wing that resists sideways slipping, and on a keelboat it carries the ballast. The shapes differ in how they trade depth, grip and drag. A keel is a 3D object, so, like a hull, it is easiest to read in three flat views, one along each axis: the <strong>profile</strong> (side view) shows its depth and how its chord changes with depth; the <strong>plan</strong> (here from below) shows how thick it is and where it sits along the hull; the <strong>section</strong> (from astern) shows the <button class="t" type="button" data-t="draft">draft</button>, the bulb and any cant or winglets. Deep and narrow means a high <button class="t" type="button" data-t="aspect-ratio">aspect ratio</button>: more lift per degree of <button class="t" type="button" data-t="leeway">leeway</button> and less <button class="t" type="button" data-t="induced-drag">induced drag</button>.</p>
+    </div>
+    <figure class="exp" id="exp-keels">
+      <div class="exp-stage">
+        <div class="exp-title"><h4>Keel shapes</h4><span class="tag quant">Quantitative geometry · simplified shapes</span></div>
+        <canvas style="aspect-ratio: 16/9" role="img" aria-label="A shaded 3D model of the 10 m boat with the chosen keel, bulb and rudder, and the sea surface as a translucent plane. It can be dragged to view it from any direction, including from below."></canvas>
+        <canvas class="viewsc" style="aspect-ratio: 16/9" role="img" aria-label="The same boat and keel in three views at one scale: profile from the side with the draft and the keel's centre of area, plan from below, and section from astern."></canvas>
+      </div>
+      <div class="exp-side">
+        <div class="controls"></div>
+        <div class="look"><b>Look for</b>Compare the fin and bulb with the long keel in the profile: a third of the side area, but reaching half as deep again, so an aspect ratio about nine times higher. Press "From below" on the wing keel to see its winglets, and "Stern on" on the twin keels to see them splay outwards. Pick the centreboard and raise it: the draft and the side area collapse.</div>
+        <div class="live" aria-live="polite"></div>
+      </div>
+      <figcaption class="exp-foot"><span><b>Model:</b> the reference 10 m boat (Module 7), with its midship section scaled along the length. Keels, boards and rudders are lofted from symmetrical NACA 00xx sections between a root and a tip; bulbs are bodies of revolution. Side area and aspect ratio count the fins (and the stub and exposed board), not the bulb or rudder; effective aspect ratio = 2 × span² ÷ area per fin, as in 6.1. Shapes are representative, not any particular design.</span></figcaption>
+    </figure>
     <div class="cards">
       <div class="card"><h4>Fin and bulb</h4><span class="unit">deep · efficient</span><p>A short, deep <button class="t" type="button" data-t="fin-keel">fin</button> with a lead <button class="t" type="button" data-t="bulb">bulb</button> at the bottom: high aspect ratio for lift, ballast as low as possible for stability. Standard on modern cruisers and racers.</p></div>
       <div class="card"><h4>Long keel</h4><span class="unit">steady · robust</span><p>A <button class="t" type="button" data-t="full-keel">full keel</button> running much of the hull's length. Low aspect ratio: more leeway and wetted area, but it holds a course well, protects the rudder and sits on a beach or a mudflat safely.</p></div>
@@ -1189,6 +1222,22 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
         <div class="live" aria-live="polite"></div>
       </div>
       <figcaption class="exp-foot"><span><b>Model:</b> the reference 10 m sloop close-hauled (42° true wind angle). Righting moment from the exact geometry of its midship section (a prismatic hull) with G 0.03 m above the waterline, plus four crew of 85 kg sitting 1.5 m out when on the rail. Heeling moment = side force × (CE height + CLR depth), falling as cos² of the heel. Sail force, boat speed and heel are solved together with the sails' power and reefing set by you, not optimised. Steady wind, flat water.</span></figcaption>
+    </figure>
+    <div class="prose">
+      <p>The view from astern shows B moving out to leeward, but the reason is easier to see in 3D. As she heels, the leeward side of the hull digs in and the windward side lifts out, so the shape that is under water, and the waterplane where the hull cuts the surface, both shift to leeward. B is the centre of that underwater shape, so it moves with them. G is fixed in the boat, held low by the lead.</p>
+    </div>
+    <figure class="exp" id="exp-heel3d">
+      <div class="exp-stage">
+        <div class="exp-title"><h4>Why B moves: the heeled boat in 3D</h4><span class="tag quant">Quantitative · reference boat, exact section</span></div>
+        <canvas style="aspect-ratio: 16/10" role="img" aria-label="A shaded 3D model of the 10 m sloop heeled to leeward in a translucent sea, with G, B, their weight and buoyancy arrows and the righting lever GZ drawn through the hull. It can be dragged to view it from any direction."></canvas>
+        <canvas class="wpc" style="aspect-ratio: 16/6" role="img" aria-label="The waterplane seen from above: the heeled shape filled in blue over the upright outline, with the centre of the waterplane marked."></canvas>
+      </div>
+      <div class="exp-side">
+        <div class="controls"></div>
+        <div class="look"><b>Look for</b>Drag the heel from 0° to 30°: in the view from above, the blue waterplane slides to leeward and gets narrower, and B follows it out from under G. Press "Stern on" for the classic section view, and "From below" to see how much more of the leeward topsides is now in the water. Keep going past 90°: GZ shrinks, and near 130° B swings back under G and the lever reverses.</div>
+        <div class="live" aria-live="polite"></div>
+      </div>
+      <figcaption class="exp-foot"><span><b>Model:</b> the reference boat. The flotation level, B and GZ come from the exact midship section (the same prismatic model as above, so the numbers match it); the 3D hull is that section scaled along the length, floated at that level. G is 0.03 m above the upright waterline. The waterplane is traced where the 3D hull's sections cross the sea surface.</span></figcaption>
     </figure>
     <div class="explain">
       <div class="why"><h4>Why it happens</h4>
@@ -1536,6 +1585,22 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
       <div class="card"><h4>Draft position</h4><span class="unit">cunningham · halyard</span><p>Where the deepest point is. Forward is forgiving and powerful; aft points higher but stalls easily. Wind pressure tends to blow it aft as the breeze builds.</p></div>
       <div class="card"><h4>Twist</h4><span class="unit">sheet · vang</span><p>How much more open the top is than the bottom. Matches the wind gradient (Module 3) and is the main depowering tool: a twisted top spills wind high up, where it heels the boat most.</p></div>
     </div>
+    <div class="prose">
+      <p>A sail is a curved surface, so its shape is easiest to read the way sailmakers do: in sections. Coloured <strong>draft stripes</strong> are sewn across real sails at about 20, 50 and 80% of the height so the trimmer can see each section's depth and draft position from the cockpit. Seen from above, the stripes show all four controls at once: the angle of each chord to the centreline, how deep each curve is, where its deepest point sits, and how much the upper chords are turned further out than the lower ones (twist).</p>
+    </div>
+    <figure class="exp" id="exp-sail3d">
+      <div class="exp-stage">
+        <div class="exp-title"><h4>Sail shapes in 3D</h4><span class="tag quant">Quantitative geometry · simplified sail shapes</span></div>
+        <canvas style="aspect-ratio: 4/3" role="img" aria-label="A shaded 3D model of the 10 m sloop with its sails set, with dark draft stripes across each sail. It can be dragged to view it from any direction."></canvas>
+        <canvas class="viewsc" style="aspect-ratio: 16/10" role="img" aria-label="The same boat in three views at one scale: the sail plan from the side, the view from astern showing twist, and the view from above with each draft stripe traced in colour and its chord dashed, plus the apparent wind arrow."></canvas>
+      </div>
+      <div class="exp-side">
+        <div class="controls"></div>
+        <div class="look"><b>Look for</b>In the view from above, raise the mainsail's twist: the orange head stripe swings out further than the blue foot stripe. Add depth and the curves bulge; move the draft aft and the deepest point slides back along each chord. Then switch to the gennaker and spinnaker: far deeper sails, eased much further out, because the apparent wind now comes from the side or behind.</div>
+        <div class="live" aria-live="polite"></div>
+      </div>
+      <figcaption class="exp-foot"><span><b>Model:</b> the reference 10 m masthead sloop. Each sail is built from horizontal sections between its luff and leech; each section is a curve of the chosen depth with its deepest point at the chosen draft position, turned out from the centreline by the foot angle plus the twist in proportion to height. The spinnaker is a symmetric surface between its two corners, bellied forward. The shapes are geometry, not a pressure or flow simulation; Module 4 and 11.2 cover how they change the force.</span></figcaption>
+    </figure>
   </div>
 
   <div class="topic" id="t11-2">
@@ -1640,6 +1705,19 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
         <div class="live" aria-live="polite"></div>
       </div>
       <figcaption class="exp-foot"><span><b>Model:</b> the reference boat's righting moment at the chosen heel (Module 7), plus crew on the rail if ticked, carried by the windward shrouds: their vertical pull = righting moment ÷ chainplate half-width, shared 60% by the cap shroud and 40% by the lower shrouds; cap shroud tension = its share ÷ cos of its angle above the 0.8 m spreaders. Mast compression ≈ 1.5 × the vertical pull (shrouds, stays, halyards and pre-tension together), a common design rule. Mast 14.5 m above deck, spreaders at half height. The cap shroud is an 8 mm 1×19 stainless steel wire with a breaking load of about 51 kN.</span></figcaption>
+    </figure>
+    <figure class="exp" id="exp-rig3d">
+      <div class="exp-stage">
+        <div class="exp-title"><h4>The rig in 3D</h4><span class="tag quant">Quantitative · same model, whole rig</span></div>
+        <canvas style="aspect-ratio: 4/3" role="img" aria-label="A shaded 3D model of the heeled sloop with its rig. The loaded windward shrouds are drawn violet and thickened by their tension, the slack leeward ones grey, with the cap shroud, lower shroud and mast compression loads labelled. It can be dragged to view it from any direction."></canvas>
+        <canvas class="viewsc" style="aspect-ratio: 16/10" role="img" aria-label="The rig drawn upright in three views: the profile with the forestay and backstay, the view from astern with the chainplate distance and the cap shroud angle, and the view from above with the spreaders' sweep."></canvas>
+      </div>
+      <div class="exp-side">
+        <div class="controls"></div>
+        <div class="look"><b>Look for</b>Press "Stern on": the classic view above, now with the hull heeled. Press "From above": the spreaders are swept aft, so the shrouds pull the masthead back as well as sideways, which is why swept-spreader rigs can do without running backstays. Raise the heel and watch the windward wires thicken while the leeward ones stay slack.</div>
+        <div class="live" aria-live="polite"></div>
+      </div>
+      <figcaption class="exp-foot"><span><b>Model:</b> the loads are those of the experiment above at the chainplate distance of 1.45 m: the cap shroud takes 60% of the windward vertical pull and the lower shroud 40%, each divided by the cosine of its angle to the mast. Wires are drawn far thicker than real (8 mm) so they can be seen. Forestay and backstay tension (set by the backstay adjuster and the sails) is not modelled.</span></figcaption>
     </figure>
     <div class="explain">
       <div class="why"><h4>Why it happens</h4>
@@ -4081,6 +4159,305 @@ const GF = (() => {
 })();
 function glossFigure(key) { return GF.get(key); }
 
+/* ===================== 3D views: orbit camera, flat-shaded faces, axis triad ===================== */
+/* Axes: x forward (bow +), y to port, z up from the waterline. Shapes are lists of planar faces { pts, kind },
+   drawn as shaded polygons with a painter's sort. Drag to orbit; view buttons jump to the principal views.
+   Ported from the naval guide's hull explorer. */
+
+/* ---- colour helpers (theme tokens are hex) ---- */
+const rgbOf = hex => { const n = parseInt((hex || '#888888').slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+const mixRgb = (a, b, t) => a.map((v, i) => v + (b[i] - v) * t);
+const rgbStr = (c, k = 1) => `rgb(${c.map(v => Math.round(clamp(v * k, 0, 255))).join(',')})`;
+
+class Orbit {
+  constructor(az = -0.65, el = 0.38) { this.az = az; this.el = el; this.zoom = 1; this.anim = null; }
+  // world → [screen x, screen y, depth] about a centre point c, with scale s
+  proj(p, c, s, ox, oy) {
+    const x = p[0] - c[0], y = p[1] - c[1], z = p[2] - c[2];
+    const ca = Math.cos(this.az), sa = Math.sin(this.az), ce = Math.cos(this.el), se = Math.sin(this.el);
+    const ax = x * ca - y * sa, ay = x * sa + y * ca;
+    return [ox + ax * s, oy - (z * ce + ay * se) * s, ay * ce - z * se];
+  }
+  viewDir() { const ca = Math.cos(this.az), sa = Math.sin(this.az), ce = Math.cos(this.el), se = Math.sin(this.el); return [sa * ce, ca * ce, -se]; }   // world vector pointing away from the viewer
+  go(az, el, redraw) {
+    // turn the short way round
+    let d = az - this.az; d = ((d + Math.PI) % TAU + TAU) % TAU - Math.PI;
+    const a0 = this.az, e0 = this.el, a1 = a0 + d;
+    if (Motion.reduced || typeof requestAnimationFrame === 'undefined') { this.az = a1; this.el = el; redraw(); return; }
+    const t0 = performance.now(), id = this.anim = {};
+    const step = now => { if (this.anim !== id) return; const t = clamp((now - t0) / 550, 0, 1), k = easeInOut(t); this.az = lerp(a0, a1, k); this.el = lerp(e0, el, k); redraw(); if (t < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  attach(canvas, redraw, { elMin = -Math.PI / 2, elMax = Math.PI / 2 } = {}) {
+    let drag = null;
+    canvas.setAttribute('tabindex', '0'); canvas.style.touchAction = 'none'; canvas.style.cursor = 'grab';
+    canvas.addEventListener('pointerdown', e => { this.anim = null; drag = [e.clientX, e.clientY, this.az, this.el]; canvas.setPointerCapture(e.pointerId); canvas.style.cursor = 'grabbing'; });
+    canvas.addEventListener('pointermove', e => { if (!drag) return; this.az = drag[2] + (e.clientX - drag[0]) * 0.009; this.el = clamp(drag[3] + (e.clientY - drag[1]) * 0.008, elMin, elMax); redraw(); });
+    const up = () => { drag = null; canvas.style.cursor = 'grab'; };
+    canvas.addEventListener('pointerup', up); canvas.addEventListener('pointercancel', up);
+    canvas.addEventListener('keydown', e => { const m = { ArrowLeft: [-0.12, 0], ArrowRight: [0.12, 0], ArrowUp: [0, 0.1], ArrowDown: [0, -0.1] }[e.key]; if (m) { e.preventDefault(); this.anim = null; this.az += m[0]; this.el = clamp(this.el + m[1], elMin, elMax); redraw(); } });
+  }
+}
+// [button label, azimuth, elevation]
+const VIEWS3D = {
+  iso: ['3/4 view', -0.65, 0.38], side: ['Side (x–z)', 0, 0], plan: ['From above (x–y)', 0, Math.PI / 2], below: ['From below', 0, -Math.PI / 2],
+  front: ['Bow on (y–z)', -Math.PI / 2, 0], stern: ['Stern on', Math.PI / 2, 0],
+};
+
+// Draw faces (world coords) with flat shading. o: { cam, c (centre), s (scale), ox, oy }
+function renderFaces(ctx, faces, o) {
+  const { cam, c, s, ox, oy } = o, vd = cam.viewDir();
+  const L = [vd[0] * -0.55 + 0.25, vd[1] * -0.55 - 0.3, vd[2] * -0.55 + 0.75], ln = Math.hypot(...L), Ln = L.map(v => v / ln);
+  const hull = rgbOf(C.hullFill), ink = rgbOf(C.ink), water = rgbOf(C.water2), paint = mixRgb(hull, rgbOf(C.weight), 0.55);
+  const col = { side: hull, under: mixRgb(paint, water, 0.25), deck: mixRgb(hull, ink, 0.12), cap: mixRgb(hull, ink, 0.06),
+    keel: mixRgb(paint, ink, 0.12), lead: mixRgb(hull, ink, 0.55), app: mixRgb(hull, ink, 0.4), spar: mixRgb(hull, ink, 0.7), wire: mixRgb(hull, ink, 0.8),
+    stripe: mixRgb(rgbOf(C.sail), ink, 0.75), load: rgbOf(C.tension), slack: mixRgb(hull, ink, 0.3),
+    sail: mixRgb(rgbOf(C.sail), rgbOf(C.sailLine), 0.3), jib: mixRgb(mixRgb(rgbOf(C.sail), rgbOf(C.sailLine), 0.3), rgbOf(C.buoy), 0.12), kite: mixRgb(rgbOf(C.sail), rgbOf(C.hi), 0.45), hi: rgbOf(C.accent) };
+  const list = faces.map(f => {
+    const P = f.pts.map(p => cam.proj(p, c, s, ox, oy));
+    const a = f.pts[0], b = f.pts[1], d = f.pts[f.pts.length - 1];
+    const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], v = [d[0] - a[0], d[1] - a[1], d[2] - a[2]];
+    let n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+    const nl = Math.hypot(...n) || 1; n = n.map(q => q / nl);
+    const k = 0.5 + 0.55 * Math.abs(n[0] * Ln[0] + n[1] * Ln[1] + n[2] * Ln[2]);
+    const fill = rgbStr(col[f.kind] || hull, k);
+    return { P, d: P.reduce((t, q) => t + q[2], 0) / P.length, fill, edge: f.edge };
+  });
+  list.sort((p, q) => q.d - p.d);
+  ctx.save(); ctx.lineJoin = 'round';
+  list.forEach(f => {
+    ctx.beginPath(); ctx.moveTo(f.P[0][0], f.P[0][1]); for (let i = 1; i < f.P.length; i++) ctx.lineTo(f.P[i][0], f.P[i][1]); ctx.closePath();
+    ctx.fillStyle = f.fill; ctx.fill(); ctx.strokeStyle = f.edge || f.fill; ctx.lineWidth = f.edge ? 1 : 0.7; ctx.stroke();
+  });
+  ctx.restore();
+}
+// Quads between consecutive rows of points (each row the same length); closed = wrap each row round.
+function gridFaces(rows, kind, closed = false) {
+  const f = [];
+  for (let i = 0; i + 1 < rows.length; i++) {
+    const a = rows[i], b = rows[i + 1], n = a.length;
+    for (let j = 0; j < (closed ? n : n - 1); j++) { const k = (j + 1) % n; f.push({ pts: [a[j], b[j], b[k], a[k]], kind }); }
+  }
+  return f;
+}
+// small axis triad in a corner, so the viewer always knows which way x, y and z point
+function drawTriad(ctx, cam, x, y, r = 26) {
+  const O = cam.proj([0, 0, 0], [0, 0, 0], 1, x, y);
+  [[[r, 0, 0], 'x bow'], [[0, r, 0], 'y port'], [[0, 0, r], 'z up']].forEach(([v, lbl]) => {
+    const e = cam.proj(v, [0, 0, 0], 1, x, y), long = Math.hypot(e[0] - O[0], e[1] - O[1]) > 6;
+    if (long) Draw.arrow(ctx, O[0], O[1], e[0], e[1], C.ink2, { w: 1.6, head: 6 });
+    Draw.text(ctx, lbl, e[0] + (long ? (e[0] - O[0]) * 0.25 : 6), e[1] + (long ? (e[1] - O[1]) * 0.25 : 0), { size: 9, color: C.ink2, align: 'center' });
+  });
+}
+const viewName = cam => {
+  const near = (a, b) => Math.abs((((a - b) % TAU) + TAU + Math.PI) % TAU - Math.PI) < 0.06;
+  if (Math.abs(cam.el - Math.PI / 2) < 0.06) return 'from above: looking down the z axis';
+  if (Math.abs(cam.el + Math.PI / 2) < 0.06) return 'from below: looking up the z axis';
+  if (Math.abs(cam.el) < 0.06) { if (near(cam.az, 0)) return 'side view: looking along the y axis'; if (near(cam.az, -Math.PI / 2)) return 'bow on: looking along the x axis'; if (near(cam.az, Math.PI / 2)) return 'stern on: looking along the x axis'; }
+  return 'drag to turn';
+};
+// a row of view buttons plus the drag hint, under an experiment's controls
+function viewButtons(parent, cam, redraw, keys = Object.keys(VIEWS3D)) {
+  const row = el('div', { class: 'btnrow', role: 'group', 'aria-label': 'Viewpoint' });
+  keys.forEach(k => { const [n, az, elv] = VIEWS3D[k]; const btn = el('button', { class: 'btn small', type: 'button' }, n); btn.addEventListener('click', () => cam.go(az, elv, redraw)); row.append(btn); });
+  parent.append(row);
+  parent.append(el('p', { class: 'hint', style: 'font-size:.8rem;color:var(--ink-3);margin:0' }, 'Drag the picture (or focus it and use the arrow keys) to turn it. The view buttons line it up with each axis.'));
+}
+// Orthographic panel: the same faces seen along one axis, fitted into a box. Returns the projector for annotations.
+function orthoPanel(ctx, faces, view, box, ctr, s) {
+  const [az, elv] = Array.isArray(view) ? view : VIEWS3D[view].slice(1), cam = new Orbit(az, elv), [x, y, w, h] = box;
+  ctx.save(); ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+  renderFaces(ctx, faces, { cam, c: ctr, s, ox: x + w / 2, oy: y + h / 2 });
+  ctx.restore();
+  return p => cam.proj(p, ctr, s, x + w / 2, y + h / 2);
+}
+
+/* ===================== The 10 m boat in 3D: hull, foils, rig and sails ===================== */
+/* x forward from midships, y to port, z up from the waterline. The hull is the reference midship section
+   (01-physics.js) scaled along a 10 m length; keels, boards and rudders are lofted from NACA 00xx sections. */
+const KHALF = [[0, 0], [0.55, 0.05], [1.05, 0.18], [1.38, 0.36], [1.415, 0.42], [1.52, 0.6], [1.6, 0.9], [1.62, 1.35]];   // half section, with a point on the waterline
+const KHULL = {
+  beam: x => { const t = (x + 5) / 10; return t < 0.45 ? 0.8 + 0.2 * Math.sin(Math.PI / 2 * t / 0.45) : Math.max(0.03, Math.pow(1 - Math.pow((t - 0.45) / 0.55, 2), 0.75)); },
+  bottom: x => -0.42 * (1 - Math.pow((x - 0.3) / (x < 0.3 ? 4.6 : 4.1), 2)),     // canoe body on the centreline: above the water under the overhangs
+  deck: x => 0.93 + 0.12 * Math.pow((x + 0.5) / 5.5, 2),
+  // height py on the section (waterline at 0.42, deck edge at 1.35) → z at station x
+  z(x, py) { const zb = this.bottom(x), zw = Math.max(0, zb), zd = this.deck(x); return py <= 0.42 ? zb + (zw - zb) * py / 0.42 : zw + (zd - zw) * (py - 0.42) / 0.93; },
+  // underside of the hull at (x, y)
+  under(x, y) {
+    const px = Math.abs(y) / this.beam(x);
+    for (let i = 1; i < KHALF.length; i++) { const a = KHALF[i - 1], b = KHALF[i]; if (px <= b[0]) return this.z(x, a[1] + (b[1] - a[1]) * (px - a[0]) / (b[0] - a[0])); }
+    return this.z(x, 0.42);
+  },
+  faces() {
+    const xs = Array.from({ length: 41 }, (_, i) => -5 + i / 4), f = [];
+    [1, -1].forEach(s => gridFaces(xs.map(x => KHALF.map(([px, py]) => [x, s * px * this.beam(x), this.z(x, py)])), 'side')
+      .forEach(q => { if (q.pts.some(p => p[2] < -1e-6)) q.kind = 'under'; f.push(q); }));
+    for (let i = 0; i + 1 < xs.length; i++) {
+      const a = xs[i], b = xs[i + 1], ya = 1.62 * this.beam(a), yb = 1.62 * this.beam(b);
+      f.push({ pts: [[a, ya, this.deck(a)], [b, yb, this.deck(b)], [b, -yb, this.deck(b)], [a, -ya, this.deck(a)]], kind: 'deck' });
+    }
+    const sec = KHALF.map(([px, py]) => [px * this.beam(-5), this.z(-5, py)]);
+    f.push({ pts: sec.map(([y, z]) => [-5, y, z]).concat(sec.slice().reverse().map(([y, z]) => [-5, -y, z])), kind: 'cap' });
+    // coachroof
+    const r = [[-1.3, 1.0, 0.85], [1.7, 0.9, 0.7]], zr = x => this.deck(x) + 0.55, zd = x => this.deck(x) + 0.05;
+    const box = r.map(([x, wb, wt]) => [[x, wb, zd(x)], [x + (x > 0 ? -0.35 : 0), wt, zr(x)], [x + (x > 0 ? -0.35 : 0), -wt, zr(x)], [x, -wb, zd(x)]]);
+    f.push(...gridFaces(box, 'cap'), { pts: box[0], kind: 'cap' }, { pts: box[1], kind: 'cap' });
+    return f;
+  },
+};
+const NACA = s => 5 * (0.2969 * Math.sqrt(s) - 0.126 * s - 0.3516 * s * s + 0.2843 * s ** 3 - 0.1015 * s ** 4);   // half-thickness ÷ thickness
+const CHORD_S = Array.from({ length: 11 }, (_, i) => (1 - Math.cos(Math.PI * i / 10)) / 2);
+// A foil lofted from root to tip. Sections { xl (leading edge x), c (chord), y, z }; a root without z sits on the hull.
+// o: { tc (thickness ÷ chord), tmax (m), kind, xf (point transform), clip (z the side area is counted below), lat (counts as keel) }
+function foilPart(r, t, o = {}) {
+  const tc = o.tc || 0.12, tmax = o.tmax || 0.4, kind = o.kind || 'keel', xf = o.xf || (p => p), n = 6;
+  const zr = s => r.z !== undefined ? r.z : KHULL.under(r.xl - s * r.c, r.y);
+  const dy = t.y - r.y, dz = t.z - zr(0.5), dl = Math.hypot(dy, dz), nrm = [-dz / dl, dy / dl];     // thickness direction, square to the span
+  const ring = f => {
+    const xl = lerp(r.xl, t.xl, f), c = lerp(r.c, t.c, f), y = lerp(r.y, t.y, f), th = Math.min(tc * c, tmax);
+    const pt = (s, side) => { const h = side * NACA(s) * th, z = lerp(zr(s) + (r.z === undefined ? 0.05 : 0), t.z, f); return xf([xl - s * c, y + h * nrm[0], z + h * nrm[1]]); };
+    return CHORD_S.slice().reverse().map(s => pt(s, 1)).concat(CHORD_S.slice(1, -1).map(s => pt(s, -1)));
+  };
+  const rings = Array.from({ length: n + 1 }, (_, k) => ring(k / n));
+  const faces = gridFaces(rings, kind, true).concat([{ pts: rings[n], kind }], r.z !== undefined ? [{ pts: rings[0], kind }] : []);
+  const outline = [[r.xl, 0, zr(0)], [r.xl - r.c, 0, zr(1)], [t.xl - t.c, 0, t.z], [t.xl, 0, t.z]].map(p => { const q = xf(p); return [q[0], q[2]]; });
+  return { faces, outline, top: zr(0.5), clip: o.clip !== undefined ? o.clip : 0, lat: o.lat !== false && kind !== 'app' };
+}
+// Body of revolution along x from the nose x0 back to the tail x1; ry, rz flatten it.
+function bulbPart(x0, x1, yc, zc, R, ry = 1, rz = 1) {
+  const rows = [];
+  for (let i = 0; i <= 16; i++) {
+    const s = i / 16, r = Math.max(0.004, R * Math.pow(Math.sin(Math.PI * Math.pow(s, 0.75)), 0.6)), x = x0 - s * (x0 - x1);
+    rows.push(Array.from({ length: 16 }, (_, j) => { const a = TAU * j / 16; return [x, yc + r * ry * Math.cos(a), zc + r * rz * Math.sin(a)]; }));
+  }
+  return { faces: gridFaces(rows, 'lead', true), lat: false, bulb: true };
+}
+const SPADE = () => foilPart({ xl: -3.5, c: 0.5, y: 0 }, { xl: -3.62, c: 0.36, y: 0, z: -1.35 }, { kind: 'app' });
+const FIN_KEEL = () => [foilPart({ xl: 0.7, c: 1.05, y: 0 }, { xl: 0.42, c: 0.55, y: 0, z: -1.75 }), bulbPart(0.95, -1.0, 0, -1.76, 0.15)];
+
+// Tube from a to b with n flat sides; r across, rb along the second axis (an oval mast section).
+function tubeFaces(a, b, r, kind, n = 4, rb = r) {
+  const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], ul = Math.hypot(...u) || 1, U = u.map(v => v / ul);
+  const cross = (p, q) => [p[1] * q[2] - p[2] * q[1], p[2] * q[0] - p[0] * q[2], p[0] * q[1] - p[1] * q[0]], nz = v => { const l = Math.hypot(...v) || 1; return v.map(q => q / l); };
+  const p1 = nz(Math.abs(U[2]) > 0.9 ? cross(U, [0, 1, 0]) : cross(U, [0, 0, 1])), p2 = nz(cross(U, p1));
+  const ring = c => Array.from({ length: n }, (_, i) => { const t = TAU * (i + 0.5) / n, k = [Math.cos(t) * r, Math.sin(t) * rb]; return [0, 1, 2].map(j => c[j] + p1[j] * k[0] + p2[j] * k[1]); });
+  return gridFaces([ring(a), ring(b)], kind, true);
+}
+
+/* ---- rig: masthead sloop, one set of swept spreaders (the geometry of Module 12) ---- */
+const RIG = {
+  mast: [0.6, 0], deck: 0.94, head: 15.4, spr: 8.2, sprHalf: 0.8, sprSweep: 0.25, chain: [0.35, 1.45], lowerTop: 7.9,
+  stem: [4.75, 1.2], stern: [-4.95, 1.0], goose: [0.5, 2.0], boom: 4.2,
+};
+// named rig parts: [{ k, faces }]; o.boom (deg off the centreline), o.side (+1 = boom to port), o.kind(k) overrides a part's colour
+function rigParts(o = {}) {
+  const R = RIG, mx = R.mast[0], side = o.side || 1, a = (o.boom || 0) * D2R, kd = k => (o.kind && o.kind(k)) || null, rw = k => (o.r && o.r(k)) || 0.03;
+  const top = [mx, 0, R.head], tip = s => [mx - R.sprSweep, s * R.sprHalf, R.spr], cp = s => [R.chain[0], s * R.chain[1], R.deck];
+  const parts = [
+    { k: 'mast', faces: tubeFaces([mx, 0, R.deck], top, 0.11, kd('mast') || 'spar', 8, 0.07) },
+    { k: 'boom', faces: tubeFaces([R.goose[0], 0, R.goose[1]], [R.goose[0] - R.boom * Math.cos(a), side * R.boom * Math.sin(a), R.goose[1]], 0.07, kd('boom') || 'spar', 6) },
+    { k: 'spreader', faces: [1, -1].flatMap(s => tubeFaces([mx, 0, R.spr], tip(s), 0.035, kd('spreader') || 'spar')) },
+    { k: 'forestay', faces: tubeFaces([R.stem[0], 0, R.stem[1]], [mx + 0.06, 0, R.head - 0.15], rw('forestay'), kd('forestay') || 'wire') },
+    { k: 'backstay', faces: tubeFaces([R.stern[0], 0, R.stern[1]], [mx - 0.05, 0, R.head], rw('backstay'), kd('backstay') || 'wire') },
+    { k: 'tiller', faces: tubeFaces([-3.55, 0, 0.95], [-2.3, 0, 1.25], 0.035, kd('tiller') || 'spar') },
+  ];
+  [['port', 1], ['stbd', -1]].forEach(([n, s]) => {
+    parts.push({ k: 'cap-' + n, faces: tubeFaces(cp(s), tip(s), rw('cap-' + n), kd('cap-' + n) || 'wire').concat(tubeFaces(tip(s), top, rw('cap-' + n), kd('cap-' + n) || 'wire')) });
+    parts.push({ k: 'lower-' + n, faces: tubeFaces(cp(s), [mx, 0, R.lowerTop], rw('lower-' + n), kd('lower-' + n) || 'wire') });
+  });
+  return parts;
+}
+
+/* ---- sails: horizontal sections from foot to head, each a camber line from luff to leech ---- */
+const camberY = (s, p) => s < p ? 1 - ((p - s) / p) ** 2 : 1 - ((s - p) / (1 - p)) ** 2;   // 0 at luff and leech, 1 at the draft position p
+const SAIL_S = Array.from({ length: 13 }, (_, i) => i / 12);
+const STRIPES = [0.2, 0.5, 0.8];       // draft-stripe heights (fraction of the luff)
+// sec(h) → { o: luff point, c: chord, ang: deg off the centreline to leeward, depth (÷ chord), pos (draft position ÷ chord), rise (dz per m of chord) }
+// side +1: the sail sets to port (wind from starboard). Returns { faces, row(h) → points along the section, area }.
+function sailPart(sec, side, kind) {
+  const row = h => {
+    const q = sec(h), a = q.ang * D2R, d = [-Math.cos(a), side * Math.sin(a)], n = [Math.sin(a), side * Math.cos(a)];
+    return SAIL_S.map(s => { const cy = q.depth * q.c * camberY(s, q.pos); return [q.o[0] + d[0] * s * q.c + n[0] * cy, q.o[1] + d[1] * s * q.c + n[1] * cy, q.o[2] + (q.rise || 0) * s * q.c]; });
+  };
+  return surfacePart(row, kind);
+}
+// any surface given as rows h → points; dark bands at the stripe heights
+function surfacePart(row, kind) {
+  const hs = Array.from({ length: 25 }, (_, i) => i / 24); STRIPES.forEach(h => hs.push(h + 0.006)); hs.sort((a, b) => a - b);
+  const rows = hs.map(row), faces = [];
+  let area = 0;
+  for (let i = 0; i + 1 < rows.length; i++) {
+    const stripe = STRIPES.some(h => Math.abs(hs[i] - h) < 1e-9);
+    gridFaces([rows[i], rows[i + 1]], stripe ? 'stripe' : kind).forEach(f => {
+      const [p, q, r, t] = f.pts, d1 = [r[0] - p[0], r[1] - p[1], r[2] - p[2]], d2 = [t[0] - q[0], t[1] - q[1], t[2] - q[2]];
+      area += 0.5 * Math.hypot(d1[1] * d2[2] - d1[2] * d2[1], d1[2] * d2[0] - d1[0] * d2[2], d1[0] * d2[1] - d1[1] * d2[0]);
+      faces.push(f);
+    });
+  }
+  return { faces, row, area };
+}
+// trim: { ang, twist, depth, pos }
+const SAILS = {
+  main: { n: 'Mainsail', kind: 'sail', make: (t, side) => sailPart(h => ({ o: [0.48 - 0.02 * h, 0, lerp(2.08, 14.9, h)], c: Math.max(0.12, 3.95 * (1 - h) + 0.12 * h + 0.55 * Math.sin(Math.PI * h) * (1 - 0.3 * h)), ang: t.ang + t.twist * h, depth: t.depth, pos: t.pos }), side, 'sail') },
+  jib: { n: 'Jib', kind: 'jib', make: (t, side) => sailPart(h => { const k = 0.93 * h; return { o: [lerp(4.7, 0.66, k), 0, lerp(1.3, 15.2, k)], c: 3.7 * (1 - h) + 0.12, ang: t.ang + t.twist * h, depth: t.depth, pos: t.pos, rise: 0.12 }; }, side, 'jib') },
+  gennaker: { n: 'Gennaker', kind: 'kite', make: (t, side) => sailPart(h => ({ o: [lerp(5.8, 0.75, h) + 1.1 * Math.sin(Math.PI * h) ** 0.8, side * 0.25 * Math.sin(Math.PI * h), lerp(1.4, 15.0, h)], c: 5.4 * (1 - h) ** 0.85 + 0.15, ang: t.ang + t.twist * h, depth: t.depth, pos: t.pos, rise: 0.08 }), side, 'kite') },
+  // symmetric spinnaker: ang = how far the sail's axis is turned to leeward of the bow; the pole stays square to it,
+  // so the tack is out to windward on the pole and the clew mirrors it to leeward
+  spinnaker: { n: 'Spinnaker', kind: 'kite', make: (t, side) => {
+    const { ax, tack, clew } = spinGeom(t, side), head = [0.85, 0, 15.1], pr = [-ax[1], ax[0]];
+    return surfacePart(h => {
+      const b = 1.0 * Math.sin(Math.PI * Math.min(1, h * 1.05)) ** 0.7, e1 = [0, 1, 2].map(j => lerp(tack[j], head[j], h)), e2 = [0, 1, 2].map(j => lerp(clew[j], head[j], h));
+      e1[0] -= side * b * pr[0]; e1[1] -= side * b * pr[1]; e2[0] += side * b * pr[0]; e2[1] += side * b * pr[1];
+      const L = Math.hypot(e2[0] - e1[0], e2[1] - e1[1]), fw = 1.2 * Math.sin(Math.PI * h) ** 0.6;
+      return SAIL_S.map(s => { const c = t.depth * L * camberY(s, 0.5) + fw; return [lerp(e1[0], e2[0], s) + ax[0] * c, lerp(e1[1], e2[1], s) + ax[1] * c, lerp(e1[2], e2[2], s) - 0.4 * camberY(s, 0.5) * (1 - h)]; });
+    }, 'kite');
+  } },
+};
+function spinGeom(t, side) {
+  const a = t.ang * D2R, ax = [Math.cos(a), side * Math.sin(a)], ww = [Math.sin(a), -side * Math.cos(a)], M = [0.7, 0];     // ww: square to the axis, to windward
+  const corner = k => [M[0] + 1.5 * ax[0] + k * 3.6 * ww[0], M[1] + 1.5 * ax[1] + k * 3.6 * ww[1], 2.8];
+  return { ax, tack: corner(1), clew: corner(-1) };
+}
+// the pole for a symmetric spinnaker, from the mast out to its tack
+function poleFaces(t, side) { return tubeFaces([0.72, 0, 2.8], spinGeom(t, side).tack, 0.045, 'spar', 6); }
+const BOAT_HULL = (() => { let f = null; return () => f || (f = KHULL.faces()); })();
+// Rotate faces about the x axis (heel; positive heels to port, the leeward side when the wind is from starboard).
+function heelFaces(faces, deg, pivot = [0, 0, 0]) {
+  const a = deg * D2R, c = Math.cos(a), s = Math.sin(a);
+  const R = p => { const y = p[1] - pivot[1], z = p[2] - pivot[2]; return [p[0], pivot[1] + y * c - z * s, pivot[2] + y * s + z * c]; };
+  return faces.map(f => Object.assign({}, f, { pts: f.pts.map(R) }));
+}
+// draw faces split at the sea surface, with the translucent sea between, so it reads from above and below
+function renderWithSea(ctx, faces, o, size = [7, 4], show = true) {
+  const wet = faces.filter(f => f.pts.every(p => p[2] <= 1e-6)), dry = faces.filter(f => f.pts.some(p => p[2] > 1e-6));
+  const sea = () => { if (show) Draw.poly(ctx, [[-size[0], -size[1]], [size[0], -size[1]], [size[0], size[1]], [-size[0], size[1]]].map(([x, y]) => o.cam.proj([x, y, 0], o.c, o.s, o.ox, o.oy)), withAlpha(C.waterLine, 0.12), withAlpha(C.waterLine, 0.45), 1); };
+  if (o.cam.el < 0) { renderFaces(ctx, dry, o); sea(); renderFaces(ctx, wet, o); } else { renderFaces(ctx, wet, o); sea(); renderFaces(ctx, dry, o); }
+}
+
+// Frames for a views canvas. rows: [[{ t: title, w, h } (metres), ...], ...] drawn at one shared scale; panels in a row sit
+// side by side and the last one takes the row's spare width. extra: pixels kept free at the bottom. Boxes come in reading order.
+function panelGrid(ctx, w, h, rows, extra = 0) {
+  const g = 10, tl = 18, rw = rows.map(r => r.reduce((a, p) => a + p.w, 0)), rh = rows.map(r => Math.max(...r.map(p => p.h)));
+  const s = Math.min(...rows.map((r, i) => (w - g * (r.length + 1)) / rw[i]), (h - extra - rows.length * (g + tl)) / rh.reduce((a, v) => a + v, 0));
+  const boxes = []; let y = g + tl;
+  rows.forEach((r, i) => {
+    let x = g;
+    r.forEach((p, j) => { const bw = j === r.length - 1 ? w - g - x : p.w * s; boxes.push([x, y, bw, rh[i] * s, p.t]); x += bw + g; });
+    y += rh[i] * s + g + tl;
+  });
+  boxes.forEach(([x, by, bw, bh, t]) => { if (!t) return; ctx.strokeStyle = withAlpha(C.ink3, 0.35); ctx.lineWidth = 1; ctx.strokeRect(x, by, bw, bh); Draw.text(ctx, t, x + 2, by - 9, { size: 10, color: C.ink2 }); });
+  return { s, boxes, bottom: y - tl };
+}
+// views canvases are drawn taller on narrow screens (see the .viewsc rule in the stylesheet)
+const tallViews = (w, h) => h > w * 0.9;
+// Title, an optional note and the current view name; on a narrow canvas the view name drops below the note.
+function header3D(ctx, w, cam, title, note) {
+  Draw.text(ctx, title, 10, 14, { size: 11 });
+  if (note) Draw.text(ctx, note, 10, 30, { size: 10, color: C.ink3 });
+  if (w >= 560) Draw.text(ctx, viewName(cam), w - 10, 14, { size: 11, align: 'right', color: C.ink2 });
+  else Draw.text(ctx, viewName(cam), 10, note ? 46 : 30, { size: 10, color: C.ink2 });
+}
+
 /* ===================== Module 1: Forces, moments and flow ===================== */
 
 /* ---- 1.1 Adding and splitting forces ---- */
@@ -4484,6 +4861,69 @@ INIT.push(() => {
   FS.attach(fig, $('.fs-btn', fig));
   $$('.anat-tabs button', fig).forEach(b => b.addEventListener('click', () => { Gloss.hide(); hot = null; show(b.dataset.view); }));
   show('side');
+});
+
+/* ---- 2.1 The sloop in 3D: the same parts, turned in your hand and seen along each axis ---- */
+const SLOOP_TRIM = { main: { ang: 6, twist: 8, depth: 0.12, pos: 0.45 }, jib: { ang: 11, twist: 9, depth: 0.11, pos: 0.38 } };
+const SLOOP_PARTS = ['hull', 'keel', 'bulb', 'rudder', 'tiller', 'mast', 'boom', 'spreaders', 'shrouds', 'chainplate', 'forestay', 'backstay', 'mainsail', 'jib'];
+class SloopSim {
+  constructor() {
+    this.cam = new Orbit(-0.7, 0.2); this.hi = 'keel';
+    const [fin, bulb] = FIN_KEEL(), rig = rigParts({ boom: SLOOP_TRIM.main.ang, side: 1 }), R = RIG;
+    const rk = { mast: 'mast', boom: 'boom', spreader: 'spreaders', forestay: 'forestay', backstay: 'backstay', tiller: 'tiller' };
+    this.parts = [['hull', BOAT_HULL()], ['keel', fin.faces], ['bulb', bulb.faces], ['rudder', SPADE().faces],
+      ...rig.map(p => [rk[p.k] || 'shrouds', p.faces]),
+      ['chainplate', [1, -1].flatMap(s => tubeFaces([R.chain[0], s * (R.chain[1] + 0.02), R.deck - 0.25], [R.chain[0], s * (R.chain[1] + 0.02), R.deck + 0.1], 0.06, 'spar'))],
+      ['mainsail', SAILS.main.make(SLOOP_TRIM.main, 1).faces], ['jib', SAILS.jib.make(SLOOP_TRIM.jib, 1).faces]];
+  }
+  faces() { return this.parts.flatMap(([k, f]) => k === this.hi ? f.map(q => Object.assign({}, q, { kind: 'hi' })) : f); }
+  // centre of the highlighted part, for its label
+  spot() { const pts = this.parts.filter(([k]) => k === this.hi).flatMap(([, f]) => f.flatMap(q => q.pts)); return [0, 1, 2].map(i => pts.reduce((a, p) => a + p[i], 0) / pts.length); }
+  label(ctx, P, w) {
+    if (!this.hi) return;
+    const p = P(this.spot()), right = p[0] < w * 0.6, lx = p[0] + (right ? 46 : -46), ly = p[1] - 26;
+    Draw.line(ctx, [[p[0], p[1]], [lx, ly]], C.accent, 1.5);
+    Draw.text(ctx, GLOSSARY[this.hi][0], lx + (right ? 4 : -4), ly, { size: 12, color: C.accent, align: right ? 'left' : 'right' });
+  }
+  draw(ctx, w, h) {
+    const cam = this.cam, s = Math.min(w / 13, h / 18.5) * cam.zoom, ctr = [0.2, 0, 6.6], o = { cam, c: ctr, s, ox: w / 2, oy: h * 0.5 };
+    renderWithSea(ctx, this.faces(), o, [7, 4]);
+    this.label(ctx, p => cam.proj(p, ctr, s, o.ox, o.oy), w);
+    drawTriad(ctx, cam, 40, h - 40);
+    header3D(ctx, w, cam, 'The 10 m sloop · starboard tack');
+  }
+  // the three views a designer draws: profile, plan from above, and from ahead
+  drawViews(ctx, w, h) {
+    const f = this.faces(), PR = { t: 'PROFILE · side view, along y', w: 12, h: 18 }, FR = { t: 'BOW ON · along x', w: 7, h: 18 }, tall = tallViews(w, h);
+    const { s, boxes } = panelGrid(ctx, w, h, tall ? [[PR, FR], [{ t: 'PLAN · from above, along z', w: 19, h: 12 }]] : [[PR, FR, { t: 'PLAN · from above, along z', w: 7, h: 18 }]]);
+    const bw = boxes[2][2], bh = boxes[2][3];
+    const P = orthoPanel(ctx, f, 'side', boxes[0], [0.3, 0, 6.6], s);
+    orthoPanel(ctx, f, 'front', boxes[1], [0, 0, 6.6], s);
+    orthoPanel(ctx, f, [Math.PI / 2, Math.PI / 2], boxes[2], [0.2, 0.6, 0], Math.min(bw / 6.5, bh / 12.5));
+    const wl = P([-5.4, 0, 0]), wr = P([5.4, 0, 0]);
+    Draw.line(ctx, [wl, wr], C.waterLine, 1.2, [5, 3]); Draw.text(ctx, 'WL', wr[0] + 2, wr[1] - 8, { size: 9, color: C.waterLine, align: 'right' });
+    const t0 = P([1.9, 0, 0]), t1 = P([1.9, 0, -1.91]); Draw.vdim(ctx, t0[0], t0[1], t1[1], 'draft 1.9 m', C.ink2);
+    const m0 = P([-4.6, 0, 0.94]), m1 = P([-4.6, 0, 15.4]); Draw.vdim(ctx, m0[0], m0[1], m1[1], 'mast 14.5 m', C.ink2);
+    Draw.text(ctx, 'plan enlarged', boxes[2][0] + 6, boxes[2][1] + bh - 10, { size: 10, color: C.ink3 });
+    Draw.text(ctx, 'port', boxes[2][0] + 6, boxes[2][1] + 12, { size: 10, color: C.ink3 }); Draw.text(ctx, 'starboard', boxes[2][0] + bw - 6, boxes[2][1] + 12, { size: 10, color: C.ink3, align: 'right' });
+  }
+}
+
+INIT.push(() => {
+  const b = bench('exp-sloop3d'), sim = new SloopSim();
+  const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const views = new Stage($('.viewsc', b.root), (ctx, w, h) => sim.drawViews(ctx, w, h));
+  const redraw = () => stage.redraw();
+  sim.cam.attach(b.canvas, redraw);
+  const describe = () => {
+    const g = GLOSSARY[sim.hi];
+    b.live(`<p><strong>${g[0]}.</strong> ${g[1]}</p>`);
+    stage.redraw(); views.redraw();
+  };
+  choice(b.controls, { id: 'sl-hi', label: 'Highlight a part', value: sim.hi, options: SLOOP_PARTS.map(k => [k, GLOSSARY[k][0]]), onChange: v => { sim.hi = v; describe(); } });
+  viewButtons(b.controls, sim.cam, redraw);
+  slider(b.controls, { id: 'sl-z', label: 'Zoom', min: 1, max: 3, step: 0.1, value: 1, fmt: v => fmt(v, 1) + '×', onInput: v => { sim.cam.zoom = v; redraw(); } });
+  describe();
 });
 
 /* ===================== Module 3: True and apparent wind ===================== */
@@ -4956,6 +5396,114 @@ INIT.push(() => {
   describe();
 });
 
+/* ---- 6.2 Keel shapes: the 10 m hull (05-view3d.js) with six keels, in 3D and in three views ---- */
+const KEEL_SHAPES = {
+  fin: { name: 'Fin and bulb', parts: () => [...FIN_KEEL(), SPADE()],
+    note: 'A deep, narrow fin with a lead bulb at its tip. The high aspect ratio makes the needed lift at the smallest leeway and drag, and the bulb puts the ballast as low as it can go. The price is draft, and one narrow joint to the hull that takes enormous loads in a grounding.' },
+  shoal: { name: 'Shoal fin', parts: () => [foilPart({ xl: 0.85, c: 1.55, y: 0 }, { xl: 0.6, c: 1.05, y: 0, z: -1.42 }), bulbPart(0.85, -0.95, 0, -1.43, 0.17, 1.4, 0.75), SPADE()],
+    note: 'The same idea with less depth: a shorter fin with a longer chord and a flattened bulb. The lower aspect ratio costs some leeway and pointing upwind, in exchange for reaching shallower anchorages.' },
+  wing: { name: 'Wing keel', parts: () => [foilPart({ xl: 0.7, c: 1.25, y: 0 }, { xl: 0.85, c: 1.6, y: 0, z: -1.5 }),
+    ...[1, -1].map(s => foilPart({ xl: 0.8, c: 1.4, y: 0, z: -1.47 }, { xl: 0.35, c: 0.7, y: s * 0.8, z: -1.62 }, { tc: 0.1, lat: false })), SPADE()],
+    note: 'A short fin, wider at the bottom than at the top, with winglets at the tip. The winglets carry ballast low and act as end plates that cut the flow spilling round the tip, so a shallow keel loses less to induced drag. Australia II made it famous in the 1983 America\'s Cup. Winglets catch weed and lines, and are hard to free when aground.' },
+  long: { name: 'Long keel', parts: () => [foilPart({ xl: 2.1, c: 4.2, y: 0 }, { xl: 0.5, c: 2.6, y: 0, z: -1.27 }, { tmax: 0.32 }),
+    foilPart({ xl: -2.12, c: 0.5, y: 0 }, { xl: -2.12, c: 0.45, y: 0, z: -1.22 }, { kind: 'app' })],
+    note: 'Runs along much of the hull, with the rudder hung on its trailing edge. Very low aspect ratio: more leeway and more wetted area, so slower upwind and slow to turn. In return it holds a course with little steering, protects the rudder and propeller, and takes the ground well.' },
+  twin: { name: 'Twin keels', parts: () => [...[1, -1].map(s => foilPart({ xl: 0.65, c: 1.05, y: s * 0.62 }, { xl: 0.5, c: 0.8, y: s * 0.95, z: -1.32 })), SPADE()],
+    note: 'Two shallow fins, angled outwards, one each side. The boat dries out upright on a falling tide, and the draft is small. Each fin is short, so upwind performance is modest; when heeled, the leeward fin stands nearly upright and does most of the work.' },
+  board: { name: 'Centreboard', parts: d => {
+    const a = (1 - d) * 85 * D2R, pv = [0.85, -0.65], xf = p => { const dx = p[0] - pv[0], dz = p[2] - pv[1]; return [pv[0] + dx * Math.cos(a) + dz * Math.sin(a), p[1], pv[1] - dx * Math.sin(a) + dz * Math.cos(a)]; };
+    return [foilPart({ xl: 1.3, c: 2.3, y: 0 }, { xl: 1.1, c: 2.0, y: 0, z: -0.75 }, { tc: 0.16, tmax: 0.34 }),
+      foilPart({ xl: 0.85, c: 0.75, y: 0, z: -0.6 }, { xl: 0.6, c: 0.62, y: 0, z: -2.2 }, { tc: 0.06, xf, clip: -0.75 }),
+      foilPart({ xl: -3.45, c: 0.62, y: 0 }, { xl: -3.55, c: 0.5, y: 0, z: -0.85 }, { kind: 'app' })];     // a shallow rudder, so the board sets the draft
+  }, note: 'A shallow ballast stub with a board that pivots down out of it, and a short, wide rudder that is no deeper than the stub. Full depth upwind; raised downwind, in the shallows or to take the ground. With the board up the boat has little grip on the water and slides sideways when sailing to windward.' },
+};
+// area and centroid of a polygon (x, z) clipped to z < zc
+function clippedArea(poly, zc) {
+  const out = [];
+  poly.forEach((p, i) => {
+    const q = poly[(i + 1) % poly.length], pin = p[1] < zc, qin = q[1] < zc;
+    if (pin) out.push(p);
+    if (pin !== qin) { const t = (zc - p[1]) / (q[1] - p[1]); out.push([p[0] + (q[0] - p[0]) * t, zc]); }
+  });
+  let a = 0, cx = 0, cz = 0;
+  out.forEach((p, i) => { const q = out[(i + 1) % out.length], k = p[0] * q[1] - q[0] * p[1]; a += k; cx += (p[0] + q[0]) * k; cz += (p[1] + q[1]) * k; });
+  return a ? { a: Math.abs(a / 2), x: cx / (3 * a), z: cz / (3 * a) } : { a: 0, x: 0, z: 0 };
+}
+class KeelShapeSim {
+  constructor(k = 'fin') { this.cam = new Orbit(-0.75, -0.18); this.hull = BOAT_HULL(); this.k = k; this.board = 1; this.showSea = true; this.build(); }
+  build() {
+    const parts = KEEL_SHAPES[this.k].parts(this.board), lat = parts.filter(p => p.lat);
+    this.faces = this.hull.concat(...parts.map(p => p.faces));
+    const keelZ = Math.min(...parts.filter(p => p.lat || p.bulb).flatMap(p => p.faces.flatMap(f => f.pts.map(q => q[2]))));
+    const areas = lat.map(p => clippedArea(p.outline, p.clip || 0)), A = areas.reduce((t, q) => t + q.a, 0);
+    const fins = lat.filter(p => p.clip === 0).length;
+    const span = Math.max(...lat.map(p => p.top)) - keelZ;
+    this.r = {
+      draft: -Math.min(...this.faces.flatMap(f => f.pts.map(q => q[2]))), area: A, span, fins,
+      ar: 2 * span * span / (A / fins),
+      clr: [areas.reduce((t, q) => t + q.a * q.x, 0) / A, areas.reduce((t, q) => t + q.a * q.z, 0) / A],
+    };
+  }
+  draw(ctx, w, h) {
+    const cam = this.cam, s = Math.min(w / 10.5, h / 5.4) * cam.zoom, ctr = [0, 0, -0.45], ox = w / 2, oy = h * 0.5, o = { cam, c: ctr, s, ox, oy };
+    renderWithSea(ctx, this.faces, o, [6.5, 3.4], this.showSea);
+    drawTriad(ctx, cam, 40, h - 40);
+    header3D(ctx, w, cam, `${KEEL_SHAPES[this.k].name} · draft ${fmt(this.r.draft, 2)} m`, this.showSea ? 'blue plane = the sea surface' : '');
+  }
+  // profile, plan from below and section from astern, all at one scale
+  drawViews(ctx, w, h) {
+    const tall = tallViews(w, h), PR = { t: 'PROFILE · side view, along y', w: 10.8, h: 4.0 }, SE = { t: 'SECTION · from astern, along x', w: 3.6, h: 4.0 }, PL = { t: 'PLAN · from below, along z', w: 10.8, h: 3.6 };
+    const { s, boxes: [bp, bs, bb], bottom } = panelGrid(ctx, w, h, tall ? [[PR], [SE], [PL]] : [[PR, SE], [PL, { t: '', w: 3.6, h: 3.6 }]], tall ? 56 : 0), r = this.r;
+    const boxes = [bp, bb, bs], sw = bs[2];
+    const zc = -0.35, P = orthoPanel(ctx, this.faces, 'side', boxes[0], [0, 0, zc], s);
+    orthoPanel(ctx, this.faces, 'below', boxes[1], [0, 0, 0], s);
+    const S = orthoPanel(ctx, this.faces, 'stern', boxes[2], [0, 0, zc], s);
+    const wl = (Q, a, b) => Draw.line(ctx, [Q(a), Q(b)], C.waterLine, 1.2, [5, 3]);
+    // profile: waterline, draft and the keel's centre of area
+    wl(P, [-5.35, 0, 0], [5.35, 0, 0]); Draw.text(ctx, 'WL', P([5.35, 0, 0])[0] - 2, P([0, 0, 0])[1] - 8, { size: 9, color: C.waterLine, align: 'right' });
+    const d0 = P([3.9, 0, 0]), d1 = P([3.9, 0, -r.draft]);
+    Draw.vdim(ctx, d0[0], d0[1], d1[1], `draft ${fmt(r.draft, 2)} m`, C.ink2, tall ? 'left' : 'right');
+    const cp = P([r.clr[0], 0, r.clr[1]]);
+    ctx.beginPath(); ctx.arc(cp[0], cp[1], 4.5, 0, TAU); ctx.fillStyle = C.buoy; ctx.fill(); ctx.strokeStyle = C.surface; ctx.lineWidth = 1.5; ctx.stroke();
+    Draw.text(ctx, 'keel centre of area', cp[0] - 8, cp[1] + 2, { size: 10, color: C.buoy, align: 'right' });
+    // plan: which way is forward and to port
+    Draw.text(ctx, 'bow →', boxes[1][0] + boxes[1][2] - 6, boxes[1][1] + 12, { size: 10, color: C.ink3, align: 'right' });
+    Draw.text(ctx, 'port side ↓', boxes[1][0] + 6, boxes[1][1] + boxes[1][3] - 10, { size: 10, color: C.ink3 });
+    // section: waterline and draft
+    wl(S, [0, 1.9, 0], [0, -1.9, 0]);
+    const e0 = S([0, -1.85, 0]), e1 = S([0, -1.85, -r.draft]);
+    Draw.vdim(ctx, e0[0], e0[1], e1[1], `${fmt(r.draft, 2)} m`, C.ink2, 'left');
+    Draw.text(ctx, 'port', boxes[2][0] + 6, boxes[2][1] + 12, { size: 10, color: C.ink3 }); Draw.text(ctx, 'starboard', boxes[2][0] + sw - 6, boxes[2][1] + 12, { size: 10, color: C.ink3, align: 'right' });
+    // scale bar and key: under the section, or under everything on a narrow screen
+    const lx = tall ? bp[0] : bs[0] + 4, ly = tall ? bottom : bs[1] + bs[3] + 16;
+    Draw.line(ctx, [[lx, ly], [lx + s, ly]], C.ink, 2); Draw.text(ctx, '1 m · one scale', lx + s + 6, ly, { size: 10 });
+    Draw.text(ctx, 'red-brown = below the waterline', lx, ly + 16, { size: 10, color: C.ink3 });
+    Draw.text(ctx, 'grey = lead bulb · dark = rudder', lx, ly + 32, { size: 10, color: C.ink3 });
+  }
+}
+
+INIT.push(() => {
+  const b = bench('exp-keels'), sim = new KeelShapeSim();
+  const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const views = new Stage($('.viewsc', b.root), (ctx, w, h) => sim.drawViews(ctx, w, h));
+  const redraw = () => stage.redraw();
+  sim.cam.attach(b.canvas, redraw);
+  const describe = () => {
+    const r = sim.r;
+    b.live(`<div class="readout">${[['Draft', fmt(r.draft, 2) + ' m'], ['Keel side area', fmt(r.area, 2) + ' m²'], [r.fins > 1 ? 'Span of each fin' : 'Span below the hull', fmt(r.span, 2) + ' m'], ['Effective aspect ratio', fmt(r.ar, 1)]].map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join('')}</div>
+      <p>${KEEL_SHAPES[sim.k].note}</p>`);
+    stage.redraw(); views.redraw();
+  };
+  const rebuild = () => { sim.build(); describe(); };
+  choice(b.controls, { id: 'ks-k', label: 'Keel', value: sim.k, options: Object.entries(KEEL_SHAPES).map(([k, v]) => [k, v.name]), onChange: v => { sim.k = v; board.el.hidden = v !== 'board'; rebuild(); } });
+  const board = slider(b.controls, { id: 'ks-b', label: 'Centreboard', min: 0, max: 1, step: 0.05, value: 1, fmt: v => v === 0 ? 'fully raised' : v === 1 ? 'fully down' : fmt(v * 100, 0) + '% down', onInput: v => { sim.board = v; rebuild(); } });
+  board.el.hidden = true;
+  viewButtons(b.controls, sim.cam, redraw);
+  slider(b.controls, { id: 'ks-z', label: 'Zoom', min: 1, max: 3, step: 0.1, value: 1, fmt: v => fmt(v, 1) + '×', onInput: v => { sim.cam.zoom = v; redraw(); } });
+  check(b.controls, { id: 'ks-w', label: 'Show the sea surface', value: true, onChange: v => { sim.showSea = v; redraw(); } });
+  describe();
+});
+
 /* ---- 6.3 Helm balance ---- */
 const SAIL_SETS = {
   full: { name: 'Full main + jib', parts: [['main', 30, -0.9, 6.0], ['jib', 26, 0.9, 4.4]] },
@@ -5125,6 +5673,86 @@ INIT.push(() => {
   slider(b.controls, { id: 'he-flat', label: 'Sail power (deep → flat)', min: 50, max: 100, step: 5, value: 100, fmt: v => v + '%', hint: '100% deep and powerful; lower is flatter and more twisted', onInput: v => set('flat', v / 100) });
   choice(b.controls, { id: 'he-reef', label: 'Mainsail reef', value: '1', options: [['1', 'None'], ['0.8', 'First reef'], ['0.65', 'Second reef']], onChange: v => set('reef', +v) });
   check(b.controls, { id: 'he-hike', label: 'Crew on the windward rail (4 × 85 kg)', value: false, onChange: v => set('hike', v) });
+  describe();
+});
+
+/* ---- 7.1 The heeled boat in 3D: G, B, the lever between them, and the waterplane ---- */
+// Body → world at a heel to port (leeward on starboard tack), floating at the exact level of the section model.
+function heelPose(heel, y = REF_BOAT) {
+  const ps = -heel * D2R, hd = Hydro.heeled(y.p.section, y.area, ps), c = Math.cos(ps), sn = Math.sin(ps), wl = y.p.wl;
+  const X = p => [p[0], c * p[1] - sn * (p[2] + wl), sn * p[1] + c * (p[2] + wl) - hd.c];
+  return { X, hd, B: X([0, hd.cx, hd.cy - wl]), G: X([0, 0, y.p.kg - wl]) };
+}
+class Heel3DSim {
+  constructor() {
+    this.cam = new Orbit(1.95, 0.18); this.heel = 20; this.rig = false;
+    const t = { main: { ang: 6, twist: 8, depth: 0.12, pos: 0.45 }, jib: { ang: 11, twist: 9, depth: 0.11, pos: 0.38 } };
+    this.hullF = BOAT_HULL().concat(...FIN_KEEL().map(p => p.faces), SPADE().faces);
+    this.rigF = rigParts({ boom: 6, side: 1 }).flatMap(p => p.faces).concat(SAILS.main.make(t.main, 1).faces, SAILS.jib.make(t.jib, 1).faces);
+    this.wp0 = Heel3DSim.waterplane(heelPose(0));
+    this.calc();
+  }
+  // where each station's section (deck edge to deck edge) crosses the sea surface: [x, y min, y max]
+  static waterplane(P) {
+    const xs = Array.from({ length: 41 }, (_, i) => -5 + i / 4);
+    return xs.map(x => {
+      const ring = KHALF.slice().reverse().map(([px, py]) => [x, -px * KHULL.beam(x), KHULL.z(x, py)]).concat(KHALF.map(([px, py]) => [x, px * KHULL.beam(x), KHULL.z(x, py)])).map(P.X);
+      const ys = [];
+      for (let i = 0; i + 1 < ring.length; i++) { const a = ring[i], b = ring[i + 1]; if ((a[2] <= 0) !== (b[2] <= 0)) ys.push(a[1] + (b[1] - a[1]) * (0 - a[2]) / (b[2] - a[2])); }
+      return ys.length >= 2 ? [x, Math.min(...ys), Math.max(...ys)] : null;
+    }).filter(Boolean);
+  }
+  calc() {
+    const P = this.pose = heelPose(this.heel), mv = f => Object.assign({}, f, { pts: f.pts.map(P.X) });
+    this.faces = this.hullF.map(mv).concat(this.rig ? this.rigF.map(mv) : []);
+    this.wp = Heel3DSim.waterplane(P);
+    let A = 0, Ay = 0; for (let i = 0; i + 1 < this.wp.length; i++) { const a = this.wp[i], b = this.wp[i + 1], dx = b[0] - a[0], wa = a[2] - a[1], wb = b[2] - b[1]; A += dx * (wa + wb) / 2; Ay += dx * ((a[1] + a[2]) / 2 * wa + (b[1] + b[2]) / 2 * wb) / 2; }
+    this.r = { gz: REF_BOAT.gzInterp(this.heel), rm: REF_BOAT.rm(this.heel), A, cf: A ? Ay / A : 0, bwl: Math.max(...this.wp.map(q => q[2] - q[1])) };
+  }
+  draw(ctx, w, h) {
+    const cam = this.cam, s = Math.min(w / (this.rig ? 13 : 11), h / (this.rig ? 18.5 : 7)) * cam.zoom, ctr = this.rig ? [0, 1, 6.2] : [0, 0, -0.2], o = { cam, c: ctr, s, ox: w / 2, oy: h * 0.5 };
+    renderWithSea(ctx, this.faces, o, [7, 6]);
+    const Pj = p => cam.proj(p, ctr, s, o.ox, o.oy), { G, B } = this.pose, g = Pj(G), b = Pj(B), L = Math.min(w, h) * 0.12;
+    // x-ray: weight down through G, buoyancy up through B, and the lever between their lines of action
+    Draw.arrow(ctx, g[0], g[1], g[0], g[1] + L, C.weight, { w: 3 });
+    Draw.arrow(ctx, b[0], b[1], b[0], b[1] - L, C.buoy, { w: 3 });
+    const z = Pj([G[0], B[1], G[2]]);
+    if (Math.hypot(z[0] - g[0], z[1] - g[1]) > 3) { Draw.line(ctx, [g, z], C.ink, 2.4); Draw.line(ctx, [b, z], withAlpha(C.buoy, 0.6), 1.2, [3, 3]); Draw.text(ctx, `GZ ${fmt(this.r.gz, 2)} m`, (g[0] + z[0]) / 2, (g[1] + z[1]) / 2 - 12, { align: 'center', size: 11 }); }
+    Draw.point(ctx, b[0], b[1], 'B', C.buoy, 8); Draw.point(ctx, g[0], g[1], 'G', C.weight, 8);
+    drawTriad(ctx, cam, 40, h - 40);
+    header3D(ctx, w, cam, `heel ${fmt(this.heel, 0)}° to leeward`, 'G and B drawn through the hull');
+  }
+  // the waterplane from above: upright outline dashed, heeled shape filled, and its centre
+  drawPlane(ctx, w, h) {
+    const s = Math.min((w - 40) / 10.6, (h - 44) / 4.2), ox = w / 2, oy = h / 2 + 8, X = x => ox + x * s, Y = y => oy - y * s;
+    Draw.line(ctx, [[X(-5.4), Y(0)], [X(5.4), Y(0)]], withAlpha(C.ink3, 0.6), 1, [2, 3]);
+    const poly = wp => wp.map(q => [X(q[0]), Y(q[2])]).concat(wp.slice().reverse().map(q => [X(q[0]), Y(q[1])]));
+    Draw.poly(ctx, poly(this.wp), withAlpha(C.waterLine, 0.25), C.waterLine, 2);
+    Draw.poly(ctx, poly(this.wp0), null, withAlpha(C.ink2, 0.8), 1.2);
+    const cy = Y(this.r.cf);
+    ctx.beginPath(); ctx.arc(X(0), cy, 4.5, 0, TAU); ctx.fillStyle = C.waterLine; ctx.fill();
+    Draw.text(ctx, 'centre of the waterplane', X(0) + 8, cy - 10, { size: 10, color: C.waterLine });
+    Draw.text(ctx, 'WATERPLANE · from above, bow right · port (leeward) up', 8, 12, { size: 10, color: C.ink2 });
+    Draw.text(ctx, 'blue: heeled · grey outline: upright', w - 8, h - 10, { size: 10, color: C.ink3, align: 'right' });
+  }
+}
+
+INIT.push(() => {
+  const b = bench('exp-heel3d'), sim = new Heel3DSim();
+  const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const plane = new Stage($('.wpc', b.root), (ctx, w, h) => sim.drawPlane(ctx, w, h));
+  const redraw = () => stage.redraw();
+  sim.cam.attach(b.canvas, redraw);
+  const describe = () => {
+    const r = sim.r;
+    b.live(`<div class="readout">${[['Righting lever GZ', fmt(r.gz, 2) + ' m'], ['Righting moment', fmt(r.rm / GRAV, 0) + ' kg·m'], ['Waterplane shifted to leeward', fmt(r.cf, 2) + ' m'], ['Widest at the waterline', fmt(r.bwl, 2) + ' m']].map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join('')}</div>
+      <p>${r.gz <= 0 ? '<span class="chip bad">Capsizing</span> B is now on the same side as G or beyond: the couple turns the boat further over.' : sim.heel < 10 ? 'Small heel: the waterplane is still nearly symmetrical, but already wider on the leeward side, and B has moved out to leeward of G.' : 'The leeward side digs in and the windward side lifts out, so the underwater shape, and with it B, moves to leeward. G stays fixed in the boat. The horizontal gap between them is the lever that rights her.'}</p>`);
+    stage.redraw(); plane.redraw();
+  };
+  slider(b.controls, { id: 'h3-heel', label: 'Heel', min: 0, max: 130, step: 1, value: sim.heel, fmt: v => v + '°', onInput: v => { sim.heel = v; sim.calc(); describe(); } });
+  check(b.controls, { id: 'h3-rig', label: 'Show the rig and sails', value: false, onChange: v => { sim.rig = v; sim.calc(); describe(); } });
+  viewButtons(b.controls, sim.cam, redraw, ['iso', 'stern', 'front', 'side', 'plan', 'below']);
+  slider(b.controls, { id: 'h3-zm', label: 'Zoom', min: 1, max: 3, step: 0.1, value: 1, fmt: v => fmt(v, 1) + '×', onInput: v => { sim.cam.zoom = v; redraw(); } });
   describe();
 });
 
@@ -5714,6 +6342,100 @@ INIT.push(() => {
   ]);
 });
 
+/* ---- 11.1 Sail shapes in 3D: angle, depth, draft position and twist on each sail ---- */
+const SAIL_PLANS = {
+  upwind: { n: 'Main and jib · close-hauled', awa: 28, sails: { main: { ang: 4, twist: 8, depth: 0.12, pos: 0.45 }, jib: { ang: 10, twist: 9, depth: 0.11, pos: 0.38 } },
+    note: 'Close-hauled: both sails sheeted in near the centreline, moderately deep, the jib\'s draft further forward than the main\'s. The jib\'s leech runs parallel to the main\'s luff, making the slot between them.' },
+  reach: { n: 'Main and gennaker · reaching', awa: 95, sails: { main: { ang: 40, twist: 14, depth: 0.14, pos: 0.47 }, gennaker: { ang: 52, twist: 12, depth: 0.2, pos: 0.42 } },
+    note: 'Beam reach: the sails are eased well out, so they meet the apparent wind from the side at the same small angle of attack as upwind, and now pull mostly forwards. The gennaker is much deeper than the jib it replaces, and tacked to a bowsprit.' },
+  run: { n: 'Main and spinnaker · running', awa: 155, sails: { main: { ang: 80, twist: 16, depth: 0.15, pos: 0.48 }, spinnaker: { ang: 25, twist: 0, depth: 0.28, pos: 0.5 } },
+    note: 'Running: the main is out nearly square to the boat and the spinnaker is set on its pole to windward, opposite the boom. The spinnaker is very deep and nearly symmetrical: on a run it works mostly as a drag device, a parachute catching the wind.' },
+};
+const STRIPE_COL = () => [C.buoy, C.struct, C.hi];
+class SailShapeSim {
+  constructor(plan = 'upwind') { this.cam = new Orbit(2.3, 0.22); this.setPlan(plan); }
+  setPlan(k) { this.plan = k; this.trim = JSON.parse(JSON.stringify(SAIL_PLANS[k].sails)); this.sel = 'main'; this.build(); }
+  build() {
+    const t = this.trim;
+    this.parts = Object.keys(t).map(k => ({ k, p: SAILS[k].make(t[k], 1) }));
+    this.faces = BOAT_HULL().concat(...FIN_KEEL().map(p => p.faces), SPADE().faces, ...rigParts({ boom: t.main.ang, side: 1 }).map(p => p.faces),
+      ...this.parts.map(q => q.p.faces), t.spinnaker ? poleFaces(t.spinnaker, 1) : []);
+  }
+  draw(ctx, w, h) {
+    const cam = this.cam, s = Math.min(w / 13, h / 18.5) * cam.zoom, ctr = [0.5, 1.2, 6.6], o = { cam, c: ctr, s, ox: w / 2, oy: h * 0.5 };
+    renderWithSea(ctx, this.faces, o, [7, 6]);
+    drawTriad(ctx, cam, 40, h - 40);
+    header3D(ctx, w, cam, SAIL_PLANS[this.plan].n + ' · starboard tack', 'dark bands = draft stripes at 20, 50 and 80% height');
+  }
+  // sail plan (side), from astern, and from above with the draft stripes traced out
+  drawViews(ctx, w, h) {
+    const SP = { t: 'SAIL PLAN · side view', w: 11.5, h: 17.6 }, AS = { t: 'FROM ASTERN · twist', w: 8, h: 17.6 }, tall = tallViews(w, h);
+    const { s, boxes } = panelGrid(ctx, w, h, tall ? [[SP, AS], [{ t: 'FROM ABOVE · enlarged, bow up', w: 19.5, h: 13 }]] : [[SP, AS, { t: 'FROM ABOVE · enlarged, bow up', w: 9, h: 17.6 }]]);
+    const bw = boxes[2][2], bh = boxes[2][3];
+    const zc = 6.6;
+    orthoPanel(ctx, this.faces, 'side', boxes[0], [0.3, 0, zc], s);
+    orthoPanel(ctx, this.faces, 'stern', boxes[1], [0, 1.3, zc], s);
+    // from above, bow up: the sails, then each stripe's section (solid) and chord (dashed), coloured by height
+    // fitted to the hull and sails, so drawn larger than the other two
+    const xy = this.parts.flatMap(q => q.p.faces.flatMap(f => f.pts)).concat([[-5, -1.7], [5, 1.7]]), ext = i => [Math.min(...xy.map(p => p[i])), Math.max(...xy.map(p => p[i]))];
+    const [x0, x1] = ext(0), [y0, y1] = ext(1), st = Math.min(bw / (y1 - y0 + 1.2), (bh - 70) / (x1 - x0 + 0.8)), c0 = [(x0 + x1) / 2, (y0 + y1) / 2];
+    const top = orthoPanel(ctx, this.faces, [Math.PI / 2, Math.PI / 2], [boxes[2][0], boxes[2][1] + 4, bw, bh - 66], [c0[0], c0[1], 0], st), cols = STRIPE_COL();
+    ctx.save(); ctx.beginPath(); ctx.rect(...boxes[2].slice(0, 4)); ctx.clip();
+    this.parts.forEach(({ p }) => STRIPES.forEach((hh, i) => {
+      const pts = p.row(hh + 0.003).map(top);
+      Draw.line(ctx, [pts[0], pts[pts.length - 1]], withAlpha(cols[i], 0.8), 1, [4, 3]);
+      Draw.line(ctx, pts, cols[i], 2.2);
+    }));
+    // apparent wind, from the starboard side
+    ctx.restore();
+    const lx = boxes[2][0] + 6, ly = boxes[2][1] + bh - 52;
+    ['foot (20%)', 'middle (50%)', 'head (80%)'].forEach((t, i) => { Draw.line(ctx, [[lx, ly + i * 16], [lx + 16, ly + i * 16]], cols[i], 2.5); Draw.text(ctx, t, lx + 22, ly + i * 16, { size: 10, color: cols[i] }); });
+    Draw.text(ctx, 'dashed = chord · solid = sail', lx, ly + 48, { size: 10, color: C.ink3 });
+    // apparent wind direction, from the starboard side (screen: bow up, starboard to the right)
+    const a = SAIL_PLANS[this.plan].awa * D2R, d = [Math.sin(a), -Math.cos(a)], wc = [boxes[2][0] + bw - 34, boxes[2][1] + 40];
+    Draw.arrow(ctx, wc[0] + d[0] * 22, wc[1] + d[1] * 22, wc[0] - d[0] * 22, wc[1] - d[1] * 22, C.hi, { w: 3, head: 9 });
+    Draw.text(ctx, 'apparent wind', wc[0] + 24, wc[1] - 32, { size: 10, color: C.hi, align: 'right' });
+    Draw.text(ctx, 'same scale', boxes[0][0] + 6, boxes[0][1] + 12, { size: 10, color: C.ink3 });
+  }
+}
+
+INIT.push(() => {
+  const b = bench('exp-sail3d'), sim = new SailShapeSim();
+  const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const views = new Stage($('.viewsc', b.root), (ctx, w, h) => sim.drawViews(ctx, w, h));
+  const redraw = () => stage.redraw();
+  sim.cam.attach(b.canvas, redraw);
+  const describe = () => {
+    const t = sim.trim[sim.sel], kite = sim.sel === 'spinnaker', area = Object.fromEntries(sim.parts.map(q => [q.k, q.p.area]));
+    b.live(`<div class="readout">${[[`${SAILS[sim.sel].n} area`, fmt(area[sim.sel], 1) + ' m²'], ['Total sail area', fmt(Object.values(area).reduce((a, v) => a + v, 0), 0) + ' m²'],
+      [kite ? 'Axis to leeward' : 'Angle at the foot', fmt(t.ang, 0) + '°'], ['Twist, foot to head', kite ? '—' : fmt(t.twist, 0) + '°'], ['Depth', fmt(t.depth * 100, 0) + '% of chord'], ['Draft position', kite ? 'middle' : fmt(t.pos * 100, 0) + '% aft']]
+      .map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join('')}</div><p>${SAIL_PLANS[sim.plan].note}</p>`);
+    stage.redraw(); views.redraw();
+  };
+  const rebuild = () => { sim.build(); describe(); };
+  const ctl = {};
+  const pickBox = el('div');
+  const sync = () => {
+    const t = sim.trim[sim.sel], kite = sim.sel === 'spinnaker';
+    ctl.ang.set(t.ang); ctl.twist.set(t.twist); ctl.depth.set(t.depth * 100); ctl.pos.set(t.pos * 100);
+    ctl.twist.el.hidden = kite; ctl.pos.el.hidden = kite;
+  };
+  const buildPick = () => {
+    pickBox.innerHTML = '';
+    choice(pickBox, { id: 's3-sel', label: 'Adjust', value: sim.sel, options: Object.keys(sim.trim).map(k => [k, SAILS[k].n]), onChange: v => { sim.sel = v; sync(); describe(); } });
+  };
+  choice(b.controls, { id: 's3-p', label: 'Sails', value: sim.plan, options: Object.entries(SAIL_PLANS).map(([k, v]) => [k, v.n]), onChange: v => { sim.setPlan(v); buildPick(); sync(); describe(); } });
+  b.controls.append(pickBox); buildPick();
+  const set = (k, v) => { sim.trim[sim.sel][k] = v; rebuild(); };
+  ctl.ang = slider(b.controls, { id: 's3-a', label: 'Angle: sheet and traveller', min: 0, max: 90, step: 1, value: 4, fmt: v => v + '° off the centreline', onInput: v => set('ang', v) });
+  ctl.depth = slider(b.controls, { id: 's3-d', label: 'Depth: outhaul, backstay', min: 5, max: 32, step: 1, value: 12, fmt: v => v + '% of chord', onInput: v => set('depth', v / 100) });
+  ctl.pos = slider(b.controls, { id: 's3-x', label: 'Draft position: cunningham, halyard', min: 30, max: 60, step: 1, value: 45, fmt: v => v + '% aft', onInput: v => set('pos', v / 100) });
+  ctl.twist = slider(b.controls, { id: 's3-t', label: 'Twist: sheet tension, vang', min: 0, max: 30, step: 1, value: 8, fmt: v => v + '° more open at the head', onInput: v => set('twist', v) });
+  viewButtons(b.controls, sim.cam, redraw);
+  slider(b.controls, { id: 's3-z', label: 'Zoom', min: 1, max: 3, step: 0.1, value: 1, fmt: v => fmt(v, 1) + '×', onInput: v => { sim.cam.zoom = v; redraw(); } });
+  sync(); describe();
+});
+
 /* ===================== Module 12: Rig loads ===================== */
 const MAST_H = 14.5, WIRE_MBL = 51000;    // m above deck; 8 mm 1×19 stainless, N
 
@@ -5813,6 +6535,79 @@ INIT.push(() => {
       make() { const s = new SheetSim({ aws: 12 }); return { set: x => { s.p.aws = Math.round(12 + 12 * easeInOut(x)); }, draw: (c, w, h) => s.draw(c, w, h) }; },
     },
   ]);
+});
+
+/* ---- 12.1 The rig in 3D: which wires carry the load, and the angles that set it ---- */
+// Windward is starboard (wind from starboard, heeled to port): its cap and lower shrouds are loaded, the leeward ones go slack.
+class Rig3DSim {
+  constructor() { this.cam = new Orbit(1.75, 0.12); this.p = { heel: 25, hike: false, sails: true }; this.calc(); }
+  calc() {
+    const rs = new RigSim({ heel: this.p.heel, hike: this.p.hike }).r, R = RIG, lowerAng = Math.atan(R.chain[1] / (R.lowerTop - R.deck));
+    const r = this.r = Object.assign({}, rs, { Tl: 0.4 * rs.V / Math.cos(lowerAng), lowerAng: lowerAng * R2D, sweep: Math.atan(R.sprSweep / R.sprHalf) * R2D });
+    const load = { 'cap-stbd': r.T, 'lower-stbd': r.Tl };
+    const kind = k => load[k] !== undefined ? 'load' : k.endsWith('-port') ? 'slack' : null, rad = k => load[k] !== undefined ? 0.03 + 0.08 * clamp(load[k] / WIRE_MBL, 0, 1) : 0.025;
+    const t = { main: { ang: 6, twist: 8, depth: 0.12, pos: 0.45 }, jib: { ang: 11, twist: 9, depth: 0.11, pos: 0.38 } };
+    const hull = BOAT_HULL().concat(...FIN_KEEL().map(p => p.faces), SPADE().faces), rig = rigParts({ boom: 6, side: 1, kind, r: rad }).flatMap(p => p.faces);
+    const sails = this.p.sails ? SAILS.main.make(t.main, 1).faces.concat(SAILS.jib.make(t.jib, 1).faces) : [];
+    this.upright = hull.concat(rigParts({ boom: 0, side: 1, kind, r: rad }).flatMap(p => p.faces));
+    const P = this.pose = heelPose(this.p.heel), mv = f => Object.assign({}, f, { pts: f.pts.map(P.X) });
+    this.faces = hull.concat(rig, sails).map(mv);
+  }
+  draw(ctx, w, h) {
+    const cam = this.cam, s = Math.min(w / 13, h / 18.5) * cam.zoom, ctr = [0, 1.8, 6.6], o = { cam, c: ctr, s, ox: w / 2, oy: h * 0.5 }, r = this.r, R = RIG, X = this.pose.X;
+    renderWithSea(ctx, this.faces, o, [7, 6]);
+    const Pj = p => cam.proj(X(p), ctr, s, o.ox, o.oy);
+    const cap = Pj([R.mast[0] - R.sprSweep, -R.sprHalf * 0.5 - R.chain[1] * 0.5, (R.spr + R.deck) / 2]), low = Pj([R.chain[0], -R.chain[1] * 0.6, R.deck + (R.lowerTop - R.deck) * 0.4]);
+    Draw.text(ctx, `cap shroud ${fmt(r.T / 1000, 1)} kN`, cap[0] + 10, cap[1], { size: 11, color: C.tension });
+    Draw.text(ctx, `lower ${fmt(r.Tl / 1000, 1)} kN`, low[0] + 10, low[1] + 4, { size: 11, color: C.tension });
+    const mf = Pj([R.mast[0], 0, R.deck + 1.2]);
+    Draw.text(ctx, `mast compression ${fmt(r.C / 1000, 1)} kN`, mf[0] - 10, mf[1], { size: 11, color: C.compress, align: 'right' });
+    drawTriad(ctx, cam, 40, h - 40);
+    header3D(ctx, w, cam, `heel ${fmt(this.p.heel, 0)}° · wind from starboard`, 'violet = loaded, thicker = more load');
+  }
+  // the rig drawn upright in three views, with the angles that set the loads
+  drawViews(ctx, w, h) {
+    const R = RIG, r = this.r, mx = R.mast[0], PR = { t: 'PROFILE · stays', w: 11.5, h: 17 }, AS = { t: 'ASTERN · shrouds', w: 5.6, h: 17 }, tall = tallViews(w, h);
+    const { s, boxes } = panelGrid(ctx, w, h, tall ? [[PR, AS], [{ t: 'ABOVE · spreaders, enlarged', w: 17.1, h: 9 }]] : [[PR, AS, { t: 'ABOVE · spreaders, enlarged', w: 5, h: 17 }]]);
+    const bw = boxes[2][2], bh = boxes[2][3];
+    const P = orthoPanel(ctx, this.upright, 'side', boxes[0], [0.1, 0, 7.2], s);
+    const A = orthoPanel(ctx, this.upright, 'stern', boxes[1], [0, 0, 7.2], s);
+    const st = Math.min(bw / 4.2, bh / 4.2), T = orthoPanel(ctx, this.upright, [Math.PI / 2, Math.PI / 2], boxes[2], [mx - 0.3, 0, 0], st);
+    // profile: forestay and backstay
+    const f = P([(R.stem[0] + mx) / 2, 0, (R.stem[1] + R.head) / 2]), bk = P([(R.stern[0] + mx) / 2, 0, (R.stern[1] + R.head) / 2]);
+    Draw.text(ctx, 'forestay', f[0] + 8, f[1], { size: 10, color: C.ink2 }); Draw.text(ctx, 'backstay', bk[0] - 8, bk[1], { size: 10, color: C.ink2, align: 'right' });
+    // from astern: chainplate half-width and the cap shroud's angle at the masthead
+    const c0 = A([mx, 0, R.deck - 0.6]), c1 = A([mx, -R.chain[1], R.deck - 0.6]);
+    Draw.hdim(ctx, Math.min(c0[0], c1[0]), Math.max(c0[0], c1[0]), c0[1] + 22, fmt(R.chain[1], 2) + ' m', C.ink2);
+    const hd = A([mx, 0, R.head]); Draw.text(ctx, `${fmt(r.beta, 1)}°`, hd[0] + 8, hd[1] + 70, { size: 11, color: C.tension });
+    Draw.text(ctx, 'cap shroud', hd[0] + 8, hd[1] + 84, { size: 9, color: C.ink3 }); Draw.text(ctx, 'angle', hd[0] + 8, hd[1] + 96, { size: 9, color: C.ink3 });
+    // from above: spreader sweep
+    const m0 = T([mx, 0, R.spr]), t1 = T([mx - R.sprSweep, -R.sprHalf, R.spr]), sq = T([mx, -R.sprHalf, R.spr]);
+    Draw.line(ctx, [m0, sq], withAlpha(C.ink3, 0.8), 1, [3, 3]);
+    Draw.text(ctx, `swept ${fmt(r.sweep, 0)}° aft`, t1[0] + 8, t1[1] + 14, { size: 11, color: C.accent });
+    Draw.text(ctx, 'bow ↑', boxes[2][0] + bw - 6, boxes[2][1] + 12, { size: 10, color: C.ink3, align: 'right' });
+  }
+}
+
+INIT.push(() => {
+  const b = bench('exp-rig3d'), sim = new Rig3DSim();
+  const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const views = new Stage($('.viewsc', b.root), (ctx, w, h) => sim.drawViews(ctx, w, h));
+  const redraw = () => stage.redraw();
+  sim.cam.attach(b.canvas, redraw);
+  const describe = () => {
+    const r = sim.r;
+    b.live(`<div class="readout">${[['Cap shroud', fmt(r.T / 1000, 1) + ' kN'], ['Lower shroud', fmt(r.Tl / 1000, 1) + ' kN'], ['Leeward shrouds', 'slack'], ['Mast compression', fmt(r.C / 1000, 1) + ' kN']].map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join('')}</div>
+      <p>The windward shrouds hold the masthead up against the sails' pull; the leeward ones are slack and do nothing until the boat tacks. The spreaders push the cap shroud out to a ${fmt(r.beta, 1)}° angle at the masthead and are swept ${fmt(r.sweep, 0)}° aft, so the same wires also stop the mast bending forwards.</p>`);
+    stage.redraw(); views.redraw();
+  };
+  const set = (k, v) => { sim.p[k] = v; sim.calc(); describe(); };
+  slider(b.controls, { id: 'r3-heel', label: 'Heel', min: 0, max: 40, step: 1, value: 25, fmt: v => v + '°', onInput: v => set('heel', v) });
+  check(b.controls, { id: 'r3-hike', label: 'Crew on the windward rail', value: false, onChange: v => set('hike', v) });
+  check(b.controls, { id: 'r3-sails', label: 'Show the sails', value: true, onChange: v => set('sails', v) });
+  viewButtons(b.controls, sim.cam, redraw, ['iso', 'stern', 'front', 'side', 'plan']);
+  slider(b.controls, { id: 'r3-z', label: 'Zoom', min: 1, max: 3, step: 0.1, value: 1, fmt: v => fmt(v, 1) + '×', onInput: v => { sim.cam.zoom = v; redraw(); } });
+  describe();
 });
 
 /* ===================== Module 13: Wind shifts, waves and tide ===================== */
