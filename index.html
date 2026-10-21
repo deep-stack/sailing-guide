@@ -344,7 +344,7 @@ button.t:hover, button.t[aria-expanded="true"] { border-bottom-color: var(--acce
 .conv-out .readout span { text-transform: none; letter-spacing: .02em; }
 .conv-out p { color: var(--ink-3); margin: 0; }
 @media (max-width: 640px) { .conv { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 640px) { .exp canvas.viewsc { aspect-ratio: 3 / 4 !important; } }
+@media (max-width: 640px) { .exp canvas.viewsc, .exp canvas.stack { aspect-ratio: 3 / 4 !important; } }
 .cmap { margin: 18px 0 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 14px; }
 .cmap figcaption { font-size: .88rem; color: var(--ink-2); margin-bottom: 6px; }
 .cmap svg { width: 100%; height: auto; display: block; }
@@ -592,6 +592,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
     <li><a href="#m13"><span class="n">13</span><span>Wind shifts, waves &amp; tide</span></a></li>
     <li><a href="#m14"><span class="n">14</span><span>Terms that get confused</span></a></li>
     <li><a href="#m15"><span class="n">15</span><span>Stopping, mooring &amp; recovery</span></a></li>
+    <li><a href="#m16"><span class="n">16</span><span>Faster than the wind</span></a></li>
     <li><a href="#case"><span class="n">CS</span><span>Case study: one passage, leg by leg</span></a></li>
     <li><a href="#units"><span class="n">UC</span><span>Units &amp; conversions</span></a></li>
     <li><a href="#rules"><span class="n">RT</span><span>Rules of thumb</span></a></li>
@@ -871,7 +872,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
       <div class="myth"><h4>Misconceptions</h4>
         <ul>
           <li><strong>"The wind indicator shows the true wind."</strong> On a moving boat it shows the apparent wind. Instruments compute the true wind from it and the boat speed.</li>
-          <li><strong>"A boat can't sail faster than the wind."</strong> On a reach the apparent wind can be much stronger than the true wind. Iceboats and foiling boats sail at two to three times the wind speed; their apparent wind is then almost dead ahead.</li>
+          <li><strong>"A boat can't sail faster than the wind."</strong> On a reach the apparent wind can be much stronger than the true wind. Foiling boats sail at three to four times the wind speed and iceboats at about five; their apparent wind is then almost dead ahead (Module 16).</li>
         </ul>
       </div>
     </div>
@@ -1428,7 +1429,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
       <div class="myth"><h4>Misconceptions</h4>
         <ul>
           <li><strong>"Point as high as you can."</strong> Pinching keeps the bow pointed at the mark but the boat slows and slides sideways; VMG drops.</li>
-          <li><strong>"Downwind, sail straight at the mark."</strong> Faster boats, and most boats in light air, reach the leeward mark sooner by sailing broad reaches and gybing (<button class="t" type="button" data-t="downwind-vmg">downwind VMG</button>).</li>
+          <li><strong>"Downwind, sail straight at the mark."</strong> Faster boats, and most boats in light air, reach the leeward mark sooner by sailing broad reaches and gybing (<button class="t" type="button" data-t="downwind-vmg">downwind VMG</button>). Foilers and iceboats gybe downwind faster than the wind itself (Module 16).</li>
         </ul>
       </div>
     </div>
@@ -2068,6 +2069,140 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
   <div class="cc"><span class="cc-label">On the water</span><p>In the question, the dinghy stops short and the keelboat sails past. At 3 knots in 12 knots of wind, the dinghy's light weight is braked hard by the wind on its sails and crew, and it is down to half a knot within about a length. The keelboat has 25 times the momentum and only a few times the braking, and glides nearly four of her lengths. A keelboat skipper luffs up early and slow; a dinghy sailor luffs up late, or sails almost to the buoy.</p></div>
 </section>
 
+<section class="module" id="m16" aria-labelledby="m16-h">
+  <header class="mod-head">
+    <p class="eyebrow">Module 16 · Going further</p>
+    <h2 id="m16-h">Faster than the wind</h2>
+    <p class="dek">A boat moving fast makes its own headwind, and that headwind can drive it faster still. This self-reinforcing loop of apparent wind is why iceboats sail at about five times the wind speed, and why foiling boats beat the wind upwind as well as downwind. It is also why the loop has a limit, and why a keelboat never gets near it.</p>
+  </header>
+
+  <div class="q"><span class="q-label">The question</span><p>In 12 knots of wind, an America's Cup foiler crosses the course at over 40 knots, and it comes downwind faster than the wind is blowing. Its sails stay pulled in tight the whole time, and the crew feel a gale from almost dead ahead. Where does the extra speed come from, and why can't a cruising yacht do the same?</p></div>
+
+  <div class="topic" id="t16-1">
+    <h3><span class="tn">16.1</span>The loop: speed makes its own wind</h3>
+    <div class="prose">
+      <p>Module 3 showed that the sails feel the <button class="t" type="button" data-t="apparent-wind">apparent wind</button>: the true wind plus a headwind equal to the boat's own speed. Module 4 showed that a sail is a wing, whose force grows with the square of that wind. Put the two together and you get a loop. The faster the boat goes, the stronger the wind it feels; the stronger the wind, the bigger the force; the bigger the force, the faster the boat goes.</p>
+      <p>Nothing is created from nothing. All the energy still comes from the true wind; the boat's speed only changes the angle and the strength of the wind that the sails can use. But the loop has a brake built in. The headwind the boat makes always comes from dead ahead, so as the boat speeds up, the apparent wind does not only grow: it swings <strong>forward</strong>. The sail's force, roughly at right angles to the apparent wind, swings round with it from pointing forward to pointing sideways.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h4>1 · Speed makes wind</h4><span class="unit">apparent wind grows</span><p>The boat's headwind adds to the true wind. At 40 knots a foiler makes more wind than the weather does.</p></div>
+      <div class="card"><h4>2 · Wind makes force</h4><span class="unit">force ∝ apparent wind²</span><p>Twice the apparent wind gives four times the force, so the sails can pull much harder than in the true wind alone.</p></div>
+      <div class="card"><h4>3 · Force makes speed</h4><span class="unit">while drive &gt; drag</span><p>As long as the forward part of the force beats the drag, the boat accelerates, and the loop goes round again.</p></div>
+      <div class="card"><h4>4 · The brake</h4><span class="unit">the wind swings ahead</span><p>Each lap swings the apparent wind further forward and turns the force further sideways. The loop stops when the forward part only just matches the drag.</p></div>
+    </div>
+    <figure class="exp" id="exp-loop">
+      <div class="exp-stage">
+        <div class="exp-title"><h4>The apparent wind loop</h4><span class="tag quant">Quantitative · forces against time</span></div>
+        <canvas class="stack" style="aspect-ratio: 16/11" role="img" aria-label="A boat seen from above accelerating from rest, with the wind triangle and the sail force, beside charts of its speed and apparent wind against time."></canvas>
+      </div>
+      <div class="exp-side">
+        <div class="controls"></div>
+        <div class="look"><b>Look for</b>With the AC75-style foiler, watch the apparent wind swing from 100° to about 15° off the bow while the sail force turns from pointing forward to pointing almost straight sideways. The keelboat's loop stops early, with the apparent wind still well aft. Try the Moth on a broad reach (140°): it sticks in the water. Steer it up to 105° until it takes off, then back to 140°, and it keeps its speed.</div>
+        <div class="live" aria-live="polite"></div>
+      </div>
+      <figcaption class="exp-foot"><span><b>Model:</b> the keelboat is the guide's reference 10 m sloop at full sail (Modules 5 to 9). The other boats are sketches with round numbers. The rig's force is ½ρV²·S·C<sub>F</sub>, leaning a fixed aerodynamic drag angle (Moth 10°, AC75-style 7.5°, iceboat 8°) aft of square to the apparent wind, and capped at what the boat's righting moment can hold. The drag is the weight carried on the foils (weight ÷ 16 for the Moth, ÷ 30 for the AC75-style) or the friction of runners on ice (1.5% of weight), plus foil profile drag, the drag of resisting side force, and a hull drag hump below take-off (8 knots for the Moth, 17 for the AC75-style). Boat speed obeys mass × acceleration = drive − drag, starting from rest. Steady wind, flat water.</span></figcaption>
+    </figure>
+    <div class="explain">
+      <div class="why"><h4>Why it happens</h4>
+        <p>Speed changes the wind the sails work in. A sail's force depends on the apparent wind squared, and the apparent wind depends on the boat's speed. So speed feeds back into force. The same feedback turns the apparent wind ahead, which turns the force sideways, so each extra knot gives less extra drive than the last, until it gives none.</p>
+      </div>
+      <div class="decision"><h4>On the water</h4>
+        <p>Fast boats are sailed by the apparent wind: as the boat accelerates, sheet in; if the sheets go out in a lull, the boat slows, the apparent wind goes aft and the loop runs backwards. Foiler sailors bear away in gusts to turn extra wind into speed, then head up as the speed builds, keeping the apparent wind at the angle where the sails work best.</p>
+      </div>
+      <div class="myth"><h4>Misconceptions</h4>
+        <ul>
+          <li><strong>"Sailing faster than the wind breaks conservation of energy."</strong> The boat takes energy from the true wind, which keeps blowing past it. Like a skier traversing a slope, it can move faster than the thing driving it, because it moves across the wind, not with it.</li>
+          <li><strong>"The loop runs forever."</strong> It stops when the apparent wind has swung so far ahead that the forward part of the force only balances the drag.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="topic" id="t16-2">
+    <h3><span class="tn">16.2</span>Where the loop stops: the drag angle</h3>
+    <div class="prose">
+      <p>Every foil's force leans back from square to the flow by its <button class="t" type="button" data-t="drag-angle">drag angle</button>: the angle whose tangent is drag ÷ lift. The rig has one, and so does whatever stops the boat sliding sideways: the keel and hull, the foils, the runners on the ice. In steady sailing, with drive just equal to drag, the apparent wind sits ahead of the course by exactly the <strong>sum of those two drag angles</strong>, β. That is where the loop stops.</p>
+      <p>The wind triangle then fixes the speed. The smaller β, the further the apparent wind can swing ahead before the loop stops, and the faster the boat goes. The best speed is with the true wind just behind the beam, at 90° + β, where boat speed ÷ wind speed = 1 ÷ sin β. A boat with β = 30° can reach at twice the wind speed; five times the wind needs β of about 11.5°. The model's iceboat, with friction-light runners and a clean rig, settles at 11° and sails at 5.2 times the wind; the AC75-style foiler at about 15° and 3.9 times.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h4>Keelboat</h4><span class="unit">about 0.6× the wind at best</span><p>The hull's wave drag grows so fast near hull speed (Module 8) that drag swamps the side force: the hull's drag angle is huge, and the loop stops with the apparent wind near 50° off the bow.</p></div>
+      <div class="card"><h4>Foiling Moth</h4><span class="unit">about 2× the wind</span><p>On its foils it leaves the hull's drag behind, but a sailor hanging out in the wind and a small sail give it a fairly big drag angle.</p></div>
+      <div class="card"><h4>AC75-style foiler</h4><span class="unit">about 4× the wind</span><p>Efficient foils, a huge righting moment and a very clean rig: the apparent wind ends up about 15° off the bow on most headings.</p></div>
+      <div class="card"><h4>Iceboat</h4><span class="unit">about 5× the wind</span><p>Steel runners on ice barely resist forward motion but grip sideways. Among the smallest drag angles of any sailing craft, and the fastest speed ratios.</p></div>
+    </div>
+    <details class="math"><summary>Optional detail: the drag angle and the speed ratio</summary><div>
+      <p>The sail force leans back from square to the apparent wind by ε<sub>A</sub>, with tan ε<sub>A</sub> = D ÷ L for the rig; the hull or foils resist it with their own drag angle ε<sub>H</sub>. In steady sailing the two forces are equal and opposite, which can only happen if the apparent wind angle on the course equals β = ε<sub>A</sub> + ε<sub>H</sub> (the "course theorem" of sailing theory).</p>
+      <p>In the wind triangle, the angle at the boat is β and the angle between the true wind and the boat wind is γ − β, where γ is the true wind angle. The sine rule gives:</p>
+      <p class="eq">V ÷ W = sin(γ − β) ÷ sin β &nbsp;&nbsp;&nbsp; best at γ = 90° + β: V ÷ W = 1 ÷ sin β</p>
+      <p>On a polar this is a circle through the origin. The best VMGs are where horizontal lines touch it:</p>
+      <p class="eq">upwind VMG ÷ W = (1 − sin β) ÷ (2 sin β) &nbsp;&nbsp;&nbsp; downwind VMG ÷ W = (1 + sin β) ÷ (2 sin β)</p>
+      <p>Example: β = 11.5°, sin β = 0.2: top speed 5× the wind, upwind VMG 2×, downwind VMG 3×. Upwind VMG beats the wind only when sin β &lt; 1/3, β &lt; 19.5°. In this ideal case the downwind VMG is always exactly one wind speed more than the upwind VMG. Real boats fall short of it because some of their drag (friction, the weight they carry) does not shrink with side force; then β grows as the sails depower, which is why a Moth's top speed is only about twice the wind.</p>
+    </div></details>
+  </div>
+
+  <div class="topic" id="t16-3">
+    <h3><span class="tn">16.3</span>Faster than the wind, upwind and downwind</h3>
+    <div class="prose">
+      <p>What wins races is not top speed across the wind but <button class="t" type="button" data-t="vmg">VMG</button> (Module 9): speed made good straight into, or straight away from, the wind. For a fast enough boat, both beat the wind.</p>
+      <p><strong>Upwind</strong>, a foiler sails at about 50° to the true wind but at two to three times its speed, so the part of its speed towards the wind is still more than the wind speed. <strong>Downwind</strong> is more surprising. Running straight downwind, a boat can never beat the wind: as it approaches wind speed the apparent wind falls to zero, and so does the force. So fast boats never run. They gybe downwind at 130–150° to the true wind, fast enough that their apparent wind stays <strong>ahead of the beam</strong>, often only 10–30° off the bow. This is <button class="t" type="button" data-t="apparent-wind-sailing">apparent wind sailing</button>: sheets in tight, crew leaning out, a strong headwind on a downwind leg.</p>
+    </div>
+    <figure class="exp" id="exp-ftw">
+      <div class="exp-stage">
+        <div class="exp-title"><h4>Speed polars as a multiple of the wind</h4><span class="tag quant">Quantitative · steady speed at every angle</span></div>
+        <canvas style="aspect-ratio: 1/1" role="img" aria-label="Polar diagram of boat speed divided by true wind speed against true wind angle, with the wind speed itself as a dashed circle and the best upwind and downwind VMG marked."></canvas>
+      </div>
+      <div class="exp-side">
+        <div class="controls"></div>
+        <div class="look"><b>Look for</b>The dashed circle is the wind's own speed; the dashed lines at ±1× are a VMG equal to the wind speed. The keelboat's polar sits inside the circle everywhere. The AC75-style foiler and the iceboat reach well beyond it, and their best VMG lines lie beyond ±1×: faster than the wind both upwind and downwind. Their polars are nearly circles through the centre, the shape the drag angle theory predicts. Drop the wind to 6 knots: the foilers can stay on their foils only on a reach, and their VMG falls below the wind. The iceboat, with no take-off to make, hardly notices.</div>
+        <div class="live" aria-live="polite"></div>
+      </div>
+      <figcaption class="exp-foot"><span><b>Model:</b> the fastest steady speed at each true wind angle, from the same models as 16.1. For the foilers it assumes the boat is already foiling (in light wind it may need to head up or be towed to get there). The keelboat curve is the reference sloop's polar from Module 9, trimmed and reefed for best speed. Flat water and steady wind; real boats also lose time in each tack and gybe.</span></figcaption>
+    </figure>
+    <div class="explain">
+      <div class="why"><h4>Why it happens</h4>
+        <p>VMG is speed × cos(angle to the wind). A slow boat gains little by sailing at an angle. A boat that sails at four times the wind speed can sail 50° off the wind and still make 2.5 times the wind speed straight downwind. Downwind VMG beats upwind VMG because the air itself is moving downwind. In the drag angle model of 16.2 the polar is a circle whose centre lies half a wind speed downwind of its start, so its lowest point is a whole wind speed further downwind than its highest point is upwind.</p>
+      </div>
+      <div class="decision"><h4>On the water</h4>
+        <p>On a downwind leg, a foiler or skiff sailor steers by the apparent wind: head up a little to build speed and bring the apparent wind forward, then bear away as far as the speed allows. Drop off too deep and the apparent wind goes aft, the boat slows, and on a foiler it can drop off its foils.</p>
+      </div>
+      <div class="myth"><h4>Misconceptions</h4>
+        <ul>
+          <li><strong>"Downwind, the wind pushes you, so you can't beat it."</strong> True only for a boat sailing straight downwind. Gybing across the wind, a lift-driven boat makes good a VMG up to three times the wind speed.</li>
+          <li><strong>"Upwind VMG faster than the wind means the boat points very high."</strong> Foilers point lower than keelboats, about 45–55° to the true wind. They beat the wind by going much faster, not by pointing higher.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="topic" id="t16-4">
+    <h3><span class="tn">16.4</span>Foils: taking the hull out of the loop</h3>
+    <div class="prose">
+      <p>A keelboat's loop is stopped by its hull. Near <button class="t" type="button" data-t="hull-speed">hull speed</button> the wave drag climbs like a wall, so the hull's drag angle grows huge and the boat stays slower than the wind on most headings. Planing hulls get past the wall, but still drag a lot of wetted hull through the water.</p>
+      <p><button class="t" type="button" data-t="foiling">Foiling</button> removes the hull altogether. Hydrofoils, small wings under the boat, lift it clear of the water once it is going fast enough. What is left in the water is a few thin, efficient foils, whose drag is a small fraction of the weight they carry. The drag angle collapses, and the loop can run on to several times the wind speed.</p>
+      <p>The catch is the take-off. Below take-off speed the hull is still in the water, with its drag hump, and the loop may not have enough drive to climb over it. Sailors give it a kick: head up to a beam reach for the strongest drive, pump the sail, or wait for a gust. Once foiling, the boat can bear away and keep its speed, because now its own speed makes the apparent wind.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h4>Below take-off</h4><span class="unit">hull in the water</span><p>Drag grows with speed up to the hump. In 12 knots of wind on a broad reach, the model's Moth stalls at about 6.5 knots.</p></div>
+      <div class="card"><h4>Take-off</h4><span class="unit">the loop breaks free</span><p>Heading up gives more drive; the hull lifts, drag drops, the boat accelerates, and the apparent wind swings forward.</p></div>
+      <div class="card"><h4>Foiling</h4><span class="unit">drag ≈ weight ÷ 15–30</span><p>The same Moth on its foils sails at more than 20 knots on the same 140° heading where it was stuck at 6.5.</p></div>
+    </div>
+  </div>
+
+  <p class="watch"><span class="cc-label">Watch</span> <a href="https://www.youtube.com/watch?v=u5InZ6iknUM" target="_blank" rel="noopener">Sailing Faster Than The Wind - How Is That Even Possible?</a> <span class="ch">(Steve Mould)</span> · <a href="https://www.youtube.com/watch?v=NI39O6t4gPI" target="_blank" rel="noopener">How to sail faster than the wind - Apparent wind</a> <span class="ch">(Conrad Manning Racing)</span> · <a href="https://www.youtube.com/watch?v=OQsXDdGxk3U" target="_blank" rel="noopener">Sailing at Triple the Wind Speed</a> <span class="ch">(America's Cup)</span> · <a href="#watch">more videos</a></p>
+  <div class="recap">
+    <h3>What you should now understand</h3>
+    <ul>
+      <li>Speed makes apparent wind, apparent wind makes force, force makes speed: a self-reinforcing loop.</li>
+      <li>The loop's brake: as speed grows the apparent wind swings forward and the force turns sideways.</li>
+      <li>It stops when the apparent wind is ahead of the course by the sum of the sail's and the hull's drag angles, β. Top speed ≈ wind speed ÷ sin β: five times the wind needs β ≈ 11.5°.</li>
+      <li>Upwind VMG beats the wind when β is under about 20°. Downwind, fast boats gybe at 130–150° with the apparent wind ahead of the beam; running dead downwind can never beat the wind.</li>
+      <li>Hulls stop the loop at hull speed; foils lift the hull out of the water and let it run, once the boat has taken off.</li>
+    </ul>
+  </div>
+  <div class="predictions" id="m16-predict"></div>
+  <div class="cc"><span class="cc-label">On the water</span><p>The foiler in the question makes most of its own wind. At 40-plus knots its headwind dwarfs the 12-knot breeze, so its apparent wind comes from about 15° off the bow on every leg, which is why the sails stay in tight even downwind. Its foils give it a drag angle of about 15°, so the loop runs on to about four times the wind. A cruising yacht's loop stops at hull speed, with the apparent wind still well aft, well short of the wind's own speed.</p></div>
+</section>
+
 <section class="module" id="case" aria-labelledby="case-h">
   <header class="mod-head">
     <p class="eyebrow">Guided case study</p>
@@ -2153,6 +2288,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
       <tr><td>Right of way</td><td>Port tack keeps clear of starboard; windward keeps clear of leeward; the boat catching up from astern keeps clear. Under engine, keep clear of boats under sail.</td><td><a href="#t9-3">9.3</a></td></tr>
       <tr><td>Anchoring</td><td>Let out at least 4 to 5 times the depth of water in chain, more of rope.</td><td><a href="#t15-2">15.2</a></td></tr>
       <tr><td>Aground</td><td>Heeling a fin keel to 30° raises its tip by about 13% of the draft: 25 cm on a 1.9 m keel.</td><td><a href="#t15-4">15.4</a></td></tr>
+      <tr><td>Faster than the wind</td><td>Top speed ≈ wind speed ÷ sin β, where β is the sum of the sail's and hull's drag angles: five times the wind needs β ≈ 11.5°. Upwind VMG beats the wind only if β is under about 20°. Dead downwind, no boat beats the wind; gybe at 130–150° instead.</td><td><a href="#m16">16</a></td></tr>
       <tr><td>Reefing</td><td>Reef when you first wonder whether to. Reef before bearing away to a run, while the apparent wind still shows how strong it really is.</td><td><a href="#m3">3</a>, <a href="#m7">7</a></td></tr>
     </tbody>
   </table></div>
@@ -2170,7 +2306,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
     <li>Marchaj, C. A. <em>Aero-Hydrodynamics of Sailing</em>, 3rd ed. Adlard Coles, 2000.<span>The classic, thorough reference on sail and hull forces, with wind-tunnel and tank data (Modules 4 to 8).</span></li>
     <li>Marchaj, C. A. <em>Sail Performance: Techniques to Maximise Sail Power</em>. Adlard Coles, 1996.<span>Sail aerodynamics, twist, interaction between jib and main (Modules 4 and 11).</span></li>
     <li>Whidden, T. and Levitt, M. <em>The Art and Science of Sails</em>. St Martin's Press, 1990.<span>Sail shape, depth, draft position and the controls that change them (Module 11).</span></li>
-    <li>Bethwaite, F. <em>High Performance Sailing</em>. Adlard Coles, 1993.<span>Wind gradient, gusts and shifts, apparent wind sailing and planing boats (Modules 3, 8 and 13).</span></li>
+    <li>Bethwaite, F. <em>High Performance Sailing</em>. Adlard Coles, 1993.<span>Wind gradient, gusts and shifts, apparent wind sailing and planing boats (Modules 3, 8, 13 and 16).</span></li>
     <li>Anderson, B. D. "The physics of sailing". <em>Physics Today</em> 61(2), 2008.<span>A short, rigorous overview for readers with a physics background.</span></li>
     <li>Babinsky, H. "How do wings work?" <em>Physics Education</em> 38(6), 2003; McLean, D. <em>Understanding Aerodynamics: Arguing from the Real Physics</em>. Wiley, 2012.<span>Why the "equal transit time" explanation of lift is wrong, and what is right (Module 4).</span></li>
     <li>Rousmaniere, J. <em>The Annapolis Book of Seamanship</em>, 4th ed. Simon &amp; Schuster, 2014.<span>Boat handling, manoeuvres, mooring, anchoring, man overboard, heavy weather, navigation and safety: the practical side of every module, and the source for Module 15.</span></li>
@@ -2209,6 +2345,8 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
     <ul><li><a href="https://www.youtube.com/watch?v=gbsnzU16uFQ" target="_blank" rel="noopener">How to Sail Upwind with Lifts and Headers</a><span>Captain John&#x27;s Skipper Tips</span></li><li><a href="https://www.youtube.com/watch?v=rYKAOBfWiKk" target="_blank" rel="noopener">Course to Steer: one hour of tide</a><span>Penzance Sailing Club · The tidal vector triangle on a chart.</span></li><li><a href="https://www.youtube.com/watch?v=SEc7BtHa-yI" target="_blank" rel="noopener">Tidal Stream: using a Tidal Atlas</a><span>Penzance Sailing Club</span></li><li><a href="https://www.youtube.com/watch?v=LZ4TQ3sZQak" target="_blank" rel="noopener">Navigation: Course To Steer (Chart Plotting Part 2)</a><span>Northeast Maritime Institute</span></li></ul>
     <h3>Module 15 · Stopping, mooring and recovery</h3>
     <ul><li><a href="https://www.youtube.com/watch?v=Qkq6a8b9otk" target="_blank" rel="noopener">Sailing: Mooring up Under Sail</a><span>BossSailing · A Yachtmaster examiner picks up a mooring under sail.</span></li><li><a href="https://www.youtube.com/watch?v=zUymBTP_fM8" target="_blank" rel="noopener">How To Dock A Sailing Dinghy: The Ultimate Jetty Landing Guide</a><span>Phils Watersports · Approach angles and stopping a dinghy alongside.</span></li><li><a href="https://www.youtube.com/watch?v=YQ73zbYQMPc" target="_blank" rel="noopener">How to Dock Under Sail in an &#x27;On-the-Dock&#x27; Wind</a><span>Captain John&#x27;s Skipper Tips</span></li><li><a href="https://www.youtube.com/watch?v=xlexzR3yPKA" target="_blank" rel="noopener">Man Overboard under sail: Reach Tack Reach method</a><span>Practical Boat Owner</span></li><li><a href="https://www.youtube.com/watch?v=yuxCH_6tXko" target="_blank" rel="noopener">Man Overboard under sail: the Quick Stop method</a><span>Practical Boat Owner</span></li><li><a href="https://www.youtube.com/watch?v=gigamd9E0uE" target="_blank" rel="noopener">Boating Safety: Seven Action Steps After Running Aground</a><span>Captain John&#x27;s Skipper Tips</span></li></ul>
+    <h3>Module 16 · Faster than the wind</h3>
+    <ul><li><a href="https://www.youtube.com/watch?v=u5InZ6iknUM" target="_blank" rel="noopener">Sailing Faster Than The Wind - How Is That Even Possible?</a><span>Steve Mould · The physics of sailing faster than the wind that drives you.</span></li><li><a href="https://www.youtube.com/watch?v=NI39O6t4gPI" target="_blank" rel="noopener">How to sail faster than the wind - Apparent wind</a><span>Conrad Manning Racing · The apparent wind vectors behind three times the wind speed.</span></li><li><a href="https://www.youtube.com/watch?v=OQsXDdGxk3U" target="_blank" rel="noopener">Sailing at Triple the Wind Speed</a><span>America&#x27;s Cup · AC75s at three to four times the wind speed.</span></li><li><a href="https://www.youtube.com/watch?v=PE8mCZOmrEo" target="_blank" rel="noopener">Ice Yachting - The fun and fear of 100kph</a><span>The World Sailing Show · DN iceboats at more than four times the wind speed.</span></li></ul>
   </div>
   <div class="disclaimer"><strong>About this guide.</strong> It is an educational resource. Its models are deliberately simplified and are labelled with their assumptions. Nothing in it replaces training, a boat's own documentation, an official forecast, a chart and tidal data, or the judgement of the skipper.</div>
 </section>
@@ -2911,7 +3049,7 @@ function bench(id) {
   };
 }
 
-const MODULE_NAMES = { m1: 'Module 1', m2: 'Module 2', m3: 'Module 3', m4: 'Module 4', m5: 'Module 5', m6: 'Module 6', m7: 'Module 7', m8: 'Module 8', m9: 'Module 9', m10: 'Module 10', m11: 'Module 11', m12: 'Module 12', m13: 'Module 13', m14: 'Module 14', m15: 'Module 15', case: 'Case study', units: 'Units', rules: 'Rules of thumb' };
+const MODULE_NAMES = { m1: 'Module 1', m2: 'Module 2', m3: 'Module 3', m4: 'Module 4', m5: 'Module 5', m6: 'Module 6', m7: 'Module 7', m8: 'Module 8', m9: 'Module 9', m10: 'Module 10', m11: 'Module 11', m12: 'Module 12', m13: 'Module 13', m14: 'Module 14', m15: 'Module 15', m16: 'Module 16', case: 'Case study', units: 'Units', rules: 'Rules of thumb' };
 const INIT = [];   // module initialisers, run after DOM ready
 
 /* ===================== Sailing physics shared by the modules =====================
@@ -3516,6 +3654,11 @@ const GLOSSARY = {
   'swell': ['Swell', 'Long, smooth waves that have travelled out of the area where they were made.', 'm13'],
   'sig-wave-height': ['Significant wave height', 'The average height of the highest third of the waves, roughly what an observer reports. Individual waves up to about twice as high occur.', 'm13'],
 
+  /* ---- Module 16: faster than the wind ---- */
+  'apparent-wind-sailing': ['Apparent wind sailing', 'Sailing so fast that the boat\'s own speed makes most of the wind it feels. The apparent wind stays well forward, even on a downwind leg, so the sails stay sheeted in. Iceboats, foilers and skiffs sail this way.', 'm16'],
+  'drag-angle': ['Drag angle', 'The angle by which a foil\'s total force leans back from square to the flow; its tangent is drag ÷ lift. The sail\'s and the hull\'s (or foils\') drag angles add up to the apparent wind angle at which a boat stops accelerating, which sets how many times the wind speed it can sail.', 'm16'],
+  'foiling': ['Foiling', 'Flying the hull clear of the water on hydrofoils, wings under the boat that lift it once it reaches take-off speed. It removes the hull\'s wave-making and most of its friction drag.', 'm16'],
+
   /* ---- Module 15: stopping, mooring and recovery ---- */
   'head-to-wind': ['Head to wind', 'Pointing straight into the wind, sails flapping. How a sailing boat stops, picks up a mooring or anchors; also the middle of a tack.', 'm15'],
   'let-fly': ['Let fly', 'Release a sheet completely so the sail flaps and stops driving. "Let fly the jib!"', 'm15'],
@@ -3579,6 +3722,7 @@ const GLOSS_ALIAS = {
   'head-to-wind': ['head to wind'], 'let-fly': ['let(s|ting)? (the sheets |both sheets )?fly'], 'carry-way': ['carr(y|ies|ying) (her|its) way'], 'mooring': ['moorings?'], 'anchor': ['anchor(s|ing|ed)?'],
   'alongside': ['alongside'], 'mooring-lines': ['spring lines?', 'bow lines?', 'stern lines?'], 'fender': ['fenders?'], 'make-fast': ['ma(ke|kes|king) (them |her )?fast'], 'cast-off': ['cast(s|ing)? off'],
   'lee-shore': ['lee shores?'], 'man-overboard': ['man overboard'], 'quick-stop': ['quick stop'], 'aground': ['aground'], 'shoal': ['shoals?'], 'depth-sounder': ['depth sounders?', 'echo sounders?'],
+  'apparent-wind-sailing': ['apparent wind sailing'], 'drag-angle': ['drag angles?'], 'foiling': ['foiling', 'foilers?'],
   'knot': ['knots?'], 'nautical-mile': ['nautical miles?'], 'mass-weight': ['mass'],
 };
 // Aliases matched case-sensitively (abbreviations that clash with ordinary words)
@@ -3608,6 +3752,7 @@ const FAMILIES = [
   ['t15-1', '15.1', 'stopping the boat', ['head-to-wind', 'let-fly', 'carry-way', 'steerage-way', 'in-irons', 'heave-to']],
   ['t15-2', '15.2', 'tying up', ['mooring', 'anchor', 'alongside', 'mooring-lines', 'make-fast', 'fender', 'cast-off', 'lee-shore']],
   ['t15-4', '15.4', 'shallow water', ['aground', 'shoal', 'depth-sounder', 'draft', 'centreboard']],
+  ['t16-2', '16.2', 'faster than the wind', ['apparent-wind-sailing', 'drag-angle', 'foiling', 'apparent-wind', 'hull-speed', 'downwind-vmg']],
   ['t9-2', '9.2', 'upwind and downwind', ['vmg', 'polar', 'tacking-angle', 'layline', 'target-speed', 'downwind-vmg', 'beat']],
   ['t5-1', '5.1', 'points of sail', ['no-go-zone', 'close-hauled', 'close-reach', 'beam-reach', 'broad-reach', 'run']],
   ['t11-2', '11.2', 'sail shape controls', ['halyard', 'cunningham', 'outhaul', 'vang', 'mainsheet', 'traveller', 'backstay', 'jib-car']],
@@ -4152,6 +4297,26 @@ const GF = (() => {
     if (on(k, 'depth-sounder')) o += L(bx + 12, wl + 9, bx + 12, 99, 'hl dash') + T(bx + 16, 76, 'depth below', 'hlt', 'start') + T(bx + 16, 85, 'the transducer', 'hlt', 'start');
     if (on(k, 'shoal')) o += T(196, 52, 'shoal', 'hlt', 'start');
     if (ag) o += T(80, 112, 'aground: keel on the bottom', 'hlt');
+    return svg(o);
+  });
+
+  /* 32. Faster than the wind: the wind triangle of a fast boat, and a foiler */
+  add(['apparent-wind-sailing', 'drag-angle', 'foiling'], k => {
+    const mx = 70, my = 100, s = 1.75, W = 12, V = 40, aw = apparentWind(W, 100, V).awa * D2R;
+    const vt = [-W * Math.cos(100 * D2R), -W * Math.sin(100 * D2R)], va = [vt[0] - V, vt[1]], S = u => [u[1] * s, -u[0] * s];
+    const st = [mx - S(va)[0], my - S(va)[1]], mid = [st[0] + S(vt)[0], st[1] + S(vt)[1]];
+    const aws = on(k, 'apparent-wind-sailing'), da = on(k, 'drag-angle'), fo = on(k, 'foiling');
+    let o = boat(mx, my + 4, 0, 'h', 30);
+    o += A(st[0], st[1], mid[0] + 1, mid[1], 'en') + T((st[0] + mid[0]) / 2 + 4, mid[1] - 6, 'true 12 kn', 'ent');
+    o += A(mid[0], mid[1], mx, my - 3, 'ink dash') + T(mx - 5, 62, 'boat wind 40', '', 'end');
+    o += A(st[0], st[1], mx + 1, my - 3, hc(aws, 'aw')) + T(80, 86, 'apparent', aws ? 'hlt' : 'awt', 'start');
+    o += P(`M${mx},${my - 40}A40,40 0 0 1 ${f(mx + 40 * Math.sin(aw))},${f(my - 40 * Math.cos(aw))}`, hc(da, 'ln')) + T(mx + 6, my - 46, 'β', ht(da), 'start');
+    // a foiler from the side: hull clear of the water, on two foils
+    o += R(128, 86, 112, 34, 'w') + L(128, 86, 240, 86, 'wl');
+    o += P('M140,50L226,50L218,62L148,62Z', fo ? 'hlf' : 'h') + L(184, 50, 184, 8, 'mast thin') + P('M184,10L184,48L158,48Z', 'sail');
+    o += L(198, 62, 198, 102, hc(fo, 'mast thin')) + L(186, 102, 210, 102, hc(fo, 'mast')) + L(150, 62, 150, 98, hc(fo, 'mast thin')) + L(144, 98, 156, 98, hc(fo, 'mast'));
+    o += T(174, 76, 'flying', ht(fo)) + T(214, 110, 'foils', ht(fo), 'start');
+    o += T(4, 10, da ? 'β: drag angle, course to apparent wind' : fo ? 'foiling: flying on hydrofoils' : aws ? 'its own speed makes the wind' : '', 'hlt', 'start');
     return svg(o);
   });
 
@@ -6864,6 +7029,278 @@ INIT.push(() => {
   ]);
 });
 
+/* ===================== Module 16: Faster than the wind ===================== */
+
+/* ---- Fast boats: a sail force at a fixed drag angle, and a hull, foils or runners that resist it ----
+   Educational sketch with round numbers, not a design tool. The keelboat is the guide's reference sloop
+   and uses its full velocity prediction model. For the others the rig's total force is q · S · CF, set
+   epsA degrees aft of square to the apparent wind (its lift-to-drag ratio is 1 / tan epsA); side force is
+   capped by the righting moment (sideMax, the crew depowers above it). Resistance: the weight carried on
+   foils or runners (m·g / ld, or m·g·mu on ice), foil and strut profile drag (½ρV²·cda), the drag of
+   making side force (side · tan epsH) and, below take-off, the hull ploughing through the water. */
+const FAST_BOATS = {
+  keel: { name: 'Keelboat', long: 'the reference 10 m keelboat', yacht: REF_BOAT, m: 5340, madd: 600 },
+  moth: { name: 'Foiling Moth', long: 'a foiling Moth (one-person dinghy)', m: 105, madd: 10, sa: 8.3, cf: 1.3, epsA: 10, epsH: 2.5, ld: 16, cda: 0.0006, vTo: 8 * KN, hump: 0.16, sideMax: 380 },
+  ac: { name: 'AC75-style', long: 'an AC75-style foiling monohull', m: 7600, madd: 400, sa: 230, cf: 1.3, epsA: 7.5, epsH: 2, ld: 30, cda: 0.004, vTo: 17 * KN, hump: 0.11, sideMax: 40000 },
+  ice: { name: 'Iceboat', long: 'an iceboat on steel runners', m: 130, madd: 0, sa: 6.5, cf: 1.3, epsA: 8, epsH: 1.5, mu: 0.015, sideMax: 650 },
+};
+const smooth01 = x => { const t = clamp(x, 0, 1); return t * t * (3 - 2 * t); };
+const FastBoat = {
+  // Forces (N) for boat b in true wind tws (m/s) at twa (deg), sailing at v (m/s).
+  forces(b, tws, twa, v) {
+    const { aws, awa } = apparentWind(tws, twa, v);
+    if (b.yacht) {
+      // Starting from rest the keel is stalled: cap its induced drag, which the model would otherwise make huge at low speed
+      const s = b.yacht.sailsLee(tws, twa, v, 1, 1), y = b.yacht;
+      return { aws, awa, drive: s.drive, side: s.side, res: y.resistance(v, 0, s.heel) + Math.min(y.resInduced(s.side, v), 0.3 * s.side), foil: 0, capped: false };
+    }
+    const q = 0.5 * RHO_AIR * aws * aws, a = awa - b.epsA;
+    let F = q * b.sa * b.cf, drive, side;
+    if (a >= 90) { drive = F * lerp(1, 0.75, clamp((a - 90) / 60, 0, 1)); side = 0; }   // deep downwind the force is turned straight ahead, but the sails are less efficient
+    else { drive = F * Math.sin(a * D2R); side = F * Math.cos(a * D2R); }
+    // the crew depowers to hold the side force at what the righting moment can take (and the total at 1.5× that)
+    const k = Math.min(1, b.sideMax / Math.max(side, 1e-9), 1.5 * b.sideMax / Math.hypot(drive, side)), capped = k < 1;
+    drive *= k; side *= k;
+    const wt = b.m * GRAV, foil = b.mu ? 0 : smooth01((v - 0.8 * b.vTo) / (0.2 * b.vTo));
+    const hull = b.mu ? 0 : wt * b.hump * Math.pow(Math.min(v / b.vTo, 1), 2);
+    const support = b.mu ? wt * b.mu : foil * wt / b.ld;
+    const res = (1 - foil) * hull + support + 0.5 * RHO_SEA * v * v * (b.cda || 0) + Math.abs(side) * Math.tan(b.epsH * D2R);
+    return { aws, awa, drive, side, res, foil, capped };
+  },
+  net(b, tws, twa, v) { const f = this.forces(b, tws, twa, v); return f.drive - f.res; },
+  // Fastest steady speed (m/s): scan down from a speed no boat reaches, then bisect, as Yacht.speedFor does.
+  steady(b, tws, twa) {
+    if (b.yacht) return b.yacht.solve(tws, twa).v;
+    const top = 7 * tws, n = 140, step = top / n;
+    let lo = null;
+    for (let i = n - 1; i >= 1; i--) if (this.net(b, tws, twa, i * step) > 0) { lo = i * step; break; }
+    if (lo === null) return 0;
+    let hi = lo + step;
+    for (let i = 0; i < 24; i++) { const m = (lo + hi) / 2; if (this.net(b, tws, twa, m) > 0) lo = m; else hi = m; }
+    return (lo + hi) / 2;
+  },
+  // Speed ratio V/W against TWA, and the best upwind and downwind VMG, at tws knots.
+  cache: new Map(),
+  polar(b, twsKn, step = 1) {
+    const key = `${b.name}|${twsKn}|${step}`;
+    if (this.cache.has(key)) return this.cache.get(key);
+    const pts = [];
+    for (let a = 26; a <= 180; a += step) pts.push([a, this.steady(b, twsKn * KN, a) / KN / twsKn]);
+    let up = null, dn = null, mx = null;
+    pts.forEach(([a, r]) => {
+      const vmg = r * Math.cos(a * D2R);
+      if (!up || vmg > up.vmg) up = { twa: a, r, vmg };
+      if (!dn || vmg < dn.vmg) dn = { twa: a, r, vmg };
+      if (!mx || r > mx.r) mx = { twa: a, r };
+    });
+    const out = { pts, up, dn: Object.assign(dn, { vmg: -dn.vmg }), mx };
+    this.cache.set(key, out);
+    return out;
+  },
+};
+
+/* ---- 16.1 The apparent wind loop: a boat accelerating from rest ---- */
+const LOOP_WIN = 60;                                            // seconds shown on the time charts
+const LOOP_YMAX = { keel: 1.5, moth: 3, ac: 5, ice: 6 };
+class LoopSim {
+  constructor(p = {}) { this.p = Object.assign({ boat: 'ac', tws: 12, twa: 100 }, p); this.reset(); }
+  get b() { return FAST_BOATS[this.p.boat]; }
+  reset(v = 0) { this.t = 0; this.v = v; this.hist = []; this.retarget(); this.record(); return this; }
+  // The steady speed this heading and wind lead to (the keelboat at full power, as in the run itself)
+  retarget() { const b = this.b, w = this.p.tws * KN; this.vs = b.yacht ? b.yacht.speedFor(w, this.p.twa, 1, 1) : FastBoat.steady(b, w, this.p.twa); this.fs = FastBoat.forces(b, w, this.p.twa, this.vs); }
+  forces(v = this.v) { return FastBoat.forces(this.b, this.p.tws * KN, this.p.twa, v); }
+  update(dt) {
+    const b = this.b, n = Math.max(1, Math.ceil(dt / 0.01)), h = dt / n;
+    for (let i = 0; i < n; i++) { const f = this.forces(); this.v = Math.max(0, this.v + (f.drive - f.res) / (b.m + b.madd) * h); }
+    this.t += dt; this.record();
+  }
+  record() {
+    const f = this.f = this.forces(), W = Math.max(this.p.tws, 0.1);
+    this.hist.push([this.t, this.v / KN / W, f.aws / KN / W, f.awa]);
+    while (this.hist.length > 2 && this.hist[0][0] < this.t - LOOP_WIN) this.hist.shift();
+  }
+  accel() { return (this.f.drive - this.f.res) / (this.b.m + this.b.madd); }
+  // Seen from above: the wind triangle at the mast and the sail force with its forward and sideways parts.
+  drawBoat(ctx, x0, y0, w, h, o = {}) {
+    const f = this.f, v = this.v / KN, W = this.p.tws, b = this.p.twa * D2R, aws = f.aws / KN;
+    const L = Math.min(h * 0.44, w * 0.36), bx = x0 + w * 0.44, by = y0 + h * 0.64;
+    const P = Boat.top(ctx, bx, by, L, 0);
+    const boom = boomFor(f.awa);
+    Boat.rigTop(ctx, P, L, -boom, -clamp(boom - 4, 6, 60));
+    const vt = [-W * Math.cos(b), -W * Math.sin(b)], vb = [-v, 0], va = [vt[0] + vb[0], vt[1] + vb[1]];
+    // scale the triangle to fit beside the boat and below the heading text
+    const mast = P(0.16 * L, 0), reach = Math.max(-va[0], -va[0] + vt[0], 0.1);
+    const sc = Math.min(Math.min(w * 0.46, h * 0.5) / Math.max(W, v, aws, 1), (mast[1] - y0 - 58) / reach);
+    const S = u => [u[1] * sc, -u[0] * sc], sa = S(va), st = S(vt), sbw = S(vb);
+    const start = [mast[0] - sa[0], mast[1] - sa[1]], mid = [start[0] + st[0], start[1] + st[1]], moving = v > 0.3;
+    const at = (p, q, t) => [lerp(p[0], q[0], t), lerp(p[1], q[1], t)];
+    Draw.arrow(ctx, start[0], start[1], mid[0], mid[1], C.env, { w: 3.5 });
+    if (moving) Draw.arrow(ctx, mid[0], mid[1], mid[0] + sbw[0], mid[1] + sbw[1], C.ink2, { w: 2.5, dash: [6, 4] });
+    Draw.arrow(ctx, start[0], start[1], mast[0], mast[1], C.hi, { w: 4 });
+    // labels at the middle of each arrow: the true wind above, boat wind to port, apparent wind to starboard
+    if (moving) {
+      const m1 = at(start, mid, 0.5), m3 = at(start, mast, 0.45);
+      Draw.text(ctx, `true ${fmt(W, 0)} kn`, m1[0], m1[1] - 10, { size: 11, color: C.env, align: 'center' });
+      const m2b = at(mid, mast, 0.25);
+      Draw.text(ctx, `boat ${fmt(v, 0)} kn`, m2b[0] - 8, m2b[1], { size: 11, color: C.ink2, align: 'right' });
+      Draw.text(ctx, `apparent ${fmt(aws, 0)} kn`, m3[0] + 8, m3[1], { size: 11, color: C.hi });
+    } else { const m3 = at(start, mast, 0.5); Draw.text(ctx, `true = apparent ${fmt(W, 0)} kn`, m3[0], m3[1] - 12, { size: 11, color: C.hi, align: 'center' }); }
+    // the sail force, drawn at a fixed length: its direction is what matters here
+    const F = Math.hypot(f.drive, f.side);
+    if (F > 1e-6) {
+      const ce = P(0.02 * L, -0.1 * L), Lf = L * 0.5, ux = -f.side / F, uy = -f.drive / F;
+      Draw.arrow(ctx, ce[0], ce[1], ce[0] + ux * Lf, ce[1], withAlpha(C.struct, 0.55), { w: 2, dash: [4, 3] });
+      Draw.arrow(ctx, ce[0], ce[1], ce[0], ce[1] + uy * Lf, withAlpha(C.ok, 0.85), { w: 2.5, dash: [4, 3] });
+      Draw.arrow(ctx, ce[0], ce[1], ce[0] + ux * Lf, ce[1] + uy * Lf, C.struct, { w: 3.5 });
+      Draw.text(ctx, 'sail force', ce[0] + ux * Lf - 6, ce[1] + uy * Lf + (uy < -0.9 ? -10 : 0), { size: 11, color: C.struct, align: 'right' });
+      Draw.text(ctx, `${fmt(Math.max(0, f.drive / F) * 100, 0)}% drive`, ce[0] + ux * Lf * 0.5, ce[1] + 16, { size: 11, color: C.ok, align: 'center' });
+    }
+    if (o.bare) return;
+    Draw.text(ctx, `${this.b.name} · ${fmt(v, 1)} kn = ${fmt(v / Math.max(W, 0.1), 2)}× the wind`, x0 + 10, y0 + 14, { size: 12 });
+    Draw.text(ctx, 'seen from above · bow up · wind from starboard', x0 + 10, y0 + 30, { size: 10, color: C.ink2 });
+    if (!this.b.yacht && !this.b.mu) Draw.text(ctx, f.foil > 0.5 ? 'foiling: hull clear of the water' : 'hull in the water', x0 + 10, y0 + h - 12, { size: 11, color: f.foil > 0.5 ? C.ok : C.ink2 });
+  }
+  drawCharts(ctx, x0, y0, w, h) {
+    const l = x0 + 34, cw = w - 46, nar = cw < 330, t0 = Math.max(0, this.t - LOOP_WIN), ymax = LOOP_YMAX[this.p.boat];
+    const xticks = []; for (let t = Math.ceil(t0 / 10) * 10; t <= t0 + LOOP_WIN; t += 10) xticks.push(t);
+    // speed ratio
+    const top1 = y0 + 24, h1 = h * 0.5 - 44;
+    const yt = ymax <= 2 ? [0, 0.5, 1, 1.5] : Array.from({ length: ymax + 1 }, (_, i) => i);
+    const A = Draw.chart(ctx, l, top1, cw, h1, { xmin: t0, xmax: t0 + LOOP_WIN, ymin: 0, ymax, xticks, yticks: yt, ylabel: nar ? 'speed ÷ wind' : 'speed ÷ true wind speed', yfmt: v => v + '×' });
+    const cl = (y, a, b) => clamp(y, a, b);
+    Draw.line(ctx, [[l, A.Y(1)], [l + cw, A.Y(1)]], C.env, 1.5, [6, 4]);
+    Draw.text(ctx, 'true wind speed', l + cw - 4, A.Y(1) - 8, { size: 10, align: 'right', color: C.env });
+    const vs = this.vs / KN / this.p.tws;
+    if (vs > 0.02) { Draw.line(ctx, [[l, A.Y(cl(vs, 0, ymax))], [l + cw, A.Y(cl(vs, 0, ymax))]], withAlpha(C.accent, 0.5), 1, [2, 4]); }
+    Draw.line(ctx, this.hist.map(p => [A.X(p[0]), A.Y(cl(p[2], 0, ymax))]), C.hi, 1.8);
+    Draw.line(ctx, this.hist.map(p => [A.X(p[0]), A.Y(cl(p[1], 0, ymax))]), C.accent, 2.8);
+    Draw.text(ctx, 'boat', l + cw, top1 - 10, { size: 10, align: 'right', color: C.accent });
+    Draw.text(ctx, 'apparent wind ·', l + cw - 30, top1 - 10, { size: 10, align: 'right', color: C.hi });
+    // apparent wind angle
+    const top2 = y0 + h * 0.5 + 22, h2 = h * 0.5 - 52;
+    const B = Draw.chart(ctx, l, top2, cw, h2, { xmin: t0, xmax: t0 + LOOP_WIN, ymin: 0, ymax: 180, xticks, yticks: [0, 45, 90, 135, 180], xlabel: 'time (s)', ylabel: nar ? 'apparent wind angle' : 'apparent wind angle (° off the bow)', yfmt: v => v + '°' });
+    if (vs > 0.02) { const ya = B.Y(this.fs.awa); Draw.line(ctx, [[l, ya], [l + cw, ya]], withAlpha(C.hi, 0.6), 1, [2, 4]); Draw.text(ctx, `${this.fs.foil > 0.5 && this.f.foil < 0.5 ? (nar ? 'on foils' : 'on foils it would settle at') : (nar ? '' : 'settles at')} ${fmt(this.fs.awa, 0)}°`, l + cw - 4, ya - 8, { size: 10, align: 'right', color: C.ink2 }); }
+    Draw.line(ctx, this.hist.map(p => [B.X(p[0]), B.Y(p[3])]), C.hi, 2.5);
+  }
+  draw(ctx, w, h, o = {}) {
+    if (o.bare) { this.drawBoat(ctx, 0, 0, w, h, o); return; }
+    // phone width: boat above the charts on a tall canvas, or the charts alone on a wide one
+    if (w < 520) { if (h > w * 0.9) { this.drawBoat(ctx, 0, 0, w, h * 0.5); this.drawCharts(ctx, 0, h * 0.5, w, h * 0.5); } else this.drawCharts(ctx, 0, 0, w, h); return; }
+    const lw = w * 0.46;
+    this.drawBoat(ctx, 0, 0, lw, h);
+    this.drawCharts(ctx, lw, 0, w - lw, h);
+  }
+}
+
+INIT.push(() => {
+  const b = bench('exp-loop'), sim = new LoopSim();
+  const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const describe = () => {
+    const f = sim.f, v = sim.v / KN, W = sim.p.tws, vs = sim.vs / KN, F = Math.hypot(f.drive, f.side), fwd = F > 0 ? Math.max(0, f.drive / F) : 0;
+    const settled = Math.abs(sim.accel()) < 0.01;
+    let msg;
+    if (v < 0.3) msg = 'At rest the boat feels only the true wind. Press Play.';
+    else if (settled && vs > v * 1.4 + 1) msg = `<strong>Stuck below take-off.</strong> The hull's drag in the water has stopped the loop at ${fmt(v, 1)} knots, though ${fmt(vs, 0)} knots is possible once foiling. Head up towards a beam reach for more drive, wait for a gust or add wind; once foiling you can bear away again.`;
+    else if (!settled && f.drive > f.res) msg = `<strong>The loop is running.</strong> More speed has made a stronger apparent wind (${fmt(f.aws / KN, 1)} knots, ${fmt(f.aws / KN / W, 1)}× the true wind), which makes more force, which makes more speed. But the apparent wind is also swinging ahead, to ${fmt(f.awa, 0)}° off the bow, so only ${fmt(fwd * 100, 0)}% of the sail force now points forward.`;
+    else msg = `<strong>The loop has closed.</strong> The apparent wind is ${fmt(f.awa, 0)}° off the bow; only ${fmt(fwd * 100, 0)}% of the sail force points forward, and that just balances the drag. ${v > W ? `The boat is sailing at ${fmt(v / W, 1)} times the speed of the wind.` : `The boat is slower than the wind: its drag in the water stopped the loop early.`}`;
+    if (f.capped) msg += ' The crew is depowering: the sails could pull harder than the boat\'s righting moment can hold.';
+    b.live(`<div class="readout">${[['Boat speed', `${fmt(v, 1)} kn`], ['Speed ÷ wind', `${fmt(v / W, 2)}×`], ['Apparent wind', `${fmt(f.aws / KN, 0)} kn at ${fmt(f.awa, 0)}°`], ['Force pointing forward', fmt(fwd * 100, 0) + '%']].map(([k, x]) => `<div><span>${k}</span><b>${x}</b></div>`).join('')}</div><p>${msg}</p>`);
+  };
+  const loop = new Loop({ update: dt => sim.update(dt), render: () => { stage.redraw(); describe(); }, speed: 2 }).observe(b.canvas);
+  choice(b.controls, { id: 'lp-boat', label: 'Boat', value: 'ac', options: [['keel', 'Keelboat'], ['moth', 'Moth'], ['ac', 'AC75-style'], ['ice', 'Iceboat']], onChange: v => { sim.p.boat = v; sim.reset(); loop.render(); } });
+  slider(b.controls, { id: 'lp-tws', label: 'True wind speed', min: 4, max: 25, step: 1, value: 12, fmt: v => v + ' kn', onInput: v => { sim.p.tws = v; sim.retarget(); sim.record(); loop.render(); } });
+  slider(b.controls, { id: 'lp-twa', label: 'True wind angle (steer while it runs)', min: 40, max: 180, step: 1, value: 100, fmt: v => v + '°', onInput: v => { sim.p.twa = v; sim.retarget(); sim.record(); loop.render(); } });
+  transport(b.controls, loop, { onReset: () => sim.reset(), speeds: [1, 2, 4] });
+  loop.render();
+});
+
+/* ---- 16.3 Faster than the wind upwind and downwind: speed ratio polars ---- */
+class RatioPolarSim {
+  constructor(p = {}) { this.p = Object.assign({ boat: 'ac', tws: 12, cmp: true }, p); }
+  calc() { return FastBoat.polar(FAST_BOATS[this.p.boat], this.p.tws); }
+  draw(ctx, w, h) {
+    const r = this.calc(), rmax = Math.max(1.5, Math.ceil(r.mx.r + 0.4));
+    const cx = w * 0.08, cy = h * 0.5, R = Math.min(w * 0.78, h * 0.42), sc = R / rmax;
+    const P = (a, v) => [cx + Math.sin(a * D2R) * v * sc, cy - Math.cos(a * D2R) * v * sc];
+    ctx.save(); ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+    for (let k = rmax <= 2 ? 0.5 : 1; k <= rmax; k += rmax <= 2 ? 0.5 : 1) { ctx.beginPath(); ctx.arc(cx, cy, k * sc, -Math.PI / 2, Math.PI / 2); ctx.stroke(); Draw.text(ctx, k + '×', cx + 4, cy - k * sc + 10, { size: 10, color: C.ink3, halo: false, weight: 400 }); }
+    for (let a = 0; a <= 180; a += 30) { const e = P(a, rmax); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(e[0], e[1]); ctx.stroke(); const t = P(a, rmax + 0.08 * rmax + 0.1); if (a > 0) Draw.text(ctx, a + '°', t[0], t[1], { size: 10, color: C.ink3, align: 'center', halo: false, weight: 400 }); }
+    ctx.restore();
+    // the wind's own speed: as a circle (boat speed) and as two lines (VMG straight up or down wind)
+    ctx.save(); ctx.strokeStyle = C.env; ctx.lineWidth = 1.5; ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.arc(cx, cy, sc, -Math.PI / 2, Math.PI / 2); ctx.stroke(); ctx.restore();
+    [1, -1].forEach(s => { Draw.line(ctx, [[cx, cy - s * sc], [cx + R + 10, cy - s * sc]], withAlpha(C.env, 0.7), 1, [2, 4]); Draw.text(ctx, `VMG = wind speed ${s > 0 ? 'upwind' : 'downwind'}`, cx + R + 14, cy - s * sc, { size: 10, color: C.env }); });
+    Draw.arrow(ctx, cx, cy - R - 34, cx, cy - R - 8, C.env, { w: 3.5, label: 'true wind', lx: 8, ly: -10, size: 11 });
+    if (this.p.cmp && this.p.boat !== 'keel') {
+      const k = FastBoat.polar(FAST_BOATS.keel, this.p.tws);
+      Draw.line(ctx, k.pts.map(([a, v]) => P(a, v)), withAlpha(C.ink3, 0.8), 1.5);
+      const lp = P(75, interp(k.pts, 75)); Draw.text(ctx, 'keelboat', lp[0] + 6, lp[1] - 6, { size: 10, color: C.ink3 });
+    }
+    Draw.line(ctx, r.pts.map(([a, v]) => P(a, v)), C.accent, 3);
+    const mark = (pt, y, lbl, below) => {
+      Draw.line(ctx, [[cx, y], [Math.min(w - 4, pt[0] + 40), y]], withAlpha(C.hi, 0.9), 1.5, [5, 4]);
+      ctx.fillStyle = C.hi; ctx.beginPath(); ctx.arc(pt[0], pt[1], 5, 0, TAU); ctx.fill();
+      Draw.text(ctx, lbl, Math.min(pt[0] + 10, w - 180), y + (below ? 14 : -10), { size: 11, color: C.hi });
+    };
+    mark(P(r.up.twa, r.up.r), cy - r.up.vmg * sc, `best upwind ${r.up.twa}° · VMG ${fmt(r.up.vmg, 2)}×`, false);
+    mark(P(r.dn.twa, r.dn.r), cy + r.dn.vmg * sc, `best downwind ${r.dn.twa}° · VMG ${fmt(r.dn.vmg, 2)}×`, true);
+    const mp = P(r.mx.twa, r.mx.r);
+    ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(mp[0], mp[1], 5, 0, TAU); ctx.fill();
+    Draw.text(ctx, `top ${fmt(r.mx.r, 1)}×`, Math.min(mp[0] + 8, w - 60), mp[1], { size: 11, color: C.accent });
+    Draw.text(ctx, `${FAST_BOATS[this.p.boat].name} · ${this.p.tws} kn true wind`, w - 10, 14, { size: 12, align: 'right', color: C.accent });
+    Draw.text(ctx, 'boat speed ÷ true wind speed', w - 10, 30, { size: 10, align: 'right', color: C.ink2 });
+  }
+}
+
+INIT.push(() => {
+  const b = bench('exp-ftw'), sim = new RatioPolarSim();
+  const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const describe = () => {
+    const r = sim.calc(), W = sim.p.tws, cmp = (x, what) => x > 1.02 ? `<strong>faster than the wind</strong> ${what}` : x > 0.98 ? `about as fast as the wind ${what}` : `slower than the wind ${what}`;
+    const aw = apparentWind(W, r.dn.twa, r.dn.r * W);
+    b.live(`<div class="readout">${[['Top speed', `${fmt(r.mx.r * W, 1)} kn · ${fmt(r.mx.r, 1)}×`], ['Upwind VMG', `${fmt(r.up.vmg * W, 1)} kn · ${fmt(r.up.vmg, 1)}×`], ['Downwind VMG', `${fmt(r.dn.vmg * W, 1)} kn · ${fmt(r.dn.vmg, 1)}×`], ['Apparent wind downwind', `${fmt(aw.aws, 0)} kn at ${fmt(aw.awa, 0)}°`]].map(([k, x]) => `<div><span>${k}</span><b>${x}</b></div>`).join('')}</div>
+      <p>Top speed comes at ${r.mx.twa}° to the true wind. Sailing at ${r.up.twa}°, it makes ${fmt(r.up.vmg * W, 1)} knots straight into the wind: ${cmp(r.up.vmg, 'itself')}. Gybing downwind at ${r.dn.twa}°, it is ${cmp(r.dn.vmg, 'blowing it')}, and on the way it feels a ${fmt(aw.aws, 0)}-knot wind from ${aw.awa < 90 ? 'ahead of' : 'behind'} the beam.</p>`);
+  };
+  const upd = () => { stage.redraw(); describe(); };
+  choice(b.controls, { id: 'ftw-boat', label: 'Boat', value: 'ac', options: [['keel', 'Keelboat'], ['moth', 'Moth'], ['ac', 'AC75-style'], ['ice', 'Iceboat']], onChange: v => { sim.p.boat = v; upd(); } });
+  slider(b.controls, { id: 'ftw-tws', label: 'True wind speed', min: 4, max: 25, step: 1, value: 12, fmt: v => v + ' kn', onInput: v => { sim.p.tws = v; upd(); } });
+  check(b.controls, { id: 'ftw-cmp', label: 'Show the keelboat for comparison', value: true, onChange: v => { sim.p.cmp = v; upd(); } });
+  describe();
+
+  predictions('#m16-predict', [
+    {
+      q: 'An AC75-style foiler is reaching at about 47 knots in a 12-knot true wind blowing from just behind the beam (105°). Where does the crew feel the wind coming from?',
+      opts: ['From just behind the beam, like the true wind', 'From behind, pushing the boat along', 'From almost dead ahead, about 15° off the bow'],
+      a: 2,
+      why: 'The boat\'s own 47-knot headwind dwarfs the 12-knot true wind, so the apparent wind comes from about 15° off the bow at about 46 knots. The sails are pulled in as tight as they would be close-hauled, even though the boat is sailing across the wind.',
+      caption: 'The wind triangle as the foiler speeds up from 0 to about 47 knots.',
+      aspect: '16/11', dur: 3,
+      make() { const s = new LoopSim({ boat: 'ac', tws: 12, twa: 105 }); return { set: t => { s.v = s.vs * easeInOut(t); s.f = s.forces(); }, draw: (c, w, h) => s.draw(c, w, h, { bare: true }) }; },
+    },
+    {
+      q: 'An iceboat can sail at five times the speed of the wind on a reach. Pointed dead downwind (180°) in 12 knots of wind, how fast can it go?',
+      opts: ['About 60 knots: it is the same wind', 'Just over 12 knots', 'Less than 12 knots'],
+      a: 2,
+      why: 'Running dead downwind, the apparent wind is the true wind minus the boat speed. As the boat approaches 12 knots the wind it feels falls towards zero, and so does the force. In the model it settles at about 7.7 knots. To beat the wind downwind, a fast boat must sail across it, at 130–150°, and gybe.',
+      caption: 'An iceboat accelerating from rest dead downwind in 12 knots of wind (3× speed).',
+      aspect: '16/10', dur: 12, stopAt: 12,
+      make() { const s = new LoopSim({ boat: 'ice', tws: 12, twa: 180 }); return { reset: () => s.reset(), update: dt => s.update(dt * 3), settle: () => { s.reset(s.vs); }, draw: (c, w, h) => s.draw(c, w, h) }; },
+    },
+    {
+      q: 'A foiling Moth sits in the water at about 6 knots on a broad reach (140°) in 12 knots of wind. It could foil at more than 20 knots on this heading, but it won\'t take off. What should the sailor do?',
+      opts: ['Bear away to a run, so the wind pushes harder', 'Head up to a beam reach until it lifts off, then bear away again', 'Ease the sail right out'],
+      a: 1,
+      why: 'On a broad reach the apparent wind weakens as the boat speeds up, so the drive can\'t overcome the hull\'s drag hump. Heading up gives a stronger apparent wind and a force pointing further forward; the boat lifts onto its foils, the drag falls, and the loop runs. Once foiling, it can bear away and keep its speed, because now its apparent wind stays well forward.',
+      caption: 'Moth in 12 knots: at 140°, then up to 105°, then back to 140° (3× speed).',
+      aspect: '16/10', dur: 12, stopAt: 12,
+      make() {
+        const s = new LoopSim({ boat: 'moth', tws: 12, twa: 140 });
+        const steer = () => { const a = s.t < 8 ? 140 : s.t < 24 ? 105 : 140; if (a !== s.p.twa) { s.p.twa = a; s.retarget(); } };
+        return { reset: () => { s.p.twa = 140; s.reset(); }, update: dt => { steer(); s.update(dt * 3); }, settle: () => { s.p.twa = 140; s.reset(); for (let i = 0; i < 720; i++) { steer(); s.update(0.05); } }, draw: (c, w, h) => s.draw(c, w, h) };
+      },
+    },
+  ]);
+});
+
 /* ===================== Case study: one day sail ===================== */
 // Chart sketch in nautical miles: x east, y north. The wind blows from the north (000°).
 const CASE_PTS = { A: [0, 0], B: [0, 4], C: [1.6, 5.0] };
@@ -7042,8 +7479,8 @@ function drawHero(ctx, w, h, t) {
 const MODULE_PATH = {
   m1: [[], ['m3', 'm4', 'm7']], m2: [[], ['m4', 'm11', 'm12']], m3: [['m1'], ['m4', 'm5', 'm9']], m4: [['m1', 'm3'], ['m5', 'm6', 'm11']],
   m5: [['m3', 'm4'], ['m6', 'm7', 'm9']], m6: [['m4', 'm5'], ['m7', 'm10']], m7: [['m1', 'm5', 'm6'], ['m8', 'm11', 'm12']], m8: [['m1', 'm7'], ['m9']],
-  m9: [['m5', 'm8'], ['m10', 'm13']], m10: [['m6', 'm9'], ['case']], m11: [['m4', 'm7'], ['m12']], m12: [['m7', 'm11'], ['case']], m13: [['m3', 'm9'], ['case']], m14: [['m3', 'm5', 'm7', 'm9'], ['case']],
-  m15: [['m6', 'm8', 'm10'], ['case']],
+  m9: [['m5', 'm8'], ['m10', 'm13', 'm16']], m10: [['m6', 'm9'], ['case']], m11: [['m4', 'm7'], ['m12']], m12: [['m7', 'm11'], ['case']], m13: [['m3', 'm9'], ['case']], m14: [['m3', 'm5', 'm7', 'm9'], ['case']],
+  m15: [['m6', 'm8', 'm10'], ['case']], m16: [['m3', 'm4', 'm8', 'm9'], []],
 };
 function modulePaths() {
   const name = id => { const a = $(`.toc a[href="#${id}"]`); return a ? `${MODULE_NAMES[id] || ''}${MODULE_NAMES[id] ? ' · ' : ''}${$$('span', a).pop().textContent}` : id; };
