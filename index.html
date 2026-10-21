@@ -470,7 +470,7 @@ html.fs-locked { overflow: hidden; }
 .anat-svg .dim { stroke: var(--ink-3); stroke-width: 1.2; }
 .anat-svg .cl { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 5 6; }
 .anat-svg .mark { fill: var(--ink); stroke: var(--surface); stroke-width: 2; }
-.anat-svg .windar { stroke: var(--env); stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.anat-svg .windar { stroke: var(--env); stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; } .anat-svg .windar.aw { stroke: var(--hi); } .anat-svg text.dir.aw { fill: var(--hi); }
 .anat-svg .sidew { fill: var(--env); opacity: .08; }
 .anat-svg .sidel { fill: var(--hi); opacity: .08; }
 .anat-svg .sidearrow { stroke: var(--ink-2); stroke-width: 2.5; fill: none; }
@@ -1047,7 +1047,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
       </div>
       <div class="exp-side">
         <div class="controls"></div>
-        <div class="look"><b>Look for</b>Close-hauled the heeling force is about three times the driving force. Bear away: the total force swings forward, heel falls and speed rises, peaking on a beam to broad reach. On a dead run the total force is all drive, but the apparent wind is so weak that the boat slows again.</div>
+        <div class="look"><b>Look for</b>Close-hauled the heeling force is about three times the driving force. Bear away: the total force swings forward, heel falls and speed rises, peaking between a beam reach and a broad reach. On a dead run the total force is all drive, but the apparent wind is so weak that the boat slows again.</div>
         <div class="live" aria-live="polite"></div>
       </div>
       <figcaption class="exp-foot"><span><b>Model:</b> the guide's reference 10 m sloop (5 t, 56 m² of main and jib, no spinnaker), trimmed for best speed. At each heading the boat speed, apparent wind, heel and leeway are solved together so that the sails' driving force equals the hull's resistance and the heeling moment equals the righting moment (the velocity prediction method of Module 9). Steady wind, flat water.</span></figcaption>
@@ -1919,6 +1919,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
     <div class="cards">
       <div class="card"><h4>"Tack"</h4><span class="unit">three meanings</span><p><strong>The <button class="t" type="button" data-t="tack-corner">tack</button></strong>: the front lower corner of a sail. <strong>To <button class="t" type="button" data-t="tack-manoeuvre">tack</button></strong>: turn the bow through the wind. <strong><button class="t" type="button" data-t="tack-side">Starboard or port tack</button></strong>: which side the wind comes over. So "on starboard tack, tack" means: you have the wind on the starboard side, now turn through it.</p></div>
       <div class="card"><h4>"Luff"</h4><span class="unit">edge, flap, turn</span><p><strong>The <button class="t" type="button" data-t="luff">luff</button></strong>: the front edge of a sail. <strong>The sail luffs</strong>: its front flaps because it is too far out or the boat is too close to the wind. <strong>To luff up</strong>: to <button class="t" type="button" data-t="head-up">head up</button>, turning towards the wind. Close cousin: <button class="t" type="button" data-t="feathering">feathering</button>, sailing just on the edge of luffing.</p></div>
+      <div class="card"><h4>"Beam"</h4><span class="unit">a width and a direction</span><p><strong>The <button class="t" type="button" data-t="beam">beam</button></strong>: the boat's width at its widest. <strong><button class="t" type="button" data-t="abeam">Abeam</button></strong>, or on the beam: straight out to the side, 90° off the bow; forward of the beam is ahead of that, abaft the beam behind it. A <button class="t" type="button" data-t="beam-reach">beam reach</button> has the true wind abeam, and the apparent wind well forward of it.</p></div>
       <div class="card"><h4>"Head"</h4><span class="unit">and "header"</span><p><strong>The <button class="t" type="button" data-t="head">head</button></strong> of a sail is its top corner (and also the boat's toilet). <strong>To head up</strong> is to turn towards the wind. <strong>A <button class="t" type="button" data-t="header">header</button></strong> is a wind shift that makes you bear away.</p></div>
       <div class="card"><h4>"Sheet"</h4><span class="unit">a rope, not a sail</span><p>A <button class="t" type="button" data-t="sheet">sheet</button> controls a sail's angle. A <button class="t" type="button" data-t="halyard">halyard</button> hoists it. "Three sheets to the wind" is about loose ropes, not sails.</p></div>
       <div class="card"><h4>Tack, gybe, broach</h4><span class="unit">turning</span><p><button class="t" type="button" data-t="tack-manoeuvre">Tack</button>: bow through the wind. <button class="t" type="button" data-t="gybe">Gybe</button>: stern through the wind. <button class="t" type="button" data-t="broach">Broach</button>: an unintended, uncontrolled turn towards the wind. <button class="t" type="button" data-t="heave-to">Heave to</button>: a deliberate stop.</p></div>
@@ -3373,6 +3374,15 @@ const Boat = {
     ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(mp[0], mp[1], 3.2, 0, TAU); ctx.fill();
     return { main, jib, mast: mp, boomEnd: m.clew };
   },
+  // Apparent wind arrow aimed at the mast, from awa degrees off the bow (+ = from starboard), labelled at its tail.
+  // gap: how far short of the mast it stops; len: its length (both in boat lengths).
+  awArrow(ctx, P, L, awa, o = {}) {
+    const a = awa * D2R, gap = (o.gap !== undefined ? o.gap : 0.12) * L, len = (o.len || 0.7) * L, mx = 0.16 * L;
+    const head = P(mx + Math.cos(a) * gap, Math.sin(a) * gap), tail = P(mx + Math.cos(a) * (gap + len), Math.sin(a) * (gap + len));
+    Draw.arrow(ctx, tail[0], tail[1], head[0], head[1], C.hi, { w: o.w || 3.5 });
+    if (o.label !== '') Draw.text(ctx, o.label || 'apparent wind', tail[0] + (o.lx || 0), tail[1] + (o.ly !== undefined ? o.ly : -10), { size: o.size || 11, color: C.hi, align: o.align || 'center' });
+    return { head, tail };
+  },
   // Stern (astern) view of a heeled hull section with keel, mast and sails. Heel deg > 0 leans to starboard (right).
   // cx, cy: screen point of the waterline at the centreline; s: px per metre.
   stern(ctx, cx, cy, s, heel, o = {}) {
@@ -3496,7 +3506,8 @@ const GLOSSARY = {
   'freeboard': ['Freeboard', 'Height of the deck edge above the water. More freeboard keeps the deck drier and lets the boat heel further before the deck edge goes under.', 'm7'],
   'draft': ['Draft (draught)', 'Depth of the deepest point of the boat (usually the keel) below the waterline: how much water it needs to float.', 'm2'],
   'sail-draft': ['Draft (of a sail)', 'The depth of a sail\'s curve, or the position of its deepest point, as a fraction of the chord. Same word as the boat\'s depth below water, different meaning.', 'm11'],
-  'beam': ['Beam', 'The width of the boat at its widest point.', 'm2'],
+  'beam': ['Beam', 'The width of the boat at its widest point. The same word is also a direction: see abeam.', 'm2'],
+  'abeam': ['Abeam (the beam as a direction)', 'Straight out to the side of the boat, at right angles to the centreline: 90° off the bow. Forward of the beam is between there and the bow; abaft (aft of) the beam is between there and the stern. On a beam reach the true wind is abeam, but the apparent wind is well forward of the beam.', 'm2'],
   'loa': ['LOA, LWL', 'Length overall (tip to tail) and length on the waterline. LWL sets the hull speed.', 'm2'],
   'sloop': ['Sloop', 'A sailing boat with one mast carrying a mainsail and one headsail. The most common rig.', 'm2'],
   'cutter': ['Cutter', 'A single-masted boat with two headsails set one behind the other.', 'm2'],
@@ -3701,7 +3712,7 @@ const GLOSS_ALIAS = {
   'chainplate': ['chainplates?'], 'halyard': ['halyards?'], 'sheet': ['sheets'], 'mainsheet': ['mainsheet'], 'traveller': ['traveller'], 'vang': ['vang', 'kicker'],
   'outhaul': ['outhaul'], 'cunningham': ['cunningham'], 'jib-car': ['jib cars?', 'fairleads?'], 'winch': ['winch(es)?'], 'mainsail': ['mainsail', 'the main'], 'jib': ['jibs?', 'headsails?'],
   'genoa': ['genoas?'], 'spinnaker': ['spinnakers?'], 'gennaker': ['gennakers?', 'asymmetric spinnakers?'], 'spinnaker-pole': ['spinnaker poles?'], 'topping-lift': ['topping lifts?'], 'clew': ['clew'], 'luff': ['luff'], 'leech': ['leech'], 'battens': ['battens?'], 'roach': ['roach'],
-  'telltales': ['telltales?'], 'windward': ['windward'], 'leeward': ['leeward'], 'freeboard': ['freeboard'], 'beam': ['beam'], 'loa': ['LWL', 'waterline length'],
+  'telltales': ['telltales?'], 'windward': ['windward'], 'leeward': ['leeward'], 'freeboard': ['freeboard'], 'beam': ['beam'], 'abeam': ['abeam', 'on the beam', '(forward|abaft|aft) of (the )?beam', '(forward|abaft) the beam'], 'loa': ['LWL', 'waterline length'],
   'sloop': ['sloops?'], 'catamaran': ['catamarans?'], 'dinghy': ['dinghy', 'dinghies'], 'keelboat': ['keelboats?'],
   'true-wind': ['true wind'], 'apparent-wind': ['apparent wind'], 'boat-wind': ['boat wind', 'induced wind'], 'twa': ['TWA', 'AWA'], 'tws': ['TWS', 'AWS'], 'wind-gradient': ['wind gradient', 'wind shear'],
   'twist': ['twist(ed)?'], 'gust': ['gusts?', 'lulls?', 'puffs?'], 'beaufort': ['Beaufort'],
@@ -3746,6 +3757,7 @@ const FAMILIES = [
   ['t14-3', '14.3', 'the word "tack"', ['tack-corner', 'tack-manoeuvre', 'tack-side']],
   ['t14-3', '14.3', 'turning the boat', ['tack-manoeuvre', 'gybe', 'head-up', 'broach', 'heave-to']],
   ['t14-3', '14.3', 'the word "luff"', ['luff', 'head-up', 'feathering']],
+  ['t14-3', '14.3', 'the word "beam"', ['beam', 'abeam', 'beam-reach']],
   ['t14-4', '14.4', 'leaning over', ['heel', 'list', 'knockdown', 'capsize']],
   ['t14-4', '14.4', 'stability', ['gm', 'gz', 'gz-curve', 'avs', 'form-stability', 'ballast-stability', 'inverted-stability']],
   ['t14-5', '14.5', 'lines and wires', ['sheet', 'halyard', 'shrouds', 'forestay', 'backstay', 'standing-rigging', 'running-rigging']],
@@ -3897,15 +3909,16 @@ const GF = (() => {
   });
 
   /* 5. Directions from above */
-  add(['bow', 'stern', 'port', 'starboard', 'windward', 'leeward', 'beam', 'heading'], k => {
-    const hull = 'M120,14Q140,38 139,78L133,106L107,106L101,78Q100,38 120,14Z';
+  add(['bow', 'stern', 'port', 'starboard', 'windward', 'leeward', 'beam', 'abeam', 'heading'], k => {
+    const hull = 'M120,14Q140,38 139,78L133,106L107,106L101,78Q100,38 120,14Z', ab = on(k, 'abeam');
     let o = R(146, 10, 90, 100, on(k, 'windward') ? 'hfz' : 'band') + R(4, 10, 90, 100, on(k, 'leeward') ? 'hfz' : 'band2');
-    [30, 60, 90].forEach(y => { o += A(232, y, 200, y, 'en'); });
-    o += T(216, 22, 'wind', 'ent');
+    // apparent wind from about 40° off the starboard bow, what the close-hauled boom is trimmed to
+    if (!ab) { [14, 44, 74].forEach(y => { o += A(232, y, 213, y + 23, 'aw'); }); o += T(150, 22, 'apparent wind', 'awt', 'start'); }
+    else o += A(139, 76, 234, 76, 'hl') + T(188, 71, 'abeam (90°)', 'hlt') + T(188, 40, 'forward of', 'hlt') + T(188, 51, 'the beam', 'hlt') + T(188, 88, 'abaft the beam', 'hlt');
     o += P(hull, 'h') + L(120, 36, 96, 84, 'mast thin') + O(120, 36, 2, 'dot');
     if (on(k, 'heading')) o += A(120, 14, 120, 2, 'hl') + T(126, 8, 'heading: where the bow points', 'hlt', 'start');
     o += T(120, 11, 'bow', ht(on(k, 'bow'))) + T(120, 116, 'stern', ht(on(k, 'stern')));
-    o += T(100, 64, 'port', ht(on(k, 'port')), 'end') + T(140, 64, 'starboard', ht(on(k, 'starboard')), 'start');
+    o += T(100, 64, 'port', ht(on(k, 'port')), 'end') + (ab ? '' : T(140, 64, 'starboard', ht(on(k, 'starboard')), 'start'));
     o += T(190, 104, 'windward', ht(on(k, 'windward'))) + T(48, 104, 'leeward', ht(on(k, 'leeward')));
     if (on(k, 'beam')) o += Hd(101, 139, 76, 'beam', 'hl', 'hlt');
     if (on(k, 'port', 'starboard')) o += T(120, 92, 'looking forward', 'hlt');
@@ -3917,7 +3930,7 @@ const GF = (() => {
     const stall = on(k, 'stall', 'separation');
     let o = '';
     [24, 40, 92, 106].forEach((y, i) => { o += P(`M4,${y}C70,${y}${' '}${i < 2 ? 100 : 110},${y + (i < 2 ? -8 : -4)} 236,${y + (i < 2 ? 4 : 2)}`, 'flow'); });
-    o += A(4, 64, 30, 64, 'en') + T(6, 58, 'wind', 'ent', 'start');
+    o += A(4, 64, 30, 64, 'aw') + T(6, 58, 'apparent', 'awt', 'start') + T(6, 78, 'wind', 'awt', 'start');
     if (on(k, 'upwash')) o += P('M4,52C40,52 50,46 64,44', 'hl') + T(30, 42, 'upwash', 'hlt');
     if (on(k, 'slot')) o += P('M20,74Q40,60 58,70', 'sailc') + T(30, 84, 'jib', 'hlt') + T(60, 86, 'slot', 'hlt');
     o += P('M60,60Q120,34 200,74', on(k, 'foil') ? 'hlthick' : 'sailc');
@@ -4933,8 +4946,13 @@ const Anat = (() => {
     s += P('jib', 'sailtop', `M${bowP[0]},${bowP[1]}Q${bowP[0] - 55},${bowP[1] + 90} ${f(bowP[0] - 52)},${f(bowP[1] + 0.33 * Lb)}`);
     s += O('mast', 'fit', mast[0], mast[1], 6);
     // wind
-    let w = ''; [-120, -40, 40, 120].forEach(dy => { w += `<path class="windar" d="M1060,${cy + dy}L890,${cy + dy}M902,${cy + dy - 8}L890,${cy + dy}L902,${cy + dy + 8}"/>`; });
-    s += w + T(975, cy - 150, 'WIND', 'dir');
+    // apparent wind, from about 40° off the starboard bow: what a close-hauled boom (22°) is trimmed to
+    const wa = 40 * D2R, ux = -Math.sin(wa), uy = Math.cos(wa), px = -uy, py = ux;
+    let w = ''; [-150, -70, 10, 90].forEach(dy => {
+      const x0 = 1040, y0 = cy + dy - 60, x1 = x0 + ux * 170, y1 = y0 + uy * 170, hx = x1 - ux * 12, hy = y1 - uy * 12;
+      w += `<path class="windar aw" d="M${f(x0)},${f(y0)}L${f(x1)},${f(y1)}M${f(hx + px * 8)},${f(hy + py * 8)}L${f(x1)},${f(y1)}L${f(hx - px * 8)},${f(hy - py * 8)}"/>`;
+    });
+    s += w + T(960, cy - 250, 'APPARENT WIND', 'dir aw');
     // sides (shaded bands)
     s += grp('windward', `<rect class="sidew" x="${cx + 70}" y="${cy - 200}" width="160" height="400"/>`) + grp('leeward', `<rect class="sidel" x="${cx - 230}" y="${cy - 200}" width="160" height="400"/>`);
     s += grp('starboard', `<path class="sidearrow" d="M${cx + 60},${cy + 30}L${cx + 150},${cy + 30}M${cx + 140},${cy + 22}L${cx + 150},${cy + 30}L${cx + 140},${cy + 38}"/>`);
@@ -5378,6 +5396,7 @@ class FoilSim {
     const title = { attached: 'in the groove', luffing: 'luffing: pressure reversed, cloth backs in', flapping: 'flapping: no pressure difference left', stalled: ph.deep ? 'deep stall: flow leaves the luff' : 'stalling: luff still attached' }[r.state];
     Draw.text(ctx, 'Close-up of the luff · ' + title, 10, 16, { size: 11, color: r.state === 'attached' ? C.ok : C.bad });
     Draw.text(ctx, 'leeward ↑ · windward ↓', w - 10, h - 10, { size: 10, align: 'right', color: C.ink3 });
+    Draw.text(ctx, 'apparent wind →', 10, h - 10, { size: 10, color: C.hi });
   }
   draw(ctx, w, h) {
     const r = this.r, ph = this.phase(), s = Math.min(w / 10.5, h / 6), cx = w * 0.47, cy = h * 0.54;
@@ -5437,7 +5456,8 @@ class FoilSim {
     Draw.arrow(ctx, ce[0], ce[1], ce[0], ce[1] - r.cl * k, C.struct, { w: 3.5, label: `lift ${fmt(r.cl, 2)}`, lx: -8, ly: 0, align: 'right', size: 11 });
     Draw.arrow(ctx, ce[0], ce[1], ce[0] + r.cd * k, ce[1], C.weight, { w: 3.5, label: `drag ${fmt(r.cd, 2)}`, lx: 4, ly: 14, size: 11 });
     Draw.arrow(ctx, ce[0], ce[1], ce[0] + r.cd * k, ce[1] - r.cl * k, C.ink, { w: 2, dash: [5, 4], label: 'total', lx: 8, ly: -2, size: 11 });
-    Draw.text(ctx, 'apparent wind →', 10, 16, { size: 11, color: C.env });
+    Draw.text(ctx, 'apparent wind', 10, 16, { size: 11, color: C.hi });
+    Draw.arrow(ctx, 10, 30, 70, 30, C.hi, { w: 2.5, head: 8 });
     Draw.text(ctx, `α = ${fmt(this.p.alpha, 0)}° · ${r.state}`, w - 10, 16, { size: 12, align: 'right', color: r.state === 'attached' ? C.ok : C.bad });
     Draw.text(ctx, 'luff', le[0] - 6, le[1] + 14, { size: 10, align: 'right', color: C.ink3 });
     Draw.text(ctx, 'leech', te[0] + 6, te[1] + 12, { size: 10, color: C.ink3 });
@@ -5554,11 +5574,13 @@ class PosSim {
     const Lb = Rc * 0.72, P = Boat.top(ctx, cx, cy, Lb, hdg);
     if (this.nogo) {
       Boat.rigTop(ctx, P, Lb, 0, 0, { main: { luffing: true, phase: o.t || 0 }, jib: { luffing: true, phase: (o.t || 0) * 1.3 } });
+      Boat.awArrow(ctx, P, Lb, -sgn * p.twa, { label: o.bare ? '' : 'apparent ≈ true: stopped' });
       Draw.text(ctx, 'sails flapping: no drive', cx, cy + Rc * 0.55, { align: 'center', size: 12, color: C.bad });
       return;
     }
     const s = this.s, boom = boomFor(s.awaSail) * -sgn;
     Boat.rigTop(ctx, P, Lb, boom, boom * 0.85 + (boom > 0 ? -2 : 2));
+    Boat.awArrow(ctx, P, Lb, -sgn * s.awa, { label: o.bare ? '' : `apparent ${fmt(s.aws / KN, 0)} kn` });
     // sail force at the mast, split along and across the heading
     const kq = Rc * 0.95 / Math.max(1500, 0.5 * RHO_AIR * Math.pow(p.tws * KN * 1.45, 2) * REF_BOAT.p.sa * 1.4);
     const m0 = P(0.16 * Lb, 0), V = (x, y) => { const q = P(0.16 * Lb + x, y); return [q[0] - m0[0], q[1] - m0[1]]; };
@@ -5843,7 +5865,7 @@ class HelmSim {
     Draw.line(ctx, [rs, [rs[0] + Math.sin(-d) * il * 0.18 * -1, rs[1] + Math.cos(d) * il * 0.18]], r.delta > 0 ? C.accent : C.buoy, 4);
     const turn = r.M > 0 ? 1 : -1;
     if (Math.abs(r.delta) > 0.3) Draw.moment(ctx, ix, iy - il * 0.2, il * 0.32, turn > 0 ? -Math.PI * 0.3 : -Math.PI * 0.7, turn > 0 ? -Math.PI * 0.75 : -Math.PI * 0.25, C.bad, '');
-    Draw.text(ctx, 'wind →', ix + il * 0.3, iy - il * 0.62, { size: 10, color: C.env });
+    Boat.awArrow(ctx, P, il, -r.s.awa, { len: 0.45, w: 2.5, size: 10 });
     Draw.text(ctx, r.delta > 0.3 ? 'bow wants to turn into the wind' : r.delta < -0.3 ? 'bow wants to turn away' : 'balanced', ix, iy + il * 0.65, { align: 'center', size: 10, color: C.ink2 });
     Draw.text(ctx, `rudder ${fmt(Math.abs(r.delta), 1)}° ${r.delta > 0.3 ? 'weather helm' : r.delta < -0.3 ? 'lee helm' : ''}`, ix, iy + il * 0.65 + 16, { align: 'center', size: 11, color: Math.abs(r.delta) > 6 ? C.bad : C.ink });
     Draw.text(ctx, `heel ${fmt(r.s.heel, 0)}° · ${fmt(r.s.v / KN, 1)} kn`, 10, 14, { size: 11 });
@@ -6463,6 +6485,8 @@ class ManSim {
     const P = Boat.top(ctx, bx, by, Lb, this.hdg * D2R);
     const lu = A < 32;
     Boat.rigTop(ctx, P, Lb, this.boom, lu ? this.boom * 0.5 : this.boom * 0.85, { main: { luffing: lu, phase: this.t * 8 }, jib: { luffing: lu, phase: this.t * 9 } });
+    const aw = apparentWind(this.p.tws, A, this.v);
+    Boat.awArrow(ctx, P, Lb, Math.sign(this.twa() || 1) * aw.awa, { label: `apparent ${fmt(aw.aws, 0)} kn` });
     const tipSpeed = Math.abs(this.om) * D2R * BOOM_LEN;
     Draw.text(ctx, `${this.p.type === 'tack' ? 'Tack' : this.p.ctrl ? 'Controlled gybe' : 'Uncontrolled gybe'} · t = ${fmt(this.t, 1)} s`, w - 10, 14, { size: 12, align: 'right' });
     Draw.text(ctx, `${fmt(this.v, 1)} kn · TWA ${fmt(A, 0)}° · boom tip ${fmt(tipSpeed, 1)} m/s`, w - 10, 32, { size: 11, align: 'right', color: tipSpeed > 6 ? C.bad : C.ink2 });
@@ -7075,6 +7099,9 @@ class GlideSim {
     const bx = outcome.kind === 'short' ? endX : Math.min(D - b.reach, far);
     const P = Boat.top(ctx, cx, y0 - (bx - b.loa / 2) * s, b.loa * s, 0);
     Boat.rigTop(ctx, P, b.loa * s, 6, 3, { main: { luffing: true, phase: 1 }, jib: { luffing: true, phase: 2 } });
+    // head to wind, so the apparent wind is dead ahead: the true wind plus her own speed
+    const vHere = (hist.find(([x]) => x >= bx) || hist[hist.length - 1])[1];
+    Boat.awArrow(ctx, P, b.loa * s, 0, { gap: 0.42, len: 0.5, label: `apparent ${fmt(this.p.tws + vHere, 0)} kn`, align: 'left', lx: 10, ly: 4 });
     Draw.text(ctx, `luffed up ${this.p.luff} lengths (${fmt(D, 0)} m) short`, w - 10, 14, { size: 11, align: 'right', color: C.ink2 });
     Draw.text(ctx, `${b.name} · ${fmt(b.loa, 1)} m long`, w - 10, 32, { size: 11, align: 'right', color: C.ink2 });
   }
@@ -7311,7 +7338,8 @@ class LoopSim {
   draw(ctx, w, h, o = {}) {
     if (o.bare) { this.drawBoat(ctx, 0, 0, w, h, o); return; }
     // phone width: boat above the charts on a tall canvas, or the charts alone on a wide one
-    if (w < 520) { if (h > w * 0.9) { this.drawBoat(ctx, 0, 0, w, h * 0.5); this.drawCharts(ctx, 0, h * 0.5, w, h * 0.5); } else this.drawCharts(ctx, 0, 0, w, h); return; }
+    // narrow and tall (phones): boat above the charts; otherwise side by side, so the wind triangle never disappears
+    if (w < 520 && h > w * 0.9) { this.drawBoat(ctx, 0, 0, w, h * 0.5); this.drawCharts(ctx, 0, h * 0.5, w, h * 0.5); return; }
     const lw = w * 0.46;
     this.drawBoat(ctx, 0, 0, lw, h);
     this.drawCharts(ctx, lw, 0, w - lw, h);
@@ -7509,7 +7537,12 @@ INIT.push(() => {
       else Draw.line(ctx, [P(CASE_PTS[a]), P(CASE_PTS[b])], on ? C.accent : withAlpha(C.ink3, 0.6), on ? 3 : 1.5, on ? null : [5, 4]);
     });
     Object.entries({ A: 'harbour', B: 'headland', C: 'island' }).forEach(([k, n]) => { const q = P(CASE_PTS[k]); ctx.fillStyle = C.ink; ctx.beginPath(); ctx.arc(q[0], q[1], 5, 0, TAU); ctx.fill(); Draw.text(ctx, n, q[0] + 9, q[1] - 8, { size: 11 }); });
-    if (s.leg) { const [a, b] = CASE_LEGS[s.leg], m = [(CASE_PTS[a][0] + CASE_PTS[b][0]) / 2, (CASE_PTS[a][1] + CASE_PTS[b][1]) / 2], q = P(m), hd = Math.atan2(CASE_PTS[b][0] - CASE_PTS[a][0], CASE_PTS[b][1] - CASE_PTS[a][1]); Boat.top(ctx, q[0], q[1], sc * 0.45, s.leg === 'beat' ? -0.73 : hd, { cockpit: false }); }
+    if (s.leg) { const [a, b] = CASE_LEGS[s.leg], m = [(CASE_PTS[a][0] + CASE_PTS[b][0]) / 2, (CASE_PTS[a][1] + CASE_PTS[b][1]) / 2], q = P(m), hd = Math.atan2(CASE_PTS[b][0] - CASE_PTS[a][0], CASE_PTS[b][1] - CASE_PTS[a][1]); const hdg = s.leg === 'beat' ? -0.73 : hd, Lb = sc * 0.45, Pb = Boat.top(ctx, q[0], q[1], Lb, hdg, { cockpit: false });
+      // sails trimmed to the apparent wind on this leg (wind from the north; + = over the starboard side)
+      const tws = s.t === 'Beat' ? 12 : 18, twa = ((-hdg * R2D % 360) + 540) % 360 - 180, A = Math.abs(twa), sd = Math.sign(twa) || 1;
+      const v = s.leg === 'beat' ? polarSpeed(tws, A) : s.leg === 'reach' ? c.reachV : c.runV, aw = apparentWind(tws, A, v), boom = boomFor(aw.awa);
+      Boat.rigTop(ctx, Pb, Lb, -sd * boom, -sd * clamp(boom - 4, 6, 60));
+      Boat.awArrow(ctx, Pb, Lb, sd * aw.awa, { w: 2.5, len: 0.8, size: 10, label: `apparent ${fmt(aw.aws, 0)} kn`, align: 'right', lx: -6, ly: 4 }); }
     Draw.text(ctx, '1 nm', 14, h - 14, { size: 10, color: C.ink2 }); Draw.line(ctx, [[50, h - 14], [50 + sc, h - 14]], C.ink2, 2);
   }
   const show = i => {
