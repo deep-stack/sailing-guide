@@ -944,27 +944,31 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
     <h3><span class="tn">4.1</span>A sail is a wing: lift, drag and angle of attack</h3>
     <div class="prose">
       <p>A <button class="t" type="button" data-t="foil">foil</button> meeting a flow at a small <button class="t" type="button" data-t="angle-of-attack">angle of attack</button> turns the flow, and the flow pushes back. That push is split in two: <button class="t" type="button" data-t="lift">lift</button>, at right angles to the oncoming flow, and <button class="t" type="button" data-t="drag">drag</button>, along it. "Lift" on a sail is not upwards: it points sideways and somewhat forwards.</p>
-      <p>Lift grows roughly in proportion to the angle of attack, until the flow can no longer follow the curved leeward side and breaks away: the sail <button class="t" type="button" data-t="stall">stalls</button>, lift falls and drag soars. Sheet too far out instead and the front of the sail, the <button class="t" type="button" data-t="luff">luff</button>, is hit from the wrong side and flaps. Between the two is a narrow "groove" where the sail works best. <button class="t" type="button" data-t="telltales">Telltales</button>, strands of wool on both sides of the sail near the luff, show which side of the groove you are on.</p>
+      <p>From the deck, the angle of attack is the sail's angle to the <button class="t" type="button" data-t="apparent-wind">apparent wind</button>, the only wind it feels. The crew change it two ways: easing the sheet or heading up makes it smaller, trimming or bearing away makes it larger. The wind changes it too. A lull or a header swings the apparent wind forward and shrinks the angle without anyone touching a rope.</p>
+      <p>Lift grows roughly in proportion to the angle of attack, but only within a narrow "groove". The oncoming air splits in two at a dividing point near the front of the sail, the <button class="t" type="button" data-t="luff">luff</button>. In the groove that point sits right on the luff, and the air flows smoothly along both sides. Sheet in too far and the dividing point moves round onto the windward side: the air bound for the leeward side has to whip round the luff and then slow down again towards the back of the sail, and it breaks away. The sail <button class="t" type="button" data-t="stall">stalls</button>, lift falls and drag soars. Ease too far and the dividing point moves onto the leeward side: now the air bound for the windward side has to wrap round the luff, and it breaks away there instead.</p>
+      <p>Then the cloth gives way. A sail holds its curve only while the pressure on its windward side is higher than on its leeward side. As the angle shrinks, that pressure difference reverses first at the luff: the cloth there bubbles inwards, and near zero angle the whole sail flaps (it <em>luffs</em>). A rigid wing at the same angle would simply make less lift; a sail collapses. <button class="t" type="button" data-t="telltales">Telltales</button>, strands of wool on both sides of the sail near the luff, show which side of the groove you are on.</p>
     </div>
     <figure class="exp" id="exp-foil">
       <div class="exp-stage">
         <div class="exp-title"><h4>Sail section in the wind</h4><span class="tag qual">Flow exact when attached · forces indicative</span></div>
         <canvas style="aspect-ratio: 16/9" role="img" aria-label="A curved sail section with streamlines flowing past it, telltales on both sides of the luff, and lift and drag arrows."></canvas>
+        <canvas class="luffc" style="aspect-ratio: 16/6" role="img" aria-label="Close-up of the luff: where the oncoming air divides, the flow round each side of the luff, and the pressure either side of the cloth."></canvas>
         <canvas class="clc" style="aspect-ratio: 16/6" role="img" aria-label="Lift and drag coefficients against angle of attack, with the current angle marked."></canvas>
       </div>
       <div class="exp-side">
         <div class="controls"></div>
-        <div class="look"><b>Look for</b>Start at 12°: both telltales stream. Sheet out to 5°: the windward telltale lifts and the luff flaps. Sheet in to 30°: the leeward telltale spins, lift has fallen and drag has more than tripled. More depth moves the whole groove to larger angles and raises the peak lift.</div>
+        <div class="look"><b>Look for</b>Press <em>Sweep the angle</em> to sheet in slowly from flapping to a deep stall, and watch the close-up: the point where the air divides moves from the leeward side of the luff, onto the luff in the groove, then round to the windward side. Or set it by hand. Start at 12°: both telltales stream. Sheet out to 5°: the windward telltale lifts and the luff flaps. Sheet in past about 18°: the leech telltale curls first; by 30° the separation has reached the luff, the leeward telltale spins, lift has fallen and drag has more than tripled. More depth moves the whole groove to larger angles and raises the peak lift.</div>
         <div class="live" aria-live="polite"></div>
       </div>
-      <figcaption class="exp-foot"><span><b>Model:</b> the streamlines are exact two-dimensional potential flow around a circular-arc section (a Joukowski arc) with the flow leaving the trailing edge smoothly. Real flow separates; the stalled and luffing pictures are sketched on top. Lift and drag coefficients use thin-aerofoil lift reduced for a sail of aspect ratio 3, a stall angle that grows with depth, induced drag CL²/(π·AR) and a simple post-stall model: right in shape and size, not data for a real sail.</span></figcaption>
+      <figcaption class="exp-foot"><span><b>Model:</b> the streamlines are exact two-dimensional potential flow around a circular-arc section (a Joukowski arc) with the flow leaving the trailing edge smoothly. Real flow separates; the stalled and luffing pictures, the dividing point, the cloth and the close-up flows are sketched on top, placed by where the angle sits in the groove. Lift and drag coefficients use thin-aerofoil lift reduced for a sail of aspect ratio 3, a stall angle that grows with depth, induced drag CL²/(π·AR) and a simple post-stall model: right in shape and size, not data for a real sail.</span></figcaption>
     </figure>
     <div class="explain">
       <div class="why"><h4>Why it happens</h4>
         <p>A curved sail at a small angle bends the air around it. Bending a flow needs a pressure difference: lower pressure on the convex, leeward side, higher on the windward side. That pressure difference over the sail's area is the force. The air speeds up over the leeward side (where the pressure is low) and slows on the windward side, as <button class="t" type="button" data-t="bernoulli">Bernoulli's principle</button> says it must; and the air leaves the sail turned, as Newton's laws say it must when a force acts. Both descriptions are the same physics.</p>
+        <p>The stall comes from the second half of that journey. Past the lowest-pressure point the air must slow down again as the pressure rises back towards the leech. The air in a thin layer right against the cloth has been slowed by friction and has little momentum to spare; if the pressure rises too steeply, it stops, turns back and lifts the flow off the sail. More angle or more depth makes that rise steeper. On a deep sail the separation usually starts at the leech and creeps forward, which is what the leech telltales show (they stop streaming and curl behind the sail); Module 11 shows how twist and the <button class="t" type="button" data-t="vang">vang</button> keep the leech open. Push the angle further and the separation reaches the luff, and the leeward luff telltale spins.</p>
       </div>
       <div class="decision"><h4>On the water</h4>
-        <p>Trim (or steer) so that both luff telltales stream. Leeward telltale dancing: sail stalled, ease the sheet or head up. Windward telltale lifting: sail about to luff, sheet in or bear away. The rule for the jib: "steer towards the lifting telltale, or trim away from it".</p>
+        <p>Trim (or steer) so that both luff telltales stream. Leeward telltale dancing: sail stalled, ease the sheet or head up. Windward telltale lifting: sail about to luff, sheet in or bear away. The rule for the jib: "steer towards the lifting telltale, or trim away from it". You trim to the apparent wind, so a lull or a header lifts the windward telltale exactly as easing the sheet would.</p>
       </div>
       <div class="myth"><h4>Misconceptions</h4>
         <ul>
@@ -989,7 +993,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
     <div class="cards">
       <div class="card"><h4>Deep (12–16%)</h4><span class="unit">power</span><p>More lift, a wider groove, more forgiving to steer. Good in light air and chop, where the boat needs power to keep going.</p></div>
       <div class="card"><h4>Flat (6–9%)</h4><span class="unit">pointing · low heel</span><p>Less force and less drag, a narrow groove, can sail closer to the wind. Good when overpowered or in flat water.</p></div>
-      <div class="card"><h4>Draft position</h4><span class="unit">where the deepest point is</span><p>Forward (35–40% back from the luff) gives a rounder, more forgiving entry; aft (50%) gives a flatter entry that points higher but stalls more easily.</p></div>
+      <div class="card"><h4>Draft position</h4><span class="unit">where the deepest point is</span><p>Forward (35–40% back from the luff) gives a rounder, more forgiving entry; aft (50%) gives a flatter entry that points higher but stalls more easily, because the air then has to slow down over a shorter, steeper back half.</p></div>
     </div>
   </div>
 
@@ -2185,7 +2189,7 @@ footer.site { border-top: 1px solid var(--rule); margin-top: 40px; padding-block
       <p>The catch is the take-off. Below take-off speed the hull is still in the water, with its drag hump, and the loop may not have enough drive to climb over it. Sailors give it a kick: head up to a beam reach for the strongest drive, pump the sail, or wait for a gust. Once foiling, the boat can bear away and keep its speed, because now its own speed makes the apparent wind.</p>
     </div>
     <div class="cards">
-      <div class="card"><h4>Below take-off</h4><span class="unit">hull in the water</span><p>Drag grows with speed up to the hump. In 12 knots of wind on a broad reach, the model's Moth stalls at about 6.5 knots.</p></div>
+      <div class="card"><h4>Below take-off</h4><span class="unit">hull in the water</span><p>Drag grows with speed up to the hump. In 12 knots of wind on a broad reach, the model's Moth gets stuck at about 6.5 knots.</p></div>
       <div class="card"><h4>Take-off</h4><span class="unit">the loop breaks free</span><p>Heading up gives more drive; the hull lifts, drag drops, the boat accelerates, and the apparent wind swings forward.</p></div>
       <div class="card"><h4>Foiling</h4><span class="unit">drag ≈ weight ÷ 15–30</span><p>The same Moth on its foils sails at more than 20 knots on the same 140° heading where it was stuck at 6.5.</p></div>
     </div>
@@ -3475,7 +3479,7 @@ const GLOSSARY = {
   'head': ['Head', 'The top corner of a sail. (Also the boat\'s toilet.)', 'm2'],
   'tack-corner': ['Tack (corner)', 'The lower front corner of a sail.', 'm2'],
   'clew': ['Clew', 'The lower back corner of a sail, where the sheet attaches.', 'm2'],
-  'luff': ['Luff', 'The front edge of a sail. As a verb, to luff is for the sail\'s front edge to flap because it is not sheeted in enough, or to steer towards the wind.', 'm2'],
+  'luff': ['Luff', 'The front edge of a sail. As a verb, to luff is for the sail\'s front edge to flap because its angle to the apparent wind is too small (sheeted too far out, or steered too close to the wind): the pressure across the cloth reverses there and it bubbles inwards. It also means to steer towards the wind.', 'm2'],
   'leech': ['Leech', 'The back edge of a sail. Leech tension controls twist.', 'm2'],
   'foot': ['Foot', 'The bottom edge of a sail.', 'm2'],
   'battens': ['Battens', 'Thin stiffening strips in pockets across a sail, which support the roach and keep the leech from curling.', 'm2'],
@@ -3521,7 +3525,7 @@ const GLOSSARY = {
   'angle-of-attack': ['Angle of attack (α)', 'The angle between a foil\'s chord and the oncoming flow. Too small and a sail luffs; too large and it stalls.', 'm4'],
   'chord': ['Chord', 'The straight line from a foil\'s leading edge to its trailing edge, from luff to leech on a sail.', 'm4'],
   'camber': ['Camber (depth)', 'The curvature of a foil, measured as the maximum depth of the curve as a fraction of the chord. More camber makes more lift (and more drag).', 'm4'],
-  'stall': ['Stall', 'Flow separation from the back (leeward) side of a foil when the angle of attack is too large. Lift drops and drag rises sharply.', 'm4'],
+  'stall': ['Stall', 'Flow separation from the back (leeward) side of a foil when the angle of attack is too large: the air slowing down towards the trailing edge runs out of momentum near the surface and breaks away. Lift drops and drag rises sharply.', 'm4'],
   'flog': ['Flogging', 'A sail flapping hard and noisily, edge-on to the wind: luffing at its most violent. It makes no drive and wears the sail and its sheets.', 'm4'],
   'separation': ['Flow separation', 'When the flow stops following a surface and breaks away into turbulent eddies.', 'm4'],
   'circulation': ['Circulation', 'The net "swirl" of flow around a lifting foil: faster over the leeward side, slower on the windward side. Its strength sets the lift.', 'm4'],
@@ -5292,21 +5296,102 @@ class FoilSim {
     this.flow = new ArcFlow(aDraw, p.depth);
     this.lines = this.flow.streamlines([-2.4, -1.8, -1.25, -0.8, -0.45, -0.15, 0.15, 0.45, 0.8, 1.25, 1.8, 2.4]);
     const ca = Math.cos(p.alpha * D2R), sa = Math.sin(p.alpha * D2R);
-    this.sail = new ArcFlow(p.alpha, p.depth).arc().map(q => [q[0] * ca + q[1] * sa, -q[0] * sa + q[1] * ca]);
+    this.sail = new ArcFlow(p.alpha, p.depth).arc(120).map(q => [q[0] * ca + q[1] * sa, -q[0] * sa + q[1] * ca]);
     return this;
   }
-  calc() { const r = this.r; return Object.assign({ ld: r.cl / r.cd, ct: Math.hypot(r.cl, r.cd), fdir: Math.atan2(r.cl, r.cd) * R2D }, r); }
+  calc() { const r = this.r; return Object.assign({ ld: r.cl / r.cd, ct: Math.hypot(r.cl, r.cd), fdir: Math.atan2(r.cl, r.cd) * R2D }, r, this.phase()); }
+  // Sketched (not potential-flow) features, from where α sits relative to the groove:
+  // div: dividing point, chord fraction from the luff, + on the windward side, − on the leeward side;
+  // sep: chord fraction where the leeward flow separates (1 = attached), creeping from the leech to the luff;
+  // bubble: chord fraction of cloth backed in at the luff (1 = the whole sail flogs).
+  phase() {
+    const r = this.r, a = this.p.alpha, mid = (r.luff + r.stall) / 2, half = (r.stall - r.luff) / 2, u = (a - mid) / half;
+    const div = clamp(0.05 * u + Math.sign(u) * Math.max(0, Math.abs(u) - 1) * 0.06, -0.18, 0.18);
+    const sep = r.state === 'stalled' ? 0.85 - 0.75 * clamp((a - r.stall) / 10, 0, 1) : 1;
+    const bubble = r.state === 'flapping' ? 1 : r.state === 'luffing' ? 0.12 + 0.3 * clamp((r.luff - a) / 6, 0, 1) : 0;
+    return { div, sep, bubble, deep: sep <= 0.2 };
+  }
+  nrm(i) {                        // unit normal to leeward (display y up) at sail point i
+    const lp = this.sail, n = lp.length - 1, a = lp[Math.max(0, i - 1)], b = lp[Math.min(n, i + 1)], l = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    return [-(b[1] - a[1]) / l, (b[0] - a[0]) / l];
+  }
+  // The sail as drawn: cloth near the luff backs in (bubbles to windward) when luffing; the whole sail flogs when flapping
+  cloth() {
+    const lp = this.sail, n = lp.length - 1, b = this.phase().bubble, t = this.t;
+    return lp.map((q, i) => {
+      if (!b) return q;
+      const u = i / n, N = this.nrm(i);
+      const d = b >= 1 ? 0.24 * (1 - 0.6 * u) * Math.sin(u * 16 - t * 14)
+        : u < b ? -0.16 * Math.sin(Math.PI * u / b) * (0.85 + 0.15 * Math.sin(t * 13)) : 0.03 * Math.sin(u * 20 - t * 12) * Math.max(0, 1 - (u - b) * 3);
+      return [q[0] + N[0] * d, q[1] + N[1] * d];
+    });
+  }
+  // Close-up of the luff: where the air divides, how it gets round the luff on each side, and the pressure either side
+  drawLuff(ctx, w, h) {
+    const r = this.r, ph = this.phase(), lp = this.cloth(), n = lp.length - 1, L = lp[0];
+    const Z = Math.min(w * 0.4, h * 0.95), ox = w * 0.38, oy = h * 0.46, T = q => [ox + (q[0] - L[0]) * Z, oy - (q[1] - L[1]) * Z];
+    const fi = f => clamp(Math.round(f * n), 0, n), off = (f, side, d) => { const i = fi(f), N = this.nrm(i); return [lp[i][0] + N[0] * d * side, lp[i][1] + N[1] * d * side]; };
+    const sd = ph.div > 0 ? -1 : 1, fd = Math.abs(ph.div), dd = 0.05, fEnd = 0.45;
+    // flow along one side: straight back from the dividing point, or forward round the luff first and then back
+    const path = side => {
+      const out = [], sepNow = side < 0 ? ph.bubble > 0 : ph.deep;
+      if (side === sd) { for (let f = fd; f <= fEnd; f += 0.005) out.push(off(f, side, dd)); return { out, sep: false }; }
+      for (let f = fd; f > 0; f -= 0.005) out.push(off(f, sd, dd));
+      const N0 = this.nrm(0), tg = [-N0[1], N0[0]];                 // round the luff: half circle ahead of it
+      for (let k = 0; k <= 12; k++) { const a = Math.PI * k / 12, c = Math.cos(a) * sd, sn = Math.sin(a); out.push([L[0] + (N0[0] * c + tg[0] * sn) * dd, L[1] + (N0[1] * c + tg[1] * sn) * dd]); }
+      for (let f = 0; f <= (sepNow ? 0.3 : fEnd); f += 0.005) out.push(off(f, side, dd + (sepNow ? 1.2 * Math.max(0, f - 0.02) : 0)));
+      return { out, sep: sepNow };
+    };
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip();
+    // background streamlines, faint
+    this.lines.forEach(l => Draw.line(ctx, l.map(T), withAlpha(C.env, 0.18), 1.2));
+    // separated region: eddies between the cloth and the flow that has left it
+    [-1, 1].forEach(side => {
+      const p = path(side); if (!p.sep) return;
+      for (let i = 0; i < 4; i++) {
+        const u = ((i / 4) + this.t * 0.35) % 1, f = 0.06 + 0.22 * u, P = T(off(f, side, dd + 0.55 * (f - 0.02)));
+        ctx.strokeStyle = withAlpha(C.bad, 0.6); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(P[0], P[1], Z * (0.025 + 0.06 * u), side * this.t * 4 + i, side * this.t * 4 + i + 4.6); ctx.stroke();
+      }
+    });
+    // the sail
+    Draw.line(ctx, lp.slice(0, fi(0.6) + 1).map(T), C.sailLine, 6);
+    // the two near-surface flows, dashes moving with the air
+    [-1, 1].forEach(side => {
+      const p = path(side), pts = p.out.map(T);
+      ctx.strokeStyle = C.env; ctx.lineWidth = 2.2; ctx.setLineDash([7, 5]); ctx.lineDashOffset = -this.t * 40;
+      ctx.beginPath(); pts.forEach((q, i) => i ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.stroke(); ctx.setLineDash([]);
+    });
+    // the dividing streamline and point
+    const D = T(off(fd, sd, 0.015));
+    ctx.strokeStyle = C.hi; ctx.lineWidth = 2.2; ctx.setLineDash([7, 5]); ctx.lineDashOffset = -this.t * 40;
+    ctx.beginPath(); ctx.moveTo(0, D[1]); ctx.lineTo(D[0], D[1]); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = C.hi; ctx.beginPath(); ctx.arc(D[0], D[1], 6, 0, TAU); ctx.fill();
+    Draw.text(ctx, 'the air divides here', 8, D[1] + (sd > 0 ? -10 : 18), { size: 11, color: C.hi });
+    // pressure either side, 12% back from the luff
+    const rev = ph.bubble > 0 ? -1 : 1;
+    [[1, rev > 0 ? '−' : '+', rev > 0 ? 'low' : 'high'], [-1, rev > 0 ? '+' : '−', rev > 0 ? 'high' : 'low']].forEach(([side, sg, word]) => {
+      const P = T(off(0.12, side, 0.2));
+      Draw.text(ctx, sg, P[0], P[1] + 7, { size: 22, align: 'center', color: C.struct });
+      Draw.text(ctx, word, P[0] + 16, P[1] + 5, { size: 10, color: C.struct });
+    });
+    ctx.restore();
+    const title = { attached: 'in the groove', luffing: 'luffing: pressure reversed, cloth backs in', flapping: 'flapping: no pressure difference left', stalled: ph.deep ? 'deep stall: flow leaves the luff' : 'stalling: luff still attached' }[r.state];
+    Draw.text(ctx, 'Close-up of the luff · ' + title, 10, 16, { size: 11, color: r.state === 'attached' ? C.ok : C.bad });
+    Draw.text(ctx, 'leeward ↑ · windward ↓', w - 10, h - 10, { size: 10, align: 'right', color: C.ink3 });
+  }
   draw(ctx, w, h) {
-    const r = this.r, s = Math.min(w / 10.5, h / 6), cx = w * 0.47, cy = h * 0.54;
+    const r = this.r, ph = this.phase(), s = Math.min(w / 10.5, h / 6), cx = w * 0.47, cy = h * 0.54;
     const S = q => [cx + q[0] * s, cy - q[1] * s];
     // streamlines
     ctx.save(); ctx.beginPath(); ctx.rect(0, 0, w, h); ctx.clip();
     this.lines.forEach(l => Draw.line(ctx, l.map(S), withAlpha(C.env, 0.55), 1.4));
     ctx.restore();
-    // wake of a stalled sail on the leeward (upper) side
-    const lp = this.sail, le = S(lp[0]), te = S(lp[lp.length - 1]);
+    const lp = this.sail, n = lp.length - 1, le = S(lp[0]), te = S(lp[n]);
+    const at = f => S(lp[clamp(Math.round(f * n), 0, n)]);
+    const nrm = i => { const a = S(lp[Math.max(0, i - 1)]), b = S(lp[Math.min(n, i + 1)]), l = Math.hypot(b[0] - a[0], b[1] - a[1]); return [(b[1] - a[1]) / l, -(b[0] - a[0]) / l]; };   // to leeward (up)
+    // wake of a stalled sail on the leeward (upper) side, starting where the flow separates
     if (r.state === 'stalled') {
-      const k = clamp((this.p.alpha - r.stall) / 15, 0.2, 1), sep = S(lp[Math.round(lp.length * (0.55 - 0.4 * k))]);
+      const k = clamp(1 - ph.sep, 0.15, 1), sep = at(ph.sep);
       ctx.save(); ctx.fillStyle = withAlpha(C.surface, 0.85);
       ctx.beginPath(); ctx.moveTo(sep[0], sep[1]); ctx.quadraticCurveTo(sep[0] + s * 1.5, sep[1] - s * (0.6 + k), w, sep[1] - s * (0.3 + k)); ctx.lineTo(w, te[1] + s * 0.2); ctx.lineTo(te[0], te[1]); ctx.closePath(); ctx.fill(); ctx.restore();
       for (let i = 0; i < 6; i++) {
@@ -5314,15 +5399,18 @@ class FoilSim {
         ctx.save(); ctx.strokeStyle = withAlpha(C.bad, 0.55); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y, s * 0.14 * (0.7 + u), this.t * 4 + i, this.t * 4 + i + 4.5); ctx.stroke(); ctx.restore();
       }
     }
-    // the sail (wavy near the luff when luffing)
-    const pts = lp.map((q, i) => {
-      const P = S(q); if (r.state === 'attached' || r.state === 'stalled') return P;
-      const u = i / (lp.length - 1), amp = (r.state === 'flapping' ? 0.22 : 0.1) * s * Math.max(0, 1 - u * 1.6);
-      return [P[0], P[1] + amp * Math.sin(u * 18 - this.t * 14)];
-    });
-    Draw.line(ctx, pts, C.sailLine, 4);
+    // luffing: air wraps round the luff onto the windward side and breaks away there
+    if (ph.bubble > 0) {
+      for (let i = 0; i < 4; i++) {
+        const u = ((i / 4) + this.t * 0.4) % 1, f = 0.04 + u * Math.min(0.5, ph.bubble + 0.12), P = at(f), N = nrm(Math.round(f * n)), d = s * (0.18 + 0.25 * u);
+        ctx.save(); ctx.strokeStyle = withAlpha(C.bad, 0.5); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(P[0] - N[0] * d, P[1] - N[1] * d, s * 0.1 * (0.7 + u), -this.t * 4 + i, -this.t * 4 + i + 4.5); ctx.stroke(); ctx.restore();
+      }
+    }
+    Draw.line(ctx, this.cloth().map(S), C.sailLine, 4);
+    // ring round the luff: the close-up below magnifies it
+    ctx.save(); ctx.strokeStyle = withAlpha(C.hi, 0.8); ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]); ctx.beginPath(); ctx.arc(le[0], le[1], s * 0.55, 0, TAU); ctx.stroke(); ctx.restore();
     // telltales at 15% chord, both sides
-    const ti = Math.round(lp.length * 0.15), tp = S(lp[ti]), tn = S(lp[ti + 1]);
+    const ti = Math.round(n * 0.15), tp = S(lp[ti]), tn = S(lp[ti + 1]);
     const tx = (tn[0] - tp[0]), ty = (tn[1] - tp[1]), tl = Math.hypot(tx, ty), ux = tx / tl, uy = ty / tl, nx = uy, ny = -ux;   // n points to leeward (up)
     const tell = (side, mode) => {
       const bx = tp[0] + nx * 5 * side, by = tp[1] + ny * 5 * side, L = s * 0.55, out = [[bx, by]];
@@ -5334,8 +5422,16 @@ class FoilSim {
       }
       Draw.line(ctx, out, side > 0 ? C.bad : C.ok, 2.5);
     };
-    tell(1, r.state === 'stalled' ? 'spin' : 'stream');
+    tell(1, ph.deep ? 'spin' : 'stream');
     tell(-1, r.state === 'attached' || r.state === 'stalled' ? 'stream' : 'spin');
+    // leech telltale: streams off the back edge until the leeward flow separates, then curls behind the sail
+    { const a = S(lp[n - 1]), lx = (te[0] - a[0]), ly = (te[1] - a[1]), ll = Math.hypot(lx, ly), vx = lx / ll, vy = ly / ll, L = s * 0.5, out = [te];
+      for (let i = 1; i <= 8; i++) {
+        const u = i / 8;
+        if (ph.sep >= 1) out.push([te[0] + vx * L * u, te[1] + vy * L * u + Math.sin(this.t * 20 + u * 6) * 1.2 * u]);
+        else { const q = this.t * 7 + u * 4; out.push([te[0] + (vx * 0.2 + Math.cos(q) * 0.4) * L * u + vy * L * 0.5 * u, te[1] + (vy * 0.2 + Math.sin(q) * 0.4) * L * u - vx * L * 0.5 * u]); }
+      }
+      Draw.line(ctx, out, C.bad, 2.5); }
     // forces at about 40% chord: lift ⊥ wind (up), drag ∥ wind (right)
     const ce = S(lp[Math.round(lp.length * 0.4)]), k = h * 0.17;
     Draw.arrow(ctx, ce[0], ce[1], ce[0], ce[1] - r.cl * k, C.struct, { w: 3.5, label: `lift ${fmt(r.cl, 2)}`, lx: -8, ly: 0, align: 'right', size: 11 });
@@ -5345,7 +5441,7 @@ class FoilSim {
     Draw.text(ctx, `α = ${fmt(this.p.alpha, 0)}° · ${r.state}`, w - 10, 16, { size: 12, align: 'right', color: r.state === 'attached' ? C.ok : C.bad });
     Draw.text(ctx, 'luff', le[0] - 6, le[1] + 14, { size: 10, align: 'right', color: C.ink3 });
     Draw.text(ctx, 'leech', te[0] + 6, te[1] + 12, { size: 10, color: C.ink3 });
-    Draw.text(ctx, 'leeward telltale (red) · windward (green)', 10, h - 12, { size: 10, color: C.ink2 });
+    Draw.text(ctx, 'telltales: leeward and leech (red) · windward (green)', 10, h - 12, { size: 10, color: C.ink2 });
   }
   drawChart(ctx, w, h) {
     const m = { l: 40, r: 12, t: 20, b: 28 }, d = this.p.depth;
@@ -5364,15 +5460,41 @@ class FoilSim {
 INIT.push(() => {
   const b = bench('exp-foil'), sim = new FoilSim();
   const stage = new Stage(b.canvas, (ctx, w, h) => sim.draw(ctx, w, h));
+  const luff = new Stage($('.luffc', b.root), (ctx, w, h) => sim.drawLuff(ctx, w, h));
   const chart = new Stage($('.clc', b.root), (ctx, w, h) => sim.drawChart(ctx, w, h));
-  new Loop({ update: dt => { sim.t += dt; }, render: () => stage.redraw() }).observe(b.canvas);
-  const msg = { attached: '<span class="chip ok">In the groove</span> both telltales stream: flow follows both sides of the sail.', luffing: '<span class="chip warn">Luffing</span> the windward telltale lifts and the luff starts to bubble: sheet in or bear away.', flapping: '<span class="chip bad">Flapping</span> the sail is barely making lift: it is head to wind or sheeted far too loose.', stalled: '<span class="chip bad">Stalled</span> the leeward telltale spins: flow has separated from the back of the sail. Ease the sheet or head up.' };
+  // Sweep: sheet in slowly from flapping through the groove into a deep stall, then ease back to the groove
+  const sweep = { on: false, t: 0 }, SW_UP = 17, SW_HOLD = 1.5, SW_BACK = 4, A0 = 0, A1 = 36, AEND = 12;
+  const sweepAlpha = t => t < SW_UP ? A0 + (A1 - A0) * t / SW_UP : t < SW_UP + SW_HOLD ? A1 : lerp(A1, AEND, easeInOut(clamp((t - SW_UP - SW_HOLD) / SW_BACK, 0, 1)));
+  let btn;
+  const stopSweep = () => { sweep.on = false; if (btn) btn.textContent = 'Sweep the angle'; };
+  const loop = new Loop({
+    update: dt => {
+      sim.t += dt;
+      if (!sweep.on) return;
+      sweep.t += dt;
+      const a = Math.round(sweepAlpha(sweep.t));
+      if (a !== sim.p.alpha) { sim.p.alpha = a; sa.set(a); upd(); }
+      if (sweep.t > SW_UP + SW_HOLD + SW_BACK) stopSweep();
+    },
+    render: () => { stage.redraw(); luff.redraw(); },
+  }).observe(b.canvas);
+  const msg = {
+    attached: '<span class="chip ok">In the groove</span> the air divides right at the luff and follows both sides, so both telltales stream.',
+    luffing: '<span class="chip warn">Luffing</span> the air now divides on the leeward side. The air bound for the windward side wraps round the luff and breaks away, so the windward telltale lifts; the pressure across the luff has reversed and the cloth backs in. Sheet in or bear away.',
+    flapping: '<span class="chip bad">Flapping</span> the sail is edge-on to the wind: no pressure difference holds the cloth, and it flogs. It is head to wind or sheeted far too loose.',
+    stalled: '<span class="chip bad">Stalling</span> the air divides on the windward side. The flow still follows the luff but has left the back of the sail, and the leech telltale curls. Ease the sheet or head up.',
+    deep: '<span class="chip bad">Deep stall</span> the separation has crept forward to the luff: the leeward telltale spins. Ease the sheet or head up.',
+  };
   const describe = () => {
     const r = sim.calc();
-    b.live(`<div class="readout">${[['Lift coeff. CL', fmt(r.cl, 2)], ['Drag coeff. CD', fmt(r.cd, 2)], ['Lift ÷ drag', fmt(r.ld, 1)], ['Force from wind', fmt(r.fdir, 0) + '°']].map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join('')}</div><p>${msg[r.state]} The total force points ${fmt(r.fdir, 0)}° away from the wind direction; the closer to 90°, the more useful it is upwind.</p>`);
+    b.live(`<div class="readout">${[['Lift coeff. CL', fmt(r.cl, 2)], ['Drag coeff. CD', fmt(r.cd, 2)], ['Lift ÷ drag', fmt(r.ld, 1)], ['Force from wind', fmt(r.fdir, 0) + '°']].map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join('')}</div><p>${msg[r.deep ? 'deep' : r.state]} The total force points ${fmt(r.fdir, 0)}° away from the wind direction; the closer to 90°, the more useful it is upwind.</p>`);
   };
-  const upd = () => { sim.build(); stage.redraw(); chart.redraw(); describe(); };
-  slider(b.controls, { id: 'fo-a', label: 'Angle of attack (sheet in →)', min: 0, max: 60, step: 1, value: 12, fmt: v => v + '°', onInput: v => { sim.p.alpha = v; upd(); } });
+  const upd = () => { sim.build(); stage.redraw(); luff.redraw(); chart.redraw(); describe(); };
+  buttons(b.controls, [{ label: 'Sweep the angle', primary: true, ref: x => { btn = x; }, onClick: () => {
+    if (sweep.on) { stopSweep(); return; }
+    sweep.on = true; sweep.t = 0; btn.textContent = 'Stop the sweep'; loop.play();
+  } }]);
+  const sa = slider(b.controls, { id: 'fo-a', label: 'Angle of attack (sheet in →)', min: 0, max: 60, step: 1, value: 12, fmt: v => v + '°', onInput: v => { stopSweep(); sim.p.alpha = v; upd(); } });
   slider(b.controls, { id: 'fo-d', label: 'Depth (camber)', min: 4, max: 18, step: 1, value: 10, fmt: v => v + '% of chord', onInput: v => { sim.p.depth = v / 100; upd(); } });
   describe();
 
